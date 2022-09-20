@@ -11,7 +11,7 @@
 <div id="Contents" class="toc"><h1 id="Contents" class="justcenter">Contents</a></h1></div>
 <ul>
 <li>
-<a href="Notes.html#8Network Concepts">8Network Concepts</a>
+<a href="Notes.html#Network Concepts">8Network Concepts</a>
 
 <li>
 <a href="Notes.html#OSI Model to Describe Network Operations">OSI Model to Describe Network Operations</a>
@@ -83,10 +83,10 @@ Email:
 
 <ul>
 <li>
-POP3: Retive email from the server
+POP3: Retrieve email from the server
 
 <li>
-IMAP: Retive email from the server
+IMAP: Retrieve email from the server
 
 <li>
 SMTP: Send email from the server
@@ -106,7 +106,7 @@ Network Service Protocols
 
 <ul>
 <li>
-Dynamic Host Configuration Protocol DHCP, giving workstation an IP addresswhen plugged into the network.
+Dynamic Host Configuration Protocol DHCP, giving workstation an IP address when plugged into the network.
 
 <li>
 DHCP sends out 'offer message', containing:
@@ -125,7 +125,7 @@ Default Gateway
 DNS Server
 
 <li>
-Other Infomation
+Other Information
 
 </ul>
 <li>
@@ -153,19 +153,49 @@ Simple Network Management Protocol SNMP: allows devices to send simple messages 
 
 <ul>
 <li>
-When SNMP server says 'walk the tree' it messages all devices on network with numbers called MIBs, management infomation base, to add to a table all the events happening on devices. 
+When SNMP server says 'walk the tree' it messages all devices on network with numbers called MIBs, management information base, to add to a table all the events happening on devices. 
 
 <li>
 SNMP Trap: when something happens on device, it sends message to SNMP server saying an event happened.
 
 </ul>
+<li>
+Syslog: mechanism to send logs on devices to a syslog server, so the event is recorded, like plugging something into a switch to make it active.
+
+<li>
+RDP: Remote Desktop Protocol, access GUI interface of headless computers. 
+
 </ul>
 <li>
-Visual Protocols
+Audio and Visual Protocols
 
+<ul>
+<li>
+H.323: video and voice  
+
+<li>
+SIP: VOIP phones, transfers voice to a VOIP gateway
+
+</ul>
 <li>
 Database Protocols 
 
+<ul>
+<li>
+SQL Databases: 
+
+<ul>
+<li>
+Servers
+
+<li>
+Language on the server
+
+<li>
+Protocol used to communicate across the network to access the database
+
+</ul>
+</ul>
 </ol>
 </ul>
       
@@ -250,6 +280,18 @@ SSH: 22
 
 <li>
 SNMP: 161/162
+
+<li>
+Syslog: 514
+
+<li>
+RDP: 3389 
+
+<li>
+H.323: 1720
+
+<li>
+SIP: 5060/5061
 
 </ul>
 </ul>
