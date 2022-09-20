@@ -8,6 +8,42 @@
 </head>
 <body>
 
+<div id="Contents" class="toc"><h1 id="Contents">Contents</a></h1></div>
+<ul>
+<li>
+<a href="Notes.html#8Network Concepts">8Network Concepts</a>
+
+<li>
+<a href="Notes.html#OSI Model to Describe Network Operations">OSI Model to Describe Network Operations</a>
+
+<ul>
+<li>
+<a href="Notes.html#OSI Model to Describe Network Operations-Layer 7: Application Layer">Layer 7: Application Layer</a>
+
+<li>
+<a href="Notes.html#OSI Model to Describe Network Operations-Layer 6: Presentation Layer">Layer 6: Presentation Layer</a>
+
+<li>
+<a href="Notes.html#OSI Model to Describe Network Operations-Layer 5: Session Layer">Layer 5: Session Layer</a>
+
+<li>
+<a href="Notes.html#OSI Model to Describe Network Operations-Layer 4: Transport Layer">Layer 4: Transport Layer</a>
+
+<li>
+<a href="Notes.html#OSI Model to Describe Network Operations-Layer 3: Network Layer">Layer 3: Network Layer</a>
+
+<li>
+<a href="Notes.html#OSI Model to Describe Network Operations-Layer 2: Data Link Layer">Layer 2: Data Link Layer</a>
+
+<li>
+<a href="Notes.html#OSI Model to Describe Network Operations-Layer 1: Physical Layer">Layer 1: Physical Layer</a>
+
+</ul>
+<li>
+<a href="Notes.html#Encapsulation and the OSI Model">Encapsulation and the OSI Model</a>
+
+</ul>
+
 <div id="Network Concepts"><h2 id="Network Concepts" class="header"><a href="#Network Concepts">Network Concepts</a></h2></div>
 
 <div id="OSI Model to Describe Network Operations"><h2 id="OSI Model to Describe Network Operations" class="header"><a href="#OSI Model to Describe Network Operations">OSI Model to Describe Network Operations</a></h2></div>
@@ -59,12 +95,70 @@ SMTP: Send email from the server
 <li>
 Authentication Protocols
 
+<ul>
+<li>
+LDAP &amp; LDAPs
+
+</ul>
 <li>
 Network Service Protocols
 
+<ul>
+<li>
+Dynamic Host Configuration Protocol DHCP, giving workstation an IP addresswhen plugged into the network.
+
+<li>
+DHCP sends out 'offer message', containing:
+
+<ul>
+<li>
+IP Address
+
+<li>
+Subnet Mask
+
+<li>
+Default Gateway
+
+<li>
+DNS Server
+
+<li>
+Other Infomation
+
+</ul>
+<li>
+DHCP is accessed via command prompt 'ipconfig', delete records via 'ipconfig /release' or add IP via 'ipconfig /renew'
+
+<li>
+DNS/Nameserver: translate IP address to human readable. :54
+
+<li>
+DNS lookup on windows in CMD is nslookup
+
+<li>
+NTP: UTC time
+
+</ul>
 <li>
 Network Management Protocols
 
+<ul>
+<li>
+ Telnet &amp; SSH
+
+<li>
+Simple Network Management Protocol SNMP: allows devices to send simple messages back to server.
+
+<ul>
+<li>
+When SNMP server says 'walk the tree' it messages all devices on network with numbers called MIBs, management infomation base, to add to a table all the events happening on devices. 
+
+<li>
+SNMP Trap: when something happens on device, it sends message to SNMP server saying an event happened.
+
+</ul>
+</ul>
 <li>
 Visual Protocols
 
@@ -129,9 +223,36 @@ FTP: 20/21, sFTP: 22, TrivialFTP: 69, SMB: 445
 <li>
 POP3: 110/995, IMAP: 143/993, SMTP 25/465
 
-</ul>
-</ul>
+<li>
+LDAP: 389
 
+<li>
+LDAPs: 636
+
+<li>
+DHCP: 67/68 
+
+<li>
+DNS: 53 
+
+<li>
+DNS over HTTPS, DoH: 443 
+
+<li>
+NTP: 389
+
+<li>
+Telnet: 23
+
+<li>
+SSH: 22
+
+<li>
+SNMP: 161/162
+
+</ul>
+</ul>
+      
 <div id="OSI Model to Describe Network Operations-Layer 3: Network Layer"><h3 id="Layer 3: Network Layer" class="header"><a href="#OSI Model to Describe Network Operations-Layer 3: Network Layer">Layer 3: Network Layer</a></h3></div>
 <ul>
 <li>
@@ -143,6 +264,9 @@ Protocols
 <ul>
 <li>
 Transmission Control Protocol TCP
+
+<li>
+Internet Protocol IP
 
 </ul>
 </ul>
