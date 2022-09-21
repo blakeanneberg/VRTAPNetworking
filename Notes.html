@@ -106,7 +106,7 @@ Network Service Protocols
 
 <ul>
 <li>
-Dynamic Host Configuration Protocol DHCP, giving workstation an IP address when plugged into the network.
+Dynamic Host Configuration Protocol <a href="DHCP.html">DHCP</a>, giving workstation an IP address when plugged into the network.
 
 <li>
 DHCP sends out 'offer message', containing:
@@ -304,10 +304,20 @@ no reliable communication
 no sequence numbers and no ack numbers
 
 <li>
-Used for efficient data, but no way to make sure data is good.
+Used for efficient data, but no way to make sure data is good. 
 
+</ul>
+</ul>
 <li>
+Protocol Dependencies
 
+<ul>
+<li>
+Protocols (ex HTTP, FTP, IMAP) have ports dedicated/assigned to, use a specific Transport Layer Protocol
+
+<ul>
+<li>
+Most use TCP but LDAP uses TCP/UDP and TFTP uses UDP.
 
 </ul>
 </ul>
@@ -320,14 +330,47 @@ Port Numbers
 
 <ul>
 <li>
-Total port numbers: 
+Total port numbers: 0 - 65,535 
+
+<li>
+Server port numbers / Well Known / Registered Port Numbers
+
+<ul>
+<li>
+Well Known 0 - 1023
+
+<ul>
+<li>
+See list below of "Well Known Port Numbers"
+
+</ul>
+<li>
+Registered 1024 - 49151
+
+<ul>
+<li>
+These port numbers are for custom applications, both offical and unofficial
 
 </ul>
 </ul>
+<li>
+Client Port Numbers / Ephemeral Port Numbers
+
+<ul>
+<li>
+49152 - 65525 
+
+<li>
+These port numbers are created by the PC to identify the session that they are creating.   
+
+</ul>
+</ul>
+</ul>
+    
       
 <ul>
 <li>
-Common Port Numbers
+Well Known / Common Port Numbers
 
 <ul>
 <li>
@@ -346,10 +389,10 @@ LDAP: 389
 LDAPs: 636
 
 <li>
-DHCP: 67/68 
+DHCP: 67/68 UDP  
 
 <li>
-DNS: 53 
+DNS: 53 TCP/UDP
 
 <li>
 DNS over HTTPS, DoH: 443 
@@ -358,10 +401,10 @@ DNS over HTTPS, DoH: 443
 NTP: 389
 
 <li>
-Telnet: 23
+Telnet: 23 TCP
 
 <li>
-SSH: 22
+SSH: 22 TCP 
 
 <li>
 SNMP: 161/162
@@ -370,13 +413,13 @@ SNMP: 161/162
 Syslog: 514
 
 <li>
-RDP: 3389 
+RDP: 3389 3389
 
 <li>
-H.323: 1720
+H.323: 1719 TCP/UDP
 
 <li>
-SIP: 5060/5061
+SIP: 5060/5061 TCP/UDP
 
 <li>
 mySQL: 3306
@@ -388,11 +431,26 @@ SWLnet: 1521
 SQL Server: 1433
 
 <li>
+HTTP: 80
 
+<li>
+HTTPs: 443
+
+<li>
+FTP: 20, 21
+
+<li>
+SSH: 22
+
+<li>
+Telnet: 23      
+
+<li>
+NTP: 123 UDP
 
 </ul>
 </ul>
-      
+
 <div id="Network Concepts-OSI Model to Describe Network Operations-Layer 3: Network Layer"><h3 id="Layer 3: Network Layer" class="header"><a href="#Network Concepts-OSI Model to Describe Network Operations-Layer 3: Network Layer">Layer 3: Network Layer</a></h3></div>
 <ul>
 <li>
