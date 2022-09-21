@@ -248,10 +248,73 @@ Port 443 is used by SSL and TLS, which is the same thing.
 FTP port 20/21, sFTP port 22, and TrivialFTP port 69, SMB port 445 
 
 <li>
- 
+Responsible for building a session and maintaining two end points like client and server.  
+
+<ul>
+<li>
+Initiatias conversations
+
+<li>
+TCP 3 Way Handshake:
+
+<ol>
+<li>
+SYN
+
+<li>
+SYN-ACK
+
+<li>
+ACK
+
+<li>
+Client ask for server to start sending website data
+
+<li>
+Server starts sending data back to Client
+
+<li>
+Fin (when all data is done sending)
+
+<li>
+FIN-ACK
+
+<li>
+FIN
+
+<li>
+FIN-ACK
+
+<li>
+Somewtimes TCP Reset is sent and a RST commend will stop the conversation, either client, server or a firewall can send a RST
+
+</ol>
+</ul>
+<li>
+User Datagram Protocol UDP
+
+<ul>
+<li>
+No 3 way handshake
+
+<li>
+no reliable communication
+
+<li>
+no sequence numbers and no ack numbers
+
+<li>
+Used for efficient data, but no way to make sure data is good.
+
+<li>
+
 
 </ul>
 </ul>
+</ul>
+</ul>
+
+<ul>
 <li>
 Port Numbers
 
