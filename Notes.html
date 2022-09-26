@@ -11,28 +11,9 @@
 <div id="Contents" class="toc"><h1 id="Contents" class="justcenter">Contents</a></h1></div>
 <ul>
 <li>
-<a href="Notes.html#Network Concepts">Network Concepts</a>
+<a href="Notes.html#Network Concepts">Network Concepts</a> - <a href="Notes.html#Network Concepts-OSI Model to Describe Network Operations">OSI Model to Describe Network Operations</a> - <a href="Notes.html#Network Concepts-OSI Model to Describe Network Operations-Layer 7: Application Layer">Layer 7: Application Layer</a> - <a href="Notes.html#Network Concepts-OSI Model to Describe Network Operations-Layer 6: Presentation Layer">Layer 6: Presentation Layer</a> - <a href="Notes.html#Network Concepts-OSI Model to Describe Network Operations-Layer 5: Session Layer">Layer 5: Session Layer</a> - <a href="Notes.html#Network Concepts-OSI Model to Describe Network Operations-Layer 4: Transport Layer">Layer 4: Transport Layer</a> - <a href="Notes.html#Network Concepts-OSI Model to Describe Network Operations-Layer 3: Network Layer">Layer 3: Network Layer</a>
 
 <ul>
-<li>
-<a href="Notes.html#Network Concepts-OSI Model to Describe Network Operations">OSI Model to Describe Network Operations</a>
-
-<ul>
-<li>
-<a href="Notes.html#Network Concepts-OSI Model to Describe Network Operations-Layer 7: Application Layer">Layer 7: Application Layer</a>
-
-<li>
-<a href="Notes.html#Network Concepts-OSI Model to Describe Network Operations-Layer 6: Presentation Layer">Layer 6: Presentation Layer</a>
-
-<li>
-<a href="Notes.html#Network Concepts-OSI Model to Describe Network Operations-Layer 5: Session Layer">Layer 5: Session Layer</a>
-
-<li>
-<a href="Notes.html#Network Concepts-OSI Model to Describe Network Operations-Layer 4: Transport Layer">Layer 4: Transport Layer</a>
-
-<li>
-<a href="Notes.html#Network Concepts-OSI Model to Describe Network Operations-Layer 3: Network Layer">Layer 3: Network Layer</a>
-
 <li>
 <a href="Notes.html#Network Concepts-OSI Model to Describe Network Operations-Layer 2: Data Link Layer">Layer 2: Data Link Layer</a>
 
@@ -46,7 +27,6 @@
 <li>
 <a href="Notes.html#Network Concepts-Binary">Binary</a>
 
-</ul>
 </ul>
 
 <div id="Network Concepts"><h1 id="Network Concepts" class="header"><a href="#Network Concepts" class="justcenter">Network Concepts</a></h1></div>
@@ -1231,13 +1211,13 @@ Host Portion
 </tr>
 <tr>
 <td>
-203
+10
 </td>
 <td>
 0
 </td>
 <td>
-113
+0
 </td>
 <td>
 10
@@ -1251,18 +1231,104 @@ Host Portion
 00000000
 </td>
 <td>
-01110001
+000000000
+</td>
+<td>
+00000000
+</td>
+</tr>
+<tr>
+<td>
+11111111
+</td>
+<td>
+00000000
+</td>
+<td>
+00000000
+</td>
+<td>
+00000000
+</td>
+</tr>
+<tr>
+<td>
+255
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+</table>
+
+<li>
+Subnet Mask does not have to fall within the 8-bit boundary
+<table>
+<tr>
+<td>
+10
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+10
+</td>
+</tr>
+<tr>
+<td>
+00001010
+</td>
+<td>
+00000000
+</td>
+<td>
+00000000
 </td>
 <td>
 00001010
 </td>
 </tr>
+<tr>
+<td>
+11111111
+</td>
+<td>
+11111111
+</td>
+<td>
+11110000
+</td>
+<td>
+00000000
+</td>
+</tr>
+<tr>
+<td>
+255
+</td>
+<td>
+255
+</td>
+<td>
+240
+</td>
+<td>
+0
+</td>
+</tr>
 </table>
 
 </ul>
-<p>
-|
-</p>
 
 <div id="Network Concepts-IP Addressing-Address Types"><h3 id="Address Types" class="header"><a href="#Network Concepts-IP Addressing-Address Types">Address Types</a></h3></div>
 
