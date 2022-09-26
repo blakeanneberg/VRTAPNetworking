@@ -8,12 +8,31 @@
 </head>
 <body>
 
-<div id="Contents" class="toc"><h1 id="Contents" class="justcenter">Contents</a></h1></div>
+<div id="Contents" class="toc"><h1 id="Contents">Contents</a></h1></div>
 <ul>
 <li>
-<a href="Notes.html#Network Concepts">Network Concepts</a> - <a href="Notes.html#Network Concepts-OSI Model to Describe Network Operations">OSI Model to Describe Network Operations</a> - <a href="Notes.html#Network Concepts-OSI Model to Describe Network Operations-Layer 7: Application Layer">Layer 7: Application Layer</a> - <a href="Notes.html#Network Concepts-OSI Model to Describe Network Operations-Layer 6: Presentation Layer">Layer 6: Presentation Layer</a> - <a href="Notes.html#Network Concepts-OSI Model to Describe Network Operations-Layer 5: Session Layer">Layer 5: Session Layer</a> - <a href="Notes.html#Network Concepts-OSI Model to Describe Network Operations-Layer 4: Transport Layer">Layer 4: Transport Layer</a> - <a href="Notes.html#Network Concepts-OSI Model to Describe Network Operations-Layer 3: Network Layer">Layer 3: Network Layer</a>
+<a href="Notes.html#Network Concepts">Network Concepts</a>
 
 <ul>
+<li>
+<a href="Notes.html#Network Concepts-OSI Model to Describe Network Operations">OSI Model to Describe Network Operations</a>
+
+<ul>
+<li>
+<a href="Notes.html#Network Concepts-OSI Model to Describe Network Operations-Layer 7: Application Layer">Layer 7: Application Layer</a>
+
+<li>
+<a href="Notes.html#Network Concepts-OSI Model to Describe Network Operations-Layer 6: Presentation Layer">Layer 6: Presentation Layer</a>
+
+<li>
+<a href="Notes.html#Network Concepts-OSI Model to Describe Network Operations-Layer 5: Session Layer">Layer 5: Session Layer</a>
+
+<li>
+<a href="Notes.html#Network Concepts-OSI Model to Describe Network Operations-Layer 4: Transport Layer">Layer 4: Transport Layer</a>
+
+<li>
+<a href="Notes.html#Network Concepts-OSI Model to Describe Network Operations-Layer 3: Network Layer">Layer 3: Network Layer</a>
+
 <li>
 <a href="Notes.html#Network Concepts-OSI Model to Describe Network Operations-Layer 2: Data Link Layer">Layer 2: Data Link Layer</a>
 
@@ -27,9 +46,35 @@
 <li>
 <a href="Notes.html#Network Concepts-Binary">Binary</a>
 
+<li>
+<a href="Notes.html#Network Concepts-Counting">Counting</a>
+
+<li>
+<a href="Notes.html#Network Concepts-Converting Decimal to Binary">Converting Decimal to Binary</a>
+
+<li>
+<a href="Notes.html#Network Concepts-Hexadecimal">Hexadecimal</a>
+
+<li>
+<a href="Notes.html#Network Concepts-IP Addressing">IP Addressing</a>
+
+<ul>
+<li>
+<a href="Notes.html#Network Concepts-IP Addressing-IPv4">IPv4</a>
+
+<li>
+<a href="Notes.html#Network Concepts-IP Addressing-Classful vs Classless addressing">Classful vs Classless addressing</a>
+
+<li>
+<a href="Notes.html#Network Concepts-IP Addressing-Address Types">Address Types</a>
+
+</ul>
+</ul>
 </ul>
 
-<div id="Network Concepts"><h1 id="Network Concepts" class="header"><a href="#Network Concepts" class="justcenter">Network Concepts</a></h1></div>
+
+
+<div id="Network Concepts"><h1 id="Network Concepts" class="header"><a href="#Network Concepts">Network Concepts</a></h1></div>
 
 <div id="Network Concepts-OSI Model to Describe Network Operations"><h2 id="OSI Model to Describe Network Operations" class="header"><a href="#Network Concepts-OSI Model to Describe Network Operations">OSI Model to Describe Network Operations</a></h2></div>
 
@@ -1084,8 +1129,181 @@ IP addresses are really 32 bits long, just put it in decimal to read easier.
 <div id="Network Concepts-IP Addressing-Classful vs Classless addressing"><h3 id="Classful vs Classless addressing" class="header"><a href="#Network Concepts-IP Addressing-Classful vs Classless addressing">Classful vs Classless addressing</a></h3></div>
 <ul>
 <li>
-Classful Addressing (~1995 and prior)
+<em>We dont use Classfull  anymore!</em>
 
+<li>
+ Classful Addressing (~1995 and prior)
+<table>
+<tr>
+<th>
+Cast
+</th>
+<th>
+Class
+</th>
+<th>
+IP Range
+</th>
+<th>
+IP Range Continued
+</th>
+<th>
+Bits in subnet mask
+</th>
+</tr>
+<tr>
+<td>
+Unicast
+</td>
+<td>
+A
+</td>
+<td>
+0.0.0.0
+</td>
+<td>
+127.255.255.255
+</td>
+<td>
+8 bits in netowork portion, 24 bits in host portion
+</td>
+</tr>
+<tr>
+<td>
+Unicast
+</td>
+<td>
+B
+</td>
+<td>
+128.0.0.0
+</td>
+<td>
+191.255.255.255
+</td>
+<td>
+16 bits in network, 16 in host
+</td>
+</tr>
+<tr>
+<td>
+Unicast
+</td>
+<td>
+C
+</td>
+<td>
+192.0.0.0
+</td>
+<td>
+223.255.255.255
+</td>
+<td>
+24 bits in network, 8 in host
+</td>
+</tr>
+<tr>
+<td>
+Multicast
+</td>
+<td>
+D
+</td>
+<td>
+224.0.0.0
+</td>
+<td>
+239.255.255.255
+</td>
+<td>
+All bits in the network portion
+</td>
+</tr>
+<tr>
+<td>
+Experimental
+</td>
+<td>
+E
+</td>
+<td>
+240.0.0.0
+</td>
+<td>
+255.255.255.255
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+</table>
+
+<li>
+Classful Addressing  Portions
+<table>
+<tr>
+<th>
+Network Portion
+</th>
+<th>
+Network Portion
+</th>
+<th>
+Network Portion
+</th>
+<th>
+Host Portion
+</th>
+</tr>
+<tr>
+<td>
+.
+</td>
+<td>
+.
+</td>
+<td>
+.
+</td>
+<td>
+.
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+0
+</td>
+<td>
+10
+</td>
+<td>
+10
+</td>
+</tr>
+<tr>
+<td>
+00001010
+</td>
+<td>
+0000000
+</td>
+<td>
+00001010
+</td>
+<td>
+000001010
+</td>
+</tr>
+</table>
+
+</ul>
+
+
+
+<ul>
 <li>
 Classless Addressing (~1995 to present)
 
