@@ -69,9 +69,14 @@
 <a href="Notes.html#Network Concepts-IP Addressing-Address Types">Address Types</a>
 
 </ul>
-</ul>
-</ul>
+<li>
+<a href="Notes.html#Network Concepts-CIDR Classless Inter-Domain Routing">CIDR Classless Inter-Domain Routing</a>
 
+<li>
+<a href="Notes.html#Network Concepts-Private IP Addresses">Private IP Addresses</a>
+
+</ul>
+</ul>
 
 
 <div id="Network Concepts"><h1 id="Network Concepts" class="header"><a href="#Network Concepts">Network Concepts</a></h1></div>
@@ -1558,10 +1563,17 @@ The secret is making sure that we use subnet mask simply to identify which porti
 
 <ol>
 <li>
-Network Address:
-    A. Identifier for a group of devices
-    B. "Network Prefix"
-    C. Have all Zeros in the Host portion. 
+<em>Network Address</em>:
+
+<ul>
+<li>
+Identifier for a group of devices
+
+<li>
+"Network Prefix"
+
+<li>
+Have all Zeros in the Host portion. 
 <table>
 <tr>
 <th>
@@ -1649,14 +1661,23 @@ Host Portion
 </tr>
 </table>
 
+</ul>
 </ol>
 
 
 <ol>
 <li>
-Broadcast Address: 
-    A. Identifier for all devices on a network.
-    B. It allows a sender to send a message to every single device on the network. 
+<em>Broadcast Address</em>: 
+
+<ul>
+<li>
+Identifier for all devices on a network.
+
+<li>
+It allows a sender to send a message to every single device on the network. 
+
+<li>
+Have all 1's in host portion
 <table>
 <tr>
 <th>
@@ -1744,15 +1765,23 @@ Host Portion
 </tr>
 </table>
 
+</ul>
 </ol>
 
 
 <ol>
 <li>
-Host Address: 
-    A. Identifies unique device on a network. 
-    = B. Identifies a unique device on the network, combo of network portion of address and host portion of address, where the host portion isn't identifying a network address nor the broadcast. =  
-    C. Anything EXCEPT all binary 0's or 1's
+<em>Host Address</em>: 
+
+<ul>
+<li>
+Identifies unique device on a network. 
+
+<li>
+Identifies a unique device on the network, combo of network portion of address and host portion of address, where the host portion isn't identifying a network address nor the broadcast.  
+
+<li>
+Anything EXCEPT all binary 0's or 1's
 <table>
 <tr>
 <th>
@@ -1840,7 +1869,279 @@ Host Portion
 </tr>
 </table>
 
+</ul>
 </ol>
+
+<p>
+<em>Examples</em>
+</p>
+<ul>
+<li>
+203.0.113.55 and 255.255.255.0 is a HOST address
+
+<li>
+192.0.168.10 and 255.255.255.0
+
+</ul>
+
+<div id="Network Concepts-CIDR Classless Inter-Domain Routing"><h2 id="CIDR Classless Inter-Domain Routing" class="header"><a href="#Network Concepts-CIDR Classless Inter-Domain Routing">CIDR Classless Inter-Domain Routing</a></h2></div>
+<ul>
+<li>
+Length of the Network Prefix in bits
+<table>
+<tr>
+<td>
+IP Address
+</td>
+<td>
+203.0.113.
+</td>
+<td>
+10
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+Subnet Mask
+</td>
+<td>
+255.255.255.
+</td>
+<td>
+0
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+Network Prefix 24 bits
+</td>
+<td>
+11001011 00000000 01110001
+</td>
+<td>
+00001010
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+Network Prefix 24 bits
+</td>
+<td>
+11111111 11111111 11111111
+</td>
+<td>
+00000000
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+CIDER Notation
+</td>
+<td>
+203.0.113.
+</td>
+<td>
+10
+</td>
+<td>
+/24
+</td>
+</tr>
+</table>
+
+</ul>
+
+<div id="Network Concepts-Private IP Addresses"><h2 id="Private IP Addresses" class="header"><a href="#Network Concepts-Private IP Addresses">Private IP Addresses</a></h2></div>
+<ul>
+<li>
+Before 1994 there were no Private IP Addresses, just public IP addresses. Running out of IP addresses, changed to classless addressing (gave us subnet mask), then introduced private IP ranges. Not be routed publicly on the internet.  
+
+<li>
+RFC 1918:
+<table>
+<tr>
+<th>
+Class
+</th>
+<th>
+Private IP address range
+</th>
+<th>
+&nbsp;
+</th>
+<th>
+CIDER
+</th>
+<th>
+&nbsp;
+</th>
+<th>
+&nbsp;
+</th>
+</tr>
+<tr>
+<td>
+A
+</td>
+<td>
+10.0.0.0
+</td>
+<td>
+10.255.255.255
+</td>
+<td>
+/8
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+B
+</td>
+<td>
+172.16.0.0
+</td>
+<td>
+172.31.255.255
+</td>
+<td>
+/12
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+C
+</td>
+<td>
+192.168.0.0
+</td>
+<td>
+192.168.255.255
+</td>
+<td>
+/16
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+</table>
+
+<li>
+APIPA Automatic Private IP Addressing: EX 169.154.0.0/16 and is developed by Microsoft and red flag as someone doesn't know what they are doing and should not be used. Or something is wrong. 
+
+<li>
+Loopback IP: Ex. 127.0.0.1 and messages sent to this never leave your computer and just a way to make sure IP is working on a workstation. |
+
+<li>
+If network portion of mask is different you will need a router/default gateway to communicate between the two computers. 
+
+</ul>
+
+<div id="Network Concepts-Subnetting Basics"><h2 id="Subnetting Basics" class="header"><a href="#Network Concepts-Subnetting Basics">Subnetting Basics</a></h2></div>
+
+<p>
+Network: 10.0.0.0/8
+Range: 10.0.0.0 - 10.255.255.255
+Network: 00001010 | 00000000 00000000 00000000
+Broadcast: 00001010 | 11111111 11111111 11111111
+</p>
+<blockquote>
+11111111 00000000 00000000 00000000
+</blockquote>
+    
+<p>
+Lets find a host address on this network. 
+Host: 00001010 00000000 00001010 00000000
+</p>
+
+<p>
+Change it to a /24 network: 
+10.0.10.0/24
+Network: 00001010 00000000 00010010 | 00000000
+Broadcast: 00001010 | 00000000 00001010 | 11111111
+So this network now has 254 different hosts. Zero to 255 is 256 unique address but but remove network address which you cant apply to a device and one for the broadcast address which you cant apply to a device. 
+So now the network is 10.0.10.0 - 10.0.10.255
+</p>
+ 
+<div id="Network Concepts-Subnetting Basics-Variable Length Subnet Masking VLSM"><h3 id="Variable Length Subnet Masking VLSM" class="header"><a href="#Network Concepts-Subnetting Basics-Variable Length Subnet Masking VLSM" class="justcenter">Variable Length Subnet Masking VLSM</a></h3></div>
+<p>
+ Its a way to break up /24 mask to be other kinds of masks:
+<table>
+<tr>
+<th>
+10.0.0.0/8
+</th>
+</tr>
+<tr>
+<td>
+10.0.10.0/24
+</td>
+</tr>
+<tr>
+<td>
+10.0.16.0/22
+</td>
+</tr>
+<tr>
+<td>
+10.1.0.0/16
+</td>
+</tr>
+<tr>
+<td>
+10.2.0.0/30
+</td>
+</tr>
+</table>
+Cant just randomly pick IP addresses and masks and apply it to networks. Do have to make sure there is no overlap between subnets.
+</p>
 
 </body>
 </html>
