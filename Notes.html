@@ -278,7 +278,7 @@ Responsible for building a session and maintaining two end points like client an
 
 <ul>
 <li>
-Initiatias conversations
+Initiates conversations
 
 <li>
 TCP 3 Way Handshake:
@@ -312,7 +312,7 @@ FIN
 FIN-ACK
 
 <li>
-Somewtimes TCP Reset is sent and a RST commend will stop the conversation, either client, server or a firewall can send a RST
+Sometimes TCP Reset is sent and a RST commend will stop the conversation, either client, server or a firewall can send a RST
 
 </ol>
 </ul>
@@ -546,7 +546,7 @@ Frame: a chunk of data with a Data Link layer header
 
 </ul>
 <li>
-Link Layer sends the Frame down to the Physial Layer which breaks it into ones and zeros, and then that is converted into a signal
+Link Layer sends the Frame down to the Physical Layer which breaks it into ones and zeros, and then that is converted into a signal
 
 </ol>
 
@@ -612,7 +612,7 @@ Link Layer sends the Frame down to the Physial Layer which breaks it into ones a
 </table>
 
 <p>
-Multiple placehold by placeholder itsself. Example: 11000000 is equal t 128 + 64 = 192 
+Multiple placeholder by placeholder itself. Example: 11000000 is equal t 128 + 64 = 192 
 </p>
 
 <div id="Network Concepts-Converting Decimal to Binary"><h2 id="Converting Decimal to Binary" class="header"><a href="#Network Concepts-Converting Decimal to Binary">Converting Decimal to Binary</a></h2></div>
@@ -880,7 +880,7 @@ Binary
 Decimal
 </th>
 <th>
-Hexadecimial
+Hexadecimal
 </th>
 </tr>
 <tr>
@@ -1129,7 +1129,7 @@ IP addresses are really 32 bits long, just put it in decimal to read easier.
 <div id="Network Concepts-IP Addressing-Classful vs Classless addressing"><h3 id="Classful vs Classless addressing" class="header"><a href="#Network Concepts-IP Addressing-Classful vs Classless addressing">Classful vs Classless addressing</a></h3></div>
 <ul>
 <li>
-<em>We dont use Classfull  anymore!</em> Becase we ran out of IP ranges as we didnt predeict speed of growth of internet.
+<em>We don't use Classfull  anymore!</em> Because we ran out of IP ranges as we didn't predict speed of growth of internet.
 
 <li>
  Classful Addressing (~1995 and prior)
@@ -1165,7 +1165,7 @@ A
 127.255.255.255
 </td>
 <td>
-8 bits in netowork portion, 24 bits in host portion
+8 bits in network portion, 24 bits in host portion
 </td>
 </tr>
 <tr>
@@ -1233,7 +1233,7 @@ E
 255.255.255.255
 </td>
 <td>
-We dont use this anymore!
+We don't use this anymore!
 </td>
 </tr>
 </table>
@@ -1551,7 +1551,7 @@ Subnet Mask does not have to fall within the 8-bit boundary
 <div id="Network Concepts-IP Addressing-Address Types"><h3 id="Address Types" class="header"><a href="#Network Concepts-IP Addressing-Address Types">Address Types</a></h3></div>
 <ul>
 <li>
-The secret is making sure that we use subnet mask simply to identify which portion of the IP address is the host portion, a then when we are looking to see if its network, broadcast or host address we are looking at IP address, not the subnet mask. Subnet mask is just telling us where to look in the IP address for all Zeors (network Address), all ones (Broadcast), or anything execept zeros and ones (Host).
+The secret is making sure that we use subnet mask simply to identify which portion of the IP address is the host portion, a then when we are looking to see if its network, broadcast or host address we are looking at IP address, not the subnet mask. Subnet mask is just telling us where to look in the IP address for all Zeros (network Address), all ones (Broadcast), or anything except zeros and ones (Host).
 
 </ul>
 
@@ -1559,7 +1559,7 @@ The secret is making sure that we use subnet mask simply to identify which porti
 <ol>
 <li>
 Network Address:
-    A. Identifer for a group of devices
+    A. Identifier for a group of devices
     B. "Network Prefix"
     C. Have all Zeros in the Host portion. 
 <table>
@@ -1655,7 +1655,7 @@ Host Portion
 <ol>
 <li>
 Broadcast Address: 
-    A. Idenfifier for all devices on a network.
+    A. Identifier for all devices on a network.
     B. It allows a sender to send a message to every single device on the network. 
 <table>
 <tr>
@@ -1751,7 +1751,7 @@ Host Portion
 <li>
 Host Address: 
     A. Identifies unique device on a network. 
-    B. identifies a unique device on the network, combo of network portion of address and host portion of address, where the host portion isnt identifiing a network address nor the broadcast.  
+    = B. Identifies a unique device on the network, combo of network portion of address and host portion of address, where the host portion isn't identifying a network address nor the broadcast. =  
     C. Anything EXCEPT all binary 0's or 1's
 <table>
 <tr>
