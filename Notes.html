@@ -75,6 +75,57 @@
 <li>
 <a href="Notes.html#Network Concepts-Private IP Addresses">Private IP Addresses</a>
 
+<li>
+<a href="Notes.html#Network Concepts-Subnetting Basics">Subnetting Basics</a>
+
+<ul>
+<li>
+<a href="Notes.html#Network Concepts-Subnetting Basics-Variable Length Subnet Masking VLSM">Variable Length Subnet Masking VLSM</a>
+
+</ul>
+<li>
+<a href="Notes.html#Network Concepts-IPv6">IPv6</a>
+
+<ul>
+<li>
+<a href="Notes.html#Network Concepts-IPv6-IPV6 Address Components">IPV6 Address Components</a>
+
+<li>
+<a href="Notes.html#Network Concepts-IPv6-IPv4 Address Size">IPv4 Address Size</a>
+
+<li>
+<a href="Notes.html#Network Concepts-IPv6-IPv6 Addresses">IPv6 Addresses</a>
+
+<li>
+<a href="Notes.html#Network Concepts-IPv6-IPv6 Address Operation">IPv6 Address Operation</a>
+
+<li>
+<a href="Notes.html#Network Concepts-IPv6-IPv6 Address Types">IPv6 Address Types</a>
+
+<li>
+<a href="Notes.html#Network Concepts-IPv6-IPv6 Address Acquisitions">IPv6 Address Acquisitions</a>
+
+<li>
+<a href="Notes.html#Network Concepts-IPv6-IPv6 DHCP">IPv6 DHCP</a>
+
+<li>
+<a href="Notes.html#Network Concepts-IPv6-IPv6 Tunneling">IPv6 Tunneling</a>
+
+</ul>
+<li>
+<a href="Notes.html#Network Concepts-Network Services">Network Services</a>
+
+<ul>
+<li>
+<a href="Notes.html#Network Concepts-Network Services-Network Address Translation">Network Address Translation</a>
+
+<li>
+<a href="Notes.html#Network Concepts-Network Services-Dynamic Host Configuration Protocol">Dynamic Host Configuration Protocol</a>
+
+<li>
+<a href="Notes.html#Network Concepts-Network Services-Domain Name System">Domain Name System</a>
+
+</ul>
 </ul>
 </ul>
 
@@ -2207,7 +2258,7 @@ use /64 subnet for everything, except for routers.
 Network portion 64 bits
 </td>
 <td>
-Interface Identifier 64 bits
+Interface <a href="Identifier.html">Identifier</a> 64 bits
 </td>
 </tr>
 <tr>
@@ -2260,15 +2311,432 @@ One IPv6 address to many devices
 Used for Load balancing 
 
 </ul>
+<li>
+Duel Stack: running IPv4 and IPv6 Protocalls on a computer
+
+<li>
+There are no private IPv6 addresses, all are public, except for a documentation
+
 </ul>
 
 <div id="Network Concepts-IPv6-IPv6 Address Types"><h3 id="IPv6 Address Types" class="header"><a href="#Network Concepts-IPv6-IPv6 Address Types">IPv6 Address Types</a></h3></div>
 
 
 <div id="Network Concepts-IPv6-IPv6 Address Acquisitions"><h3 id="IPv6 Address Acquisitions" class="header"><a href="#Network Concepts-IPv6-IPv6 Address Acquisitions">IPv6 Address Acquisitions</a></h3></div>
+<ul>
+<li>
+You can always manually configure the network
 
+<li>
+SLAAC Stateless Address Auto-Configuration 
+
+<ul>
+<li>
+Does not exhist in IPv4
+
+<li>
+Router in the network/default gateway, has IP address of 2001:DB8:4:A::1/64 and every so often it sends out a Router Advertisement on network 2001:DB8:4:A::/64 as a RA, so any other device can know what the network is and join. 
+
+<li>
+Depending on the operating system: 
+
+<ul>
+<li>
+It will configure (Windows Random 64 bit interface identifier), so the computer will create two IPv6 (Manual IPv6 and automatically genererated Link Local IPv6 address). 
+
+<li>
+Mac and Linux will use Modified EUI-64 address and take MAC address (MAC is layer 2) of network interface card, and split it in to middel of the MAC address and add FF:FE and this will make the address 64 bits long. Ex: 000C:29FF:FEFC:70A5. Then you take the first two bits and convert them into binary, Ex: 00 to 0000 0000 and then you take the 7th bit in that last and flip it to either 0 or 1, then convert it back to hexadecimal and now that becomes the interface identifer. 
+
+</ul>
+</ul>
+<li>
+Once the router sends out the Router Advertisement, then client configures message back to rest of the network saying that the client computer is on the network now , this is my IPv6 address, and since the address is configured randomly, double check to make sure nobody else has it. 
+
+</ul>
+
+<div id="Network Concepts-IPv6-IPv6 DHCP"><h3 id="IPv6 DHCP" class="header"><a href="#Network Concepts-IPv6-IPv6 DHCP">IPv6 DHCP</a></h3></div>
+<ul>
+<li>
+The DHCP server will help configure the IPv6 address, but router will need to turn off SLAAC
+
+<li>
+Allows for a lot more control, allows for shorter addresses, esp in internal networks
+
+</ul>
 
 <div id="Network Concepts-IPv6-IPv6 Tunneling"><h3 id="IPv6 Tunneling" class="header"><a href="#Network Concepts-IPv6-IPv6 Tunneling">IPv6 Tunneling</a></h3></div>
+<ul>
+<li>
+Main problem in IPv6 is that not everyone supports it. 
+
+<li>
+Figure out a way to get IPv6 traffic across the IPv4 internet, and they are not backwards compatible
+
+<li>
+Build a tunnel: mechanism to take IPv6 message/packet and put it inside a IPv4 packet, and then rebuilt as a IPv6 packet
+
+</ul>
+
+<div id="Network Concepts-Network Services"><h2 id="Network Services" class="header"><a href="#Network Concepts-Network Services">Network Services</a></h2></div>
+
+<div id="Network Concepts-Network Services-Network Address Translation"><h3 id="Network Address Translation" class="header"><a href="#Network Concepts-Network Services-Network Address Translation">Network Address Translation</a></h3></div>
+<ul>
+<li>
+NAT is a Network Layer function (layer 3)
+
+<li>
+Router stores the source/client IP address in a table, with other parameters, and replace the source IP with that of the router, which is a public routable IP address. The packet goes to the desistination on the internet, and comes back to router which translates/swapps out address in packets in order to make those packets routable on internet. 
+
+<li>
+In home networks its called Port Address Translation. 
+
+</ul>
+
+<div id="Network Concepts-Network Services-Dynamic Host Configuration Protocol"><h3 id="Dynamic Host Configuration Protocol" class="header"><a href="#Network Concepts-Network Services-Dynamic Host Configuration Protocol">Dynamic Host Configuration Protocol</a></h3></div>
+<ul>
+<li>
+DHCP is Application Protocal, layer 7
+
+<li>
+DHCP typically needs DHCP server: 
+
+<ul>
+<li>
+DHCP server hands out IP addresses for entire organization. 
+
+<li>
+DHCP Scope
+
+<ul>
+<li>
+Network: 10.0.0.0/24
+
+<li>
+Excluded: 10.0.0.0.10 - 10.0.0.99 (for servers or printers or things that need static IP addresses)
+
+<li>
+Gateway: 10.0.0.1
+
+<li>
+DNS: 8.8.8.8
+
+<li>
+Lease Time: 10,080 min (means how many days it needs before requesting a new one)
+
+</ul>
+<li>
+DHCP Binding database 
+
+<ul>
+<li>
+A Table that lists out the addresses that are handed out per device
+
+<li>
+IP address
+
+<li>
+Default Gateway
+
+<li>
+DNS
+
+<li>
+
+
+</ul>
+<li>
+IP Helper Address on a router, found on larger companies espically with more than one subnet that were working with, and when DHCP server is somewhere on network, and any router on network will have IP Helper Address for clients sending out DHCP discover message, the message hits the router and router knows where to forward it to the DHCP server's own IP address. this is so you can have a single DHCP server for all subnets on network.
+
+</ul>
+</ul>
+
+<div id="Network Concepts-Network Services-Domain Name System"><h3 id="Domain Name System" class="header"><a href="#Network Concepts-Network Services-Domain Name System">Domain Name System</a></h3></div>
+<ul>
+<li>
+DNS is Application Layer 7 protocal, can use UDP or TCP depending on what your trying to accomplish.
+
+<li>
+URL is Uniform Resource Locator (www.nasa)
+
+<li>
+TLD is Top Level Domain (.ORG)
+
+<li>
+Second Level Domain nasa
+
+<li>
+Third Level Domain also called Hostname (WWW)
+
+<li>
+DNS is updated via DHCP
+
+<ul>
+<li>
+Forward Lookup
+
+<li>
+Reverse Lookup
+
+<ul>
+<li>
+Pinter Record PTR
+
+</ul>
+</ul>
+<li>
+Root Domain Server
+
+<li>
+Records
+
+<ul>
+<li>
+A: IPv4 record
+
+<li>
+AAAA: IPv6 Record
+
+<li>
+CNAME: Canonical Name Record, record where we can set it up in DNS and theres no IP address associated with it.
+
+<li>
+MX: Mail Exchange Record
+
+<li>
+NS: Nameserver/ Identifies Authorative Name Server
+
+<li>
+PTR: Pointer Record for reverse DNS, needed for Reverse DNS to work
+
+<li>
+SRV: Service Record, specifies IP address and Port number
+
+<li>
+TXT: additional info 
+
+</ul>
+</ul>
+
+<div id="Network Concepts-Network Services-Network Toplogies and Types"><h3 id="Network Toplogies and Types" class="header"><a href="#Network Concepts-Network Services-Network Toplogies and Types">Network Toplogies and Types</a></h3></div>
+<ul>
+<li>
+Bus
+
+<ul>
+<li>
+Old tech, run on 10Base5(Thicknet) and 10Base2(Thinnet) hardware
+
+<li>
+Where all computers are connexted by a wire
+
+</ul>
+<li>
+Ring
+
+<ul>
+<li>
+We dont use anymore, devices connected in ring via twisted pair, coax or fiber
+
+</ul>
+<li>
+Star
+
+<ul>
+<li>
+where every divice has cabel running to central location like a switch
+
+</ul>
+<li>
+Hybrid
+
+<ul>
+<li>
+Peer to Peer, direct communication with each other, both server and client for data
+
+<li>
+Client Server Network
+
+</ul>
+</ul>
+
+<div id="Network Concepts-Network Services-Blank Area Networks"><h3 id="Blank Area Networks" class="header"><a href="#Network Concepts-Network Services-Blank Area Networks">Blank Area Networks</a></h3></div>
+<div id="Network Concepts-Network Services-Blank Area Networks-Network Classifications"><h4 id="Network Classifications" class="header"><a href="#Network Concepts-Network Services-Blank Area Networks-Network Classifications">Network Classifications</a></h4></div>
+<ul>
+<li>
+LAN
+
+<ul>
+<li>
+Local Area Network: devices connected to centeral Switch
+
+<li>
+Needs Switches (Layer 2)
+
+</ul>
+<li>
+WLAN
+
+<ul>
+<li>
+Wireless Local Network
+
+</ul>
+<li>
+WAN
+
+<ul>
+<li>
+Take two LANS over wide distance
+
+<li>
+Needs Routers (Layer 3)
+
+</ul>
+<li>
+SAN
+
+<ul>
+<li>
+Storage Area Network: Storage in a server
+
+</ul>
+<li>
+CAN: Campus Area Network
+
+<li>
+MAN: Metropolitan Area Network
+
+<li>
+PAN: Personal Area Network, your own connected devices, smart phone and watches
+
+</ul>
+
+<div id="Network Concepts-Network Services-WAN Technologies"><h3 id="WAN Technologies" class="header"><a href="#Network Concepts-Network Services-WAN Technologies">WAN Technologies</a></h3></div>
+<ul>
+<li>
+Leased Lines
+
+<ul>
+<li>
+Copper T1
+
+</ul>
+<li>
+Fiber Optics
+
+<ul>
+<li>
+40 GB or more
+
+<li>
+Dark Fiber (Leased fiber)
+
+<li>
+Metro Ethernet (Use fiber, but service will have lazers, and you can control stuff, but not as much as Dark Fiber). Many kinds of data bandwith, 10Mb, 100Mb, 1Gb, 10Gb, 40Gb.k
+
+<ol>
+<li>
+Multiprotocol Lable Switching MPLS: used to keep data of other groups seperate, and allow multiple VLANs (Way of seperating netork traffic to be organized into efficient and secure networks). 
+
+</ol>
+<li>
+Optical WAN
+
+</ul>
+<li>
+Internet
+
+<ul>
+<li>
+DLS
+
+<li>
+Fiber Optic
+
+<li>
+Satellite
+
+<li>
+Cable
+
+</ul>
+<li>
+T1 Link (E1 in Europe)
+
+<ul>
+<li>
+Bell Labs
+
+<li>
+24 Channels @ 64k each + framing bit = 1.544Mbps
+
+<li>
+Telco Network --&gt; to Demarcation Point/Smart Jack --&gt; CSU/DSU (Cabele service unit/data service unit) or router. Its interface between T1 version of communication and the communcation to router
+
+<li>
+Demarcation Point is point in network that divides which between telephone companys equipment and which is the customers equipment
+
+</ul>
+<li>
+T3 (E3)
+
+<ul>
+<li>
+Numorous T1s bundled together, 44.736Mbps
+
+</ul>
+<li>
+ISDN 
+
+<ul>
+<li>
+Old school connection
+
+</ul>
+<li>
+Prinary Rate Interface PRI
+
+<ul>
+<li>
+SIP trunk alternate, VOIP for POTS network, or use ISDN with a PRI
+
+</ul>
+<li>
+SDWAN
+
+<ul>
+<li>
+Software Defined LANs
+
+<li>
+Tunnels for communication (mGRE) Multipoint Generic Routing Encapsulation. 
+
+<li>
+Server sets up routing paths
+
+</ul>
+</ul>
+<div id="Network Concepts-Network Services-Virtualed Networks"><h3 id="Virtualed Networks" class="header"><a href="#Network Concepts-Network Services-Virtualed Networks">Virtualed Networks</a></h3></div>
+<ul>
+<li>
+Virtualize datacenters
+
+<li>
+Servers, hooked up a SAN, so Processor, Memory, Network Interface and allow all virtual servers to run on one server. More efficiant with processor utilization and memory utilization. Less power, physical power, electricity.
+
+<li>
+Networking connection to physical servers requries lots of bandwith on a special secure network VLAN, with virtualized network hardware
+
+<li>
+Redundant servers with redundant virtual machines
+
+<li>
+Load balancer: can be virtual with virtual IP address VIP
+
+<li>
+Hypervisor runs all the virtual servers, data network and virtual servers, network function virtualization.
+
+</ul>
 
 </body>
 </html>
