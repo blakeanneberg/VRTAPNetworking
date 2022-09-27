@@ -2143,5 +2143,132 @@ So now the network is 10.0.10.0 - 10.0.10.255
 Cant just randomly pick IP addresses and masks and apply it to networks. Do have to make sure there is no overlap between subnets.
 </p>
 
+<div id="Network Concepts-IPv6"><h2 id="IPv6" class="header"><a href="#Network Concepts-IPv6">IPv6</a></h2></div>
+
+<div id="Network Concepts-IPv6-IPV6 Address Components"><h3 id="IPV6 Address Components" class="header"><a href="#Network Concepts-IPv6-IPV6 Address Components">IPV6 Address Components</a></h3></div>
+<ul>
+<li>
+Bit is 0 or 1
+
+<li>
+4 Bits is a Nibble and is made of of 0 or 1s, can be written as a hexadecimal value like: 0xA 
+
+<li>
+Two Nibbles is 8 bits: 1001 0011
+
+<li>
+Eight bits in a byte: 11010111
+
+<li>
+Two nibbles is a byte and a byte is 8 bits. Hexadecimal of 0xA8 is one byte worth. 
+
+<li>
+Two bytes is a hextet: 1001001110010011 and is in Hexadecimal 0xA8C5 which is equivalent to 16 bites. 
+
+</ul>
+
+<div id="Network Concepts-IPv6-IPv4 Address Size"><h3 id="IPv4 Address Size" class="header"><a href="#Network Concepts-IPv6-IPv4 Address Size">IPv4 Address Size</a></h3></div>
+<ul>
+<li>
+32 bits long = 4 octets
+
+<li>
+192.168.10.10 or in binary: 11000000 1010100 00001010 00001010 
+
+</ul>
+ 
+<div id="Network Concepts-IPv6-IPv6 Addresses"><h3 id="IPv6 Addresses" class="header"><a href="#Network Concepts-IPv6-IPv6 Addresses">IPv6 Addresses</a></h3></div>
+<ul>
+<li>
+128 bits long = 32 nibbles = 8 hextets 
+
+<li>
+2001:0DB8:0002:008D:0000:00A5:52F5
+
+<li>
+To make it easier to read:
+
+<ul>
+<li>
+Eliminate Leading 0s
+
+<li>
+2001:0DB8:0002:008D:0000:00A5:52F5 or 2001:DB8:2:8D:0:0:A5:52F5 or 2001:DB8:2:8D:0:0:A5:52F5
+
+</ul>
+<li>
+just count 4 hextets, and that is 64 bits
+
+<li>
+use /64 subnet for everything, except for routers. 
+<table>
+<tr>
+<td>
+Network portion 64 bits
+</td>
+<td>
+Interface Identifier 64 bits
+</td>
+</tr>
+<tr>
+<td>
+2001:0DB8:0002:008D:
+</td>
+<td>
+0000:00A5:52F5
+</td>
+</tr>
+</table>
+
+</ul>
+
+<div id="Network Concepts-IPv6-IPv6 Address Operation"><h3 id="IPv6 Address Operation" class="header"><a href="#Network Concepts-IPv6-IPv6 Address Operation">IPv6 Address Operation</a></h3></div>
+<ul>
+<li>
+IPv6 computers need a router unless they have the same subnet in which they can use IPv6 Link Local Addresses for local communication via a switch, otherwise on the internet they need IPv6 Unicast address, used for global communication (ie devices on the internet).
+
+<ul>
+<li>
+Link Local Address is: FE80::/10  
+
+<li>
+Loopback address: ::1/128
+
+<li>
+
+
+</ul>
+<li>
+IPv^ sends out peridoc messages to find out who is on the network using IPv6
+
+<li>
+Multicast Address
+
+<ul>
+<li>
+one to many communication 
+
+</ul>
+<li>
+Anycast Address
+
+<ul>
+<li>
+One IPv6 address to many devices
+
+<li>
+Used for Load balancing 
+
+</ul>
+</ul>
+
+<div id="Network Concepts-IPv6-IPv6 Address Types"><h3 id="IPv6 Address Types" class="header"><a href="#Network Concepts-IPv6-IPv6 Address Types">IPv6 Address Types</a></h3></div>
+
+
+<div id="Network Concepts-IPv6-IPv6 Address Acquisitions"><h3 id="IPv6 Address Acquisitions" class="header"><a href="#Network Concepts-IPv6-IPv6 Address Acquisitions">IPv6 Address Acquisitions</a></h3></div>
+
+
+<div id="Network Concepts-IPv6-IPv6 Tunneling"><h3 id="IPv6 Tunneling" class="header"><a href="#Network Concepts-IPv6-IPv6 Tunneling">IPv6 Tunneling</a></h3></div>
+
 </body>
 </html>
