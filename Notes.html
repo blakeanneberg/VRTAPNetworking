@@ -159,13 +159,18 @@
 <li>
 <a href="Notes.html#Network Concepts-Cloud Services-Platform as a service">Platform as a service</a>
 
+<li>
+<a href="Notes.html#Network Concepts-Cloud Services-Infrastructure as a service">Infrastructure as a service</a>
+
+<li>
+<a href="Notes.html#Network Concepts-Cloud Services-Desktop as a service">Desktop as a service</a>
+
 </ul>
 <li>
-<a href="Notes.html#Network Concepts-Infrastructure as a service">Infrastructure as a service</a>
+<a href="Notes.html#Network Concepts-Cloud Benefits">Cloud Benefits</a>
 
 </ul>
 </ul>
-
 
 
 <div id="Network Concepts"><h1 id="Network Concepts" class="header"><a href="#Network Concepts">Network Concepts</a></h1></div>
@@ -605,8 +610,241 @@ Protocol: Internet Protocol
 <div id="Network Concepts-OSI Model to Describe Network Operations-Layer 1: Physical Layer"><h3 id="Layer 1: Physical Layer" class="header"><a href="#Network Concepts-OSI Model to Describe Network Operations-Layer 1: Physical Layer">Layer 1: Physical Layer</a></h3></div>
 <ul>
 <li>
-Cables: wireless, copper or glass
+Cables: 
 
+<ul>
+<li>
+Wireless
+
+<li>
+Copper
+
+<ul>
+<li>
+Twisted Pair Cabling
+
+<ol>
+<li>
+Twisted wires at different rates prevent crosstalk to make data transfers faster. 
+
+<li>
+Shielding Twisted Pair STP (has shield), vs Unshielded Twisted Pair UTP 
+
+<li>
+Connectors: RJ11 (Telephone) and RJ-45 (etherent)
+
+<li>
+Straight Through (PC to Switch, Switch to Router) vs Crossover (from like device to like device, router to router, switch to switch, PC to PC, PC to router) 
+<table>
+<tr>
+<th>
+Pin# and Color
+</th>
+<th>
+EIA/TIA-568-B
+</th>
+<th>
+568-A
+</th>
+</tr>
+<tr>
+<td>
+1 White/Orange
+</td>
+<td>
+1- Transmit +
+</td>
+<td>
+1 White/Green Tx
+</td>
+</tr>
+<tr>
+<td>
+2 Orange
+</td>
+<td>
+2- Transmit -
+</td>
+<td>
+2 Green Tx
+</td>
+</tr>
+<tr>
+<td>
+3 White/Green
+</td>
+<td>
+3- Recieve +
+</td>
+<td>
+3 White Orange Rx
+</td>
+</tr>
+<tr>
+<td>
+4 Blue
+</td>
+<td>
+None
+</td>
+<td>
+4 Blue
+</td>
+</tr>
+<tr>
+<td>
+5 White/Blue
+</td>
+<td>
+None
+</td>
+<td>
+5 White/Blue
+</td>
+</tr>
+<tr>
+<td>
+6 Green
+</td>
+<td>
+6- Recieve -
+</td>
+<td>
+6 Orange Rx
+</td>
+</tr>
+<tr>
+<td>
+7 White/Brown
+</td>
+<td>
+None
+</td>
+<td>
+7 White/Brown
+</td>
+</tr>
+<tr>
+<td>
+8 Brown
+</td>
+<td>
+None
+</td>
+<td>
+8 Brown
+</td>
+</tr>
+</table>
+
+<li>
+Categories
+<table>
+<tr>
+<th>
+Cabling Type
+</th>
+<th>
+Use
+</th>
+<th>
+Ethernet Designation
+</th>
+</tr>
+<tr>
+<td>
+Cat 1
+</td>
+<td>
+Doorbell
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+Cat 3
+</td>
+<td>
+Telephone/10 Mbps Ethernet
+</td>
+<td>
+10BaseT
+</td>
+</tr>
+<tr>
+<td>
+Cat 5
+</td>
+<td>
+100 Mb Ethernet
+</td>
+<td>
+100BaseT
+</td>
+</tr>
+<tr>
+<td>
+Cat 5e
+</td>
+<td>
+Gigabit Ethernet
+</td>
+<td>
+1000GBaseT
+</td>
+</tr>
+<tr>
+<td>
+Cat 6
+</td>
+<td>
+Gigabit Ethernet
+</td>
+<td>
+1000GBaseT
+</td>
+</tr>
+<tr>
+<td>
+Cat 6a/Cat 7
+</td>
+<td>
+10 Gigabit Ethernet
+</td>
+<td>
+10GBaseT
+</td>
+</tr>
+<tr>
+<td>
+Cat 8
+</td>
+<td>
+40 Gigabit Ethernet
+</td>
+<td>
+40GBaseT
+</td>
+</tr>
+</table>
+
+<li>
+Auto MDI-X (Auto Medium Dependent Interface Crossover) so you can use any kind of cable, straight through or crossover
+
+</ol>
+<li>
+Coaxial Cabeling
+
+<li>
+
+
+</ul>
+<li>
+glass
+
+</ul>
 <li>
 Protocols:
 
@@ -2296,7 +2534,7 @@ use /64 subnet for everything, except for routers.
 Network portion 64 bits
 </td>
 <td>
-Interface <a href="Identifier.html">Identifier</a> 64 bits
+Interface Identifier 64 bits
 </td>
 </tr>
 <tr>
@@ -2907,14 +3145,100 @@ iSCSi: Uses TCPIP connection between SAN and servers.
 </ul>
 
 <div id="Network Concepts-Cloud Services"><h2 id="Cloud Services" class="header"><a href="#Network Concepts-Cloud Services">Cloud Services</a></h2></div>
+<ul>
+<li>
+Data Center Services
+
+<ul>
+<li>
+Server (Processsor and Memory)
+
+<li>
+Storage (Disk)
+
+<li>
+OS/Software
+
+</ul>
+</ul>
 
 <div id="Network Concepts-Cloud Services-Public, Private, Hybrid, Community Clouds"><h3 id="Public, Private, Hybrid, Community Clouds" class="header"><a href="#Network Concepts-Cloud Services-Public, Private, Hybrid, Community Clouds">Public, Private, Hybrid, Community Clouds</a></h3></div>
+<ul>
+<li>
+Community Cloud: When you have a private organization offering a specialized service to allow other smaller orgs to connect to it and use those services.
 
+</ul>
 <div id="Network Concepts-Cloud Services-Software as a service"><h3 id="Software as a service" class="header"><a href="#Network Concepts-Cloud Services-Software as a service">Software as a service</a></h3></div>
+<ul>
+<li>
+Popular consumer markets
+
+<li>
+Used in commercial operation for decades
+
+<li>
+Hosted DNS
+
+</ul>
 
 <div id="Network Concepts-Cloud Services-Platform as a service"><h3 id="Platform as a service" class="header"><a href="#Network Concepts-Cloud Services-Platform as a service">Platform as a service</a></h3></div>
+<ul>
+<li>
+Hardware/Software
 
-<div id="Network Concepts-Infrastructure as a service"><h2 id="Infrastructure as a service" class="header"><a href="#Network Concepts-Infrastructure as a service">Infrastructure as a service</a></h2></div>
+<li>
+"Server Side" services: Like a Linux server, where you can use processor and memory and storage space
+
+<li>
+Database: SQL database, sending data to and from database
+
+<li>
+Colocation: services set up in someone elses data center to offer redundancy to our own systems.  
+
+</ul>
+<div id="Network Concepts-Cloud Services-Infrastructure as a service"><h3 id="Infrastructure as a service" class="header"><a href="#Network Concepts-Cloud Services-Infrastructure as a service">Infrastructure as a service</a></h3></div>
+<ul>
+<li>
+Server Hardware
+
+<li>
+Disk/Storage 
+
+<li>
+Automation to expand service needs.
+
+</ul>
+<div id="Network Concepts-Cloud Services-Desktop as a service"><h3 id="Desktop as a service" class="header"><a href="#Network Concepts-Cloud Services-Desktop as a service">Desktop as a service</a></h3></div>
+<ul>
+<li>
+Virtual desktop to user
+
+<li>
+"workstation" is mobile 
+
+<li>
+easy to deploy
+
+<li>
+easy to support
+
+</ul>
+
+<div id="Network Concepts-Cloud Benefits"><h2 id="Cloud Benefits" class="header"><a href="#Network Concepts-Cloud Benefits">Cloud Benefits</a></h2></div>
+<ul>
+<li>
+Mutitenancy: redundancy, grow rapidly
+
+<li>
+Elasticity: grow or shrink enviroment
+
+<li>
+Scalability:
+
+<li>
+Security
+
+</ul>
 
 </body>
 </html>
