@@ -834,15 +834,253 @@ Cat 8
 Auto MDI-X (Auto Medium Dependent Interface Crossover) so you can use any kind of cable, straight through or crossover
 
 </ol>
+</ul>
 <li>
 Coaxial Cabeling
+
+<ol>
+<li>
+Cable TV/Cable Internet is RG-6 with a F-Type connector
+
+<li>
+Twinaxial Cabel/Twinax has 10GB or 40GB, often with network interface card built into the cable (SFPs), to connect switches, routers, servers or SANs together.
+
+</ol>
+<li>
+Fiber Optics
+
+<ol>
+<li>
+Cabling
+
+<ul>
+<li>
+Single Mode
+
+<ul>
+<li>
+Very thin, laser passes though for long distances
+
+<li>
+Usually Yellow jacket/insulation
 
 <li>
 
 
 </ul>
 <li>
-glass
+Multi Mode
+
+<ul>
+<li>
+Thicker glass, cheaper to make, use in applications which are shorter, laser light bounces around in fiber which reduces single strength. 
+
+<li>
+Usually has Orange or Aqua jacket/insulation
+
+</ul>
+</ul>
+<li>
+NIC Lasers and Fiber Optic
+<table>
+<tr>
+<td>
+Mode
+</td>
+<td>
+Laser Type
+</td>
+<td>
+Wavelength
+</td>
+<td>
+Fiber
+</td>
+<td>
+Distance
+</td>
+</tr>
+<tr>
+<td>
+---
+</td>
+<td>
+-------
+</td>
+<td>
+-----
+</td>
+<td>
+--
+</td>
+<td>
+---
+</td>
+</tr>
+<tr>
+<td>
+Single Mode
+</td>
+<td>
+LX
+</td>
+<td>
+1270-1610nm
+</td>
+<td>
+Single Mode
+</td>
+<td>
+70 km
+</td>
+</tr>
+<tr>
+<td>
+Multi Mode
+</td>
+<td>
+SX
+</td>
+<td>
+770-860 nm
+</td>
+<td>
+Multi Mode
+</td>
+<td>
+1/2-1km
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+</table>
+
+<li>
+Optical Network Interface Cards (Optics, lasers)
+
+<ul>
+<li>
+GBIC (old)
+
+<li>
+SFP (small form pluggable)
+
+<li>
+Plug into switch, server or other network device
+
+<li>
+QSFP and QSF+ (newer form of NIC cards, Q means Quad.)
+
+<li>
+Connectors( ST Connector, SC Connector, LC Connector, MTRJ Connector, FC Connector) 
+
+<li>
+Patch Panel, terminate in one spot then use shorter piece of fiber to plug into the pach pannel, to plug in to the SFP into the gear.
+
+</ul>
+<li>
+Connections: Angled physical contact (APC) or Ultra Physical Contact (UPC) 
+
+<li>
+Operation: light and data flow one way in one fiber and the other way, called Simplex Pair, with lasers and eyes on both ends. But can be one fiber, called Bidirectional with different wavelengths of light via WDM (Wave division Multiplexing). WDM works by using three different kind of UV lasers shining into a prism and creats a single stream of light, and then another prism breaking it out into each eye. 
+
+<li>
+Wave Division Multiplexing
+
+<ul>
+<li>
+coarse wave division multiplexing, CWDM, and is passive. 
+
+<li>
+Dense Wave Division Multiplexing, Powered, longer distance, more wavelengths.
+
+</ul>
+<li>
+|Fiber Ethernet Designation| Cabling Type | 
+<table>
+<tr>
+<td>
+100BaseFX
+</td>
+<td>
+Multi Mode Fiber
+</td>
+</tr>
+<tr>
+<td>
+100BaseSF
+</td>
+<td>
+Multi Mode Fiber
+</td>
+</tr>
+<tr>
+<td>
+1000BaseSX
+</td>
+<td>
+Multi Mode Fiber
+</td>
+</tr>
+<tr>
+<td>
+1000BaseLX
+</td>
+<td>
+Single Mode Fiber
+</td>
+</tr>
+<tr>
+<td>
+10GBaseSR Aqua mostly but some orange
+</td>
+<td>
+Multi Mode Fiber
+</td>
+</tr>
+<tr>
+<td>
+10GBaseLR
+</td>
+<td>
+Single Mode Fiber
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+</table>
+
+</ol>
+</ul>
+</ul>
+        
+        
+        
+        
+<ul>
+<li>
+66 Block telephone and 110 block, bigger version of 66 block, use punchdown tool, Krone, 110, BIX
 
 </ul>
 <li>
@@ -852,7 +1090,6 @@ Protocols:
 <li>
 Ethernet
 
-</ul>
 </ul>
 
 <div id="Network Concepts-Encapsulation and the OSI Model"><h2 id="Encapsulation and the OSI Model" class="header"><a href="#Network Concepts-Encapsulation and the OSI Model">Encapsulation and the OSI Model</a></h2></div>
