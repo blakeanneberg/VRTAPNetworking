@@ -172,7 +172,6 @@
 </ul>
 </ul>
 
-
 <div id="Network Concepts"><h1 id="Network Concepts" class="header"><a href="#Network Concepts">Network Concepts</a></h1></div>
 
 <div id="Network Concepts-OSI Model to Describe Network Operations"><h2 id="OSI Model to Describe Network Operations" class="header"><a href="#Network Concepts-OSI Model to Describe Network Operations">OSI Model to Describe Network Operations</a></h2></div>
@@ -606,6 +605,95 @@ Protocols that allow computers to talk to each other locally
 Protocol: Internet Protocol 
 
 </ul>
+<p>
+==== Ethernet ===
+</p>
+<ol>
+<li>
+Terms and Concepts
+
+<ul>
+<li>
+CSMA/CD (Carrier Sense Multiple Access with Collision Detection), Old and not used, computers all connect to a cable, and each device would send traffic on the wire. and would often have a Collision with two comptuers talking at the same time. 
+
+<li>
+Collision Domain: group of networked devices that will simultaneously detect voltage spike 
+
+<li>
+Duplex and Speed
+
+<ul>
+<li>
+Half Duplex: send info once at a time, like walki talki. 
+
+<li>
+Full Duplex: both devices send communication at the same time.
+
+</ul>
+<li>
+Ethernet Frame:
+
+<ul>
+<li>
+Package of data, with datalink layer header. Is called a Protocall Data Unit PDU 
+<table>
+<tr>
+<td>
+Desitnation Mac Address
+</td>
+<td>
+Source Mac address
+</td>
+<td>
+Type
+</td>
+<td>
+Data (Layer 2 data packet)
+</td>
+<td>
+FCS
+</td>
+</tr>
+<tr>
+<td>
+48 bits
+</td>
+<td>
+48 bits
+</td>
+<td>
+16 bits
+</td>
+<td>
+MTU MAX 1500 Bytes
+</td>
+<td>
+32 bits
+</td>
+</tr>
+<tr>
+<td>
+Contains Manufacturer ID and Serial number
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+says what kind of data is being sent
+</td>
+<td>
+algeralim value, to make sure its a good frame
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+</table>
+
+</ul>
+</ul>
+</ol>
+         
 
 <div id="Network Concepts-OSI Model to Describe Network Operations-Layer 1: Physical Layer"><h3 id="Layer 1: Physical Layer" class="header"><a href="#Network Concepts-OSI Model to Describe Network Operations-Layer 1: Physical Layer">Layer 1: Physical Layer</a></h3></div>
 <ul>
@@ -750,6 +838,12 @@ Use
 <th>
 Ethernet Designation
 </th>
+<th>
+Name
+</th>
+<th>
+&nbsp;
+</th>
 </tr>
 <tr>
 <td>
@@ -757,6 +851,12 @@ Cat 1
 </td>
 <td>
 Doorbell
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -772,6 +872,12 @@ Telephone/10 Mbps Ethernet
 <td>
 10BaseT
 </td>
+<td>
+Ethernet
+</td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -782,6 +888,12 @@ Cat 5
 </td>
 <td>
 100BaseT
+</td>
+<td>
+FastEthernet
+</td>
+<td>
+&nbsp;
 </td>
 </tr>
 <tr>
@@ -794,6 +906,12 @@ Gigabit Ethernet
 <td>
 1000GBaseT
 </td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -804,6 +922,29 @@ Gigabit Ethernet
 </td>
 <td>
 1000GBaseT
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+1Gbps
+</td>
+<td>
+GigabitEthernet
+</td>
+<td>
+Full Duplex
 </td>
 </tr>
 <tr>
@@ -816,6 +957,12 @@ Cat 6a/Cat 7
 <td>
 10GBaseT
 </td>
+<td>
+10GigabitEthernet
+</td>
+<td>
+Full Duplex
+</td>
 </tr>
 <tr>
 <td>
@@ -826,6 +973,12 @@ Cat 8
 </td>
 <td>
 40GBaseT
+</td>
+<td>
+40GigabitEthernet
+</td>
+<td>
+Full Duplex
 </td>
 </tr>
 </table>
@@ -847,6 +1000,63 @@ Twinaxial Cabel/Twinax has 10GB or 40GB, often with network interface card built
 
 </ol>
 <li>
+Ethernet Switchs
+
+<ol>
+<li>
+Layer two switchs
+
+<ul>
+<li>
+MAC address table has ports and MAC addresses connected to the port, ASIC Application-Specific Integretaged Circuit, all it does is read the destincation and source MAC address of the frames.
+
+<li>
+Swich builds circet after the MAC address table
+
+</ul>
+<li>
+Layer two Broadcasts
+
+<ul>
+<li>
+In the Ethernet 2 Frame, the destination MAC address field, if that is all Fs or all binary 1s, it means the frame is sent out to all active interfaces, except the receving interface 
+
+</ul>
+<li>
+Broadcast Domain
+
+<ul>
+<li>
+Group of networked devices which all receive a layer 2 broadcast message. 
+
+</ul>
+<li>
+Connecting Switchs (is basically daisy chaining them together)
+
+<ul>
+<li>
+Broadcast storm: clogs and overwhelms switches. so dont connect switches more than twice, or disable the port so one connection is there.
+
+<li>
+Spanning Tree Protocol: shuts down one of the links, so broadcast mesages do not repeat in loop. Works with multiple switches.
+
+<li>
+SHOW SPANNING TREE
+
+<li>
+Port Aggregation (Extra bandwith/Redundancy) via Link Aggregation Control Protocol LAC (open source) 
+
+</ul>
+<li>
+VLANS
+
+<ul>
+<li>
+
+
+</ul>
+</ol>
+<li>
 Fiber Optics
 
 <ol>
@@ -863,9 +1073,6 @@ Very thin, laser passes though for long distances
 
 <li>
 Usually Yellow jacket/insulation
-
-<li>
-
 
 </ul>
 <li>
@@ -884,38 +1091,21 @@ Usually has Orange or Aqua jacket/insulation
 NIC Lasers and Fiber Optic
 <table>
 <tr>
-<td>
+<th>
 Mode
-</td>
-<td>
+</th>
+<th>
 Laser Type
-</td>
-<td>
+</th>
+<th>
 Wavelength
-</td>
-<td>
+</th>
+<th>
 Fiber
-</td>
-<td>
+</th>
+<th>
 Distance
-</td>
-</tr>
-<tr>
-<td>
----
-</td>
-<td>
--------
-</td>
-<td>
------
-</td>
-<td>
---
-</td>
-<td>
----
-</td>
+</th>
 </tr>
 <tr>
 <td>
@@ -949,23 +1139,6 @@ Multi Mode
 </td>
 <td>
 1/2-1km
-</td>
-</tr>
-<tr>
-<td>
-&nbsp;
-</td>
-<td>
-&nbsp;
-</td>
-<td>
-&nbsp;
-</td>
-<td>
-&nbsp;
-</td>
-<td>
-&nbsp;
 </td>
 </tr>
 </table>
@@ -1011,7 +1184,7 @@ Dense Wave Division Multiplexing, Powered, longer distance, more wavelengths.
 
 </ul>
 <li>
-|Fiber Ethernet Designation| Cabling Type | 
+Fiber Ethernet Designation and Cabling Type  
 <table>
 <tr>
 <td>
@@ -1059,14 +1232,6 @@ Multi Mode Fiber
 </td>
 <td>
 Single Mode Fiber
-</td>
-</tr>
-<tr>
-<td>
-&nbsp;
-</td>
-<td>
-&nbsp;
 </td>
 </tr>
 </table>
@@ -2435,6 +2600,7 @@ Host Portion
 
 </ul>
 </ol>
+
 
 <p>
 <em>Examples</em>
