@@ -172,6 +172,8 @@
 </ul>
 </ul>
 
+
+
 <div id="Network Concepts"><h1 id="Network Concepts" class="header"><a href="#Network Concepts">Network Concepts</a></h1></div>
 
 <div id="Network Concepts-OSI Model to Describe Network Operations"><h2 id="OSI Model to Describe Network Operations" class="header"><a href="#Network Concepts-OSI Model to Describe Network Operations">OSI Model to Describe Network Operations</a></h2></div>
@@ -233,7 +235,7 @@ Network Service Protocols
 
 <ul>
 <li>
-Dynamic Host Configuration Protocol <a href="DHCP.html">DHCP</a>, giving workstation an IP address when plugged into the network.
+Dynamic Host Configuration Protocol DHCP, giving workstation an IP address when plugged into the network.
 
 <li>
 DHCP sends out 'offer message', containing:
@@ -1000,7 +1002,7 @@ Twinaxial Cabel/Twinax has 10GB or 40GB, often with network interface card built
 
 </ol>
 <li>
-Ethernet Switchs
+Ethernet Switches
 
 <ol>
 <li>
@@ -1052,7 +1054,66 @@ VLANS
 
 <ul>
 <li>
+Broadcast Domain: 
 
+<li>
+Joining two networks with a switch, you can assign ports to be a specific VLAN, creating a little mini switch within the switch, so you only forward traffic to intended devices.
+
+<li>
+Computers on two networks, connected by two switches connect by a trunk link, tags messages in the fram to go to correct VLAN network switch, and removes the tag and gives to correct computer. 
+
+<li>
+VLANS create mini networks which are seperate using VLAN tags in the fram as they travers switches via a trunk link. 
+
+<ul>
+<li>
+The ports on the trunk link are called Tagged Ports.
+
+</ul>
+<li>
+Protocoll on trunk link for Tagged Ports is 802.1Q 
+
+<li>
+Example seperating VOIP traffic of phone Voice VLAN from regular Data VLAN for computer data.
+
+<li>
+Putty: "show mac address-table"
+
+<ul>
+<li>
+Enter configuration mode: "configure t"
+
+<li>
+Configurean command: "#int f0/3"
+
+<li>
+Change vlan port: "#switchport access vlan 20" 
+
+</ul>
+</ul>
+<li>
+Port Mirroring 
+
+<ul>
+<li>
+Takes all the traffic and mirros the traffic from the swithch to another computer so you can analize the traffic
+
+<li>
+Wireshark can do this port mirroring
+
+</ul>
+<li>
+Power over Ethernet PoE
+
+<ul>
+<li>
+power devices over the ethernet line  
+
+<li>
+802.3af (2003 15.4 watts DC Power)
+
+<li>
+802.3at (2009 25.5 watts DC Power POE+)
 
 </ul>
 </ol>
