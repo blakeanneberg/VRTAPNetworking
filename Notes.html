@@ -696,9 +696,66 @@ algeralim value, to make sure its a good frame
 </ul>
 </ol>
          
+<div id="Network Concepts-OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Wireless Ethernet Protols 802.11"><h4 id="Wireless Ethernet Protols 802.11" class="header"><a href="#Network Concepts-OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Wireless Ethernet Protols 802.11">Wireless Ethernet Protols 802.11</a></h4></div>
+<ul>
+<li>
+802.11
 
+<ul>
+<li>
+For Enterprise business markets, no encryption 
+
+</ul>
+<li>
+802.11b for comsumer/home market
+
+<ul>
+<li>
+802.11g is faster
+
+<li>
+802.11n is fastest and merges with enterprise 
+
+</ul>
+<li>
+802.11a for enterprise/business market
+
+<ul>
+<li>
+uses 5.0 GHz spectrum only, up to 54Mbps bandwith, initially for enterprise use only
+
+</ul>
+<li>
+802.11ac merge of enterprise and consumer wifi protocl 
+
+<li>
+802.11ax (wifi 6)
+
+<li>
+801.1q ethernet for trunk links
+
+</ul>
 <div id="Network Concepts-OSI Model to Describe Network Operations-Layer 1: Physical Layer"><h3 id="Layer 1: Physical Layer" class="header"><a href="#Network Concepts-OSI Model to Describe Network Operations-Layer 1: Physical Layer">Layer 1: Physical Layer</a></h3></div>
 <ul>
+<li>
+Wireless 
+
+<ul>
+<li>
+2.5 GHz for 802.11 wireless needs 22 MHz to transport data, with multiple individual channels. And can only use 3 or 4 of the 14 cannels, using 1, 6 and 11.  
+
+<li>
+5 GHz wifi spectrum ranges from 5.170 GHz to 5.835 GHz
+
+<ul>
+<li>
+Some channels requires DFS, Dynamic Frequency Selection, which is used by the military, and the equipment needs to detect they are using the channels and need to automatically switch to a channel that is not a DFS channel.
+
+<li>
+Channels that done use DFS: 36, 40, 44, 48, 149, 153, 157, 161
+
+</ul>
+</ul>
 <li>
 Cables: 
 
@@ -1081,6 +1138,9 @@ Putty: "show mac address-table"
 
 <ul>
 <li>
+F0/0 means Fast Ethernet 
+
+<li>
 Enter configuration mode: "configure t"
 
 <li>
@@ -1345,6 +1405,52 @@ Link Layer sends the Frame down to the Physical Layer which breaks it into ones 
 
 </ol>
 
+<hr />
+<div id="Network Concepts-Routing IP Traffic"><h2 id="Routing IP Traffic" class="header"><a href="#Network Concepts-Routing IP Traffic">Routing IP Traffic</a></h2></div>
+<ol>
+<li>
+Require Physical, Data Link (traffic from one device to another) and Network layer (Internet Layer with routers to move traffic from one segment of the network to another, and if  Layer 2 Bridge like a Cabel Modem that converts Ethernet frames and puts it in a DOCSIS frame (DOCSIS is protocol that cabel modem uses to communicate to ISP)
+
+<li>
+IP Packet
+
+<ul>
+<li>
+IP Packet contains:
+
+<ul>
+<li>
+Source IP Address
+
+<li>
+Desitnation IP Address
+
+<li>
+TTL (couter every time it goes through a router it desceases). 
+
+<li>
+Other
+
+<li>
+ICMP (Ping uses ICMP protocol)
+
+</ul>
+<li>
+Layer 2 Frame
+
+<ul>
+<li>
+Destination MAC Address
+
+<li>
+Source MAC Address
+
+<li>
+Layer 3 Protocol
+
+</ul>
+</ul>
+</ol>
 
 <hr />
 <div id="Network Concepts-Binary"><h2 id="Binary" class="header"><a href="#Network Concepts-Binary">Binary</a></h2></div>
@@ -2675,6 +2781,46 @@ Host Portion
 
 </ul>
 
+<div id="Network Concepts-IP Addressing-Ip Routing"><h3 id="Ip Routing" class="header"><a href="#Network Concepts-IP Addressing-Ip Routing">Ip Routing</a></h3></div>
+<ul>
+<li>
+cannot ARP for destiation address because its not on our own local network because ARP messages cannot be sent through a router. ARP messages cannot be sent through a router. 
+
+<li>
+Consult Routing tabel on PC. To reach Local network and a route for everything else, including default gateway
+
+<li>
+Static Routing: Manually adding networks that Routers do not know about, problem is that it does not change with network changes.  
+
+<li>
+Dynamic Routing: will use a routing protoc to build the routing tables themselfves  
+
+<ul>
+<li>
+RIP protoc: is not used anymore. 
+
+<li>
+EIGRP: Ciscos routing protoc called Enhanced Interior Gateway Routing Protocol 
+
+<li>
+OSPF: Open Shortest Path First, popular with enterprise 
+
+<li>
+BGP: Border Gateway Protocl, used on public internet to move different business and internet service providers, more like a scripting language with parameters that we can configure. 
+
+</ul>
+<li>
+Administrative Distance: the higher the number the lower the priority of routing protocl, determines which route is good one to add to the routing table.
+
+</ul>
+
+<div id="Network Concepts-IP Addressing-Tracert"><h3 id="Tracert" class="header"><a href="#Network Concepts-IP Addressing-Tracert">Tracert</a></h3></div>
+<ul>
+<li>
+tracert 8.8.8.8 -d will give only ip addresses and no DNS lookups. 
+
+</ul>
+
 <div id="Network Concepts-CIDR Classless Inter-Domain Routing"><h2 id="CIDR Classless Inter-Domain Routing" class="header"><a href="#Network Concepts-CIDR Classless Inter-Domain Routing">CIDR Classless Inter-Domain Routing</a></h2></div>
 <ul>
 <li>
@@ -3701,6 +3847,158 @@ Scalability:
 
 <li>
 Security
+
+</ul>
+
+
+
+
+
+
+<div id="Smart Hands Training"><h1 id="Smart Hands Training" class="header"><a href="#Smart Hands Training">Smart Hands Training</a></h1></div>
+<div id="Smart Hands Training-Switches"><h2 id="Switches" class="header"><a href="#Smart Hands Training-Switches">Switches</a></h2></div>
+<ol>
+<li>
+Patch pannel labeling
+
+<li>
+no standards in labeling
+
+<li>
+Patch Pannels 
+
+<li>
+48 or 24 ports, identifier label or switch room identifier
+
+<li>
+Patch cabels is a pach pannel to switch
+
+<li>
+Use toner to find patch pannel. 
+
+<li>
+Ports on a switch
+
+<li>
+Odds on top, evens on bottom
+
+<li>
+Switch stack number(1)/module number (0)/portnumber (GI is gigabit) 
+
+<li>
+6-8-12 ports and 24-48 ports
+
+<li>
+9000 series switches 
+
+<li>
+Stacked swiches are 1 to higher number from top to bottom
+
+<li>
+Smaller switches
+
+</ol>
+<div id="Smart Hands Training-Accessing a switch"><h2 id="Accessing a switch" class="header"><a href="#Smart Hands Training-Accessing a switch">Accessing a switch</a></h2></div>
+<ul>
+<li>
+Putty
+
+<ul>
+<li>
+IP address, password 
+
+</ul>
+<li>
+Solarwinds keeps networt sessions active to remote into. 
+
+<li>
+Console
+
+<ul>
+<li>
+directly connecting to the switch via RJ45 to USB, Cisco specific, should be in the MDF room
+
+<li>
+Console ports for Cisco are blue port, yellow is managment port 
+
+</ul>
+<li>
+Propts: # means privalige exec mode, (Config) is config mode so be careful, show command will show settings
+
+<li>
+VLANS
+
+<ul>
+<li>
+network is assigned a number and name, some 
+
+<li>
+Depending on AD OU, device will but put on the VLAN
+
+</ul>
+<li>
+Clearpass 
+
+<ul>
+<li>
+trunk port, multiple vlans at a time to connect accross vlans
+
+<li>
+access ports, where only one vlan exhists on the port
+
+<li>
+NAC port: type of access port, security port, and talks to clearpass and decides what vland the device belongs to
+
+<li>
+Build port: also an access port, port assigned to particular vlan
+
+<li>
+static access ports: are for the servers, where VM ware host connects to server 
+
+<li>
+MAB: Mack Authentication, authenticated with MAC. Add the dynamic vlan setting so it goes on the correct network.  
+
+<li>
+Dot1X authentication: domain controllers, all computers should be using dot1x
+
+</ul>
+</ul>
+
+<ul>
+<li>
+Solarwinds
+
+<ol>
+<li>
+Gets DHCP reservations
+
+<li>
+Can use MAPs to see maps. 
+
+<li>
+Can set up alerts 
+
+</ol>
+<li>
+<a href="Wireless.html">Wireless</a>
+
+<li>
+Green: has two differnet vlans
+
+<li>
+Purple: lift scanners
+
+<li>
+Blue: old lift scanners
+
+<li>
+Red: going away, wireless infogenissis access,
+
+<li>
+EmployeeDevice being replaced: for emplyee cell phones, new password changed every year.
+
+<li>
+Slate: for vail devices, tempertare sensors, i9's ipads, each device has own password to its mac address
 
 </ul>
 
