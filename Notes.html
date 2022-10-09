@@ -1010,6 +1010,120 @@ Security Issue: if someone attaches to device that is not autherizd could see gl
 
 </ul>
 
+<div id="Network Concepts-OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Layer 2 Devices and Services-Other Network Devices"><h5 id="Other Network Devices" class="header"><a href="#Network Concepts-OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Layer 2 Devices and Services-Other Network Devices">Other Network Devices</a></h5></div>
+<ul>
+<li>
+Load Balancers
+
+<ol>
+<li>
+Network Layer and Transport Layer
+
+<li>
+allows to have a single IP address called a VIP (Virtual IP Address)
+
+<ul>
+<li>
+VIP connects to several different servers
+
+<li>
+Numerous servers that can all respond to requests from clients simultaineously depending on the policy, sometimes via round robin or a health check for most resources availbe. 
+
+<li>
+Distribute load to multiple serers 
+
+</ul>
+</ol>
+<li>
+Firewalls
+
+<ol>
+<li>
+Traditional Firewalls are transport layer. allows network from inside network out but not traffic from outside the network in. 
+
+<li>
+Access Control Lists: IP Address (or range) and Port Number (or range) 
+
+<li>
+DMZ: De Millitarized Zone, Allows people from the internet to get into the network
+
+<li>
+Next Generation Firewall NGFW
+
+<ul>
+<li>
+Work at Application Layer and Transport Layer and Network Layer
+
+<li>
+Also does IDS/IPS Intrusion Detection/Intrusion Prevention via a database has sigantures of malicious traffic that is undesirable in network
+
+<li>
+Automatically send alerts to admin to investigate to investigate the device. 
+
+<li>
+Proxy Server: filter web and interent traffic so they only access info certain websites and content filter, block traffic, or protect 
+
+<li>
+VPN Concentrator: VPN Headins allows VPN get office resources from home. Creates tunnel of putting IP packets inside other IP packets which are encrypted. 
+
+</ul>
+<li>
+UTM Unified Threat Management
+
+<ul>
+<li>
+Layer 7 Firewall
+
+<li>
+Content Filter/Proxy Server
+
+<li>
+IDS/IPS
+
+<li>
+Intrusion Detection/Intrusion Prevention. 
+
+<li>
+Pays attention to certain applications. Can see HTTP traffic and verify that its a web browser that is valid vs attacking and tricking firewall to think its a website. 
+
+</ul>
+</ol>
+<li>
+VOIP
+
+<ul>
+<li>
+A phone has a switch to connect to network. Gives traffic priority over quality of service, connects to a VoIP gateway which connects to a SIP Trunk to connect to Plain Old Telephone Service             
+
+<li>
+VoIP Gateway dials the phone over the SIP trunk 
+
+</ul>
+<li>
+Other Networked Devices
+
+<ol>
+<li>
+Printers
+
+<li>
+Heating Ventilating Air Conditioning HVAC: Smart Device
+
+<li>
+Physical Access Control: Card Readers
+
+<li>
+Internet of Things: lightbulbs, thermostats, refrigerators, doorbells, all kinds of things. 
+
+<li>
+Security Cameras: IP based, or wireless
+
+<li>
+Industrial Controls SCADA systems: used in a factory for central server 
+
+</ol>
+</ul>
+
 
 
 <div id="Network Concepts-OSI Model to Describe Network Operations-Layer 1: Physical Layer"><h3 id="Layer 1: Physical Layer" class="header"><a href="#Network Concepts-OSI Model to Describe Network Operations-Layer 1: Physical Layer">Layer 1: Physical Layer</a></h3></div>
@@ -4257,7 +4371,7 @@ Can set up alerts
 
 </ol>
 <li>
-<a href="Wireless.html">Wireless</a>
+Wireless
 
 <li>
 Green: has two differnet vlans
