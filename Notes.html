@@ -8,7 +8,9 @@
 </head>
 <body>
 
-<div id="Contents" class="toc"><h1 id="Contents">Contents</a></h1></div>
+<p>
+e Conktop.google.com/access.remotedesktop.google.com/access.=
+</p>
 <ul>
 <li>
 <a href="Notes.html#Network Concepts">Network Concepts</a>
@@ -630,9 +632,7 @@ Protocols that allow computers to talk to each other locally
 Protocol: Internet Protocol 
 
 </ul>
-<p>
-==== Ethernet ===
-</p>
+<div id="Network Concepts-OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Ethernet"><h4 id="Ethernet" class="header"><a href="#Network Concepts-OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Ethernet">Ethernet</a></h4></div>
 <ol>
 <li>
 Terms and Concepts
@@ -816,6 +816,202 @@ OFDMA (orthogonal frequency division multiple access) packing data onto a wirele
 801.1q ethernet for trunk links
 
 </ul>
+
+
+<div id="Network Concepts-OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Wireless Topologies and management"><h4 id="Wireless Topologies and management" class="header"><a href="#Network Concepts-OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Wireless Topologies and management">Wireless Topologies and management</a></h4></div>
+<ul>
+<li>
+AdHoc
+
+<li>
+Extended Service Set ESS
+
+<ul>
+<li>
+Enterprise becuase there is more than one AP, dont put seperate AP, all operating different channels. 
+
+<li>
+Wireless LAN Controler controls all the APs
+
+<li>
+Creates profiles that you can send out to all the APs, gives different services to different areas of the network
+
+</ul>
+<li>
+BSS Basic Service Set
+
+<ul>
+<li>
+BSSID - MAC Address 
+
+<li>
+SSID Service Set ID
+
+</ul>
+<li>
+Point to Point wireless directional antenna (bad when something
+
+<ul>
+<li>
+CanTenna and Yagi Antenna 
+
+</ul>
+<li>
+Single Strength and Quality
+
+<ul>
+<li>
+Measured in Decibles dB
+
+<li>
+Signal to Noise Ratio SNR
+
+<li>
+Wireless Channel Bonding 
+
+<ul>
+<li>
+in 22MHz wide channels, we can use channels 1, 6, 11. Well if you take 1 and 6 and merge them at 22 MHz each to make 44 MHz channel, so each channel can send 54 megabits and combined 108 megabits Mbps. 
+
+</ul>
+</ul>
+</ul>
+
+<div id="Network Concepts-OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Wireless Encryption"><h4 id="Wireless Encryption" class="header"><a href="#Network Concepts-OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Wireless Encryption">Wireless Encryption</a></h4></div>
+<ul>
+<li>
+WEP wired equivalency protocol (joke)
+
+<li>
+WPA wifi protected access
+
+<ul>
+<li>
+TKIP Temporal Key Integrity, was extension of WEP
+
+<li>
+AES Advanced Encryption Standard: 
+
+</ul>
+<li>
+WPA2 wifi protected access 2
+
+<ul>
+<li>
+does TKIP and AES and two flavors
+
+<li>
+Personal: Pre Shared Key PSK
+
+<li>
+Enterprise: 802.1x EAP-TLS (username and password and certificate token for each device) Extensible Authentication Protocol - Transport Layer Security
+
+</ul>
+<li>
+WPA3 using AES
+
+</ul>
+
+<div id="Network Concepts-OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Cellular Wireless"><h4 id="Cellular Wireless" class="header"><a href="#Network Concepts-OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Cellular Wireless">Cellular Wireless</a></h4></div>
+<ul>
+<li>
+TDMA 2G Time Division Multiple Access, slow
+
+<li>
+GSM 3G Global System for Mobile Communications faster speed communication
+
+<li>
+CDMA 3G Code Division Multiple Access 
+
+<li>
+LTE 4G 5G Long Term Evolution
+
+<ul>
+<li>
+5G upgrade backend hardware and some wireless bands in cities. 
+
+</ul>
+</ul>
+
+<div id="Network Concepts-OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Layer 2 Devices and Services"><h4 id="Layer 2 Devices and Services" class="header"><a href="#Network Concepts-OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Layer 2 Devices and Services">Layer 2 Devices and Services</a></h4></div>
+<ul>
+<li>
+Modem: modulator demodulator
+
+<li>
+Cabel Modem
+
+<ul>
+<li>
+Layer 2 Protocol DOCSIS (Data over Cable Service, goes to cabel company) to ethernet
+
+</ul>
+<li>
+Fiber Optic Modem 
+
+<ul>
+<li>
+Media converter
+
+<li>
+Fiber Optic Ethernet to Copper Ethernet 
+
+</ul>
+<li>
+DSL Modem (Digital Subscriber Line) over phone lines, used audio outside range of human hearing, antiquated
+
+</ul>
+
+<div id="Network Concepts-OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Layer 2 Devices and Services-Traffic Shaping"><h5 id="Traffic Shaping" class="header"><a href="#Network Concepts-OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Layer 2 Devices and Services-Traffic Shaping">Traffic Shaping</a></h5></div>
+<ul>
+<li>
+VOIP vs video streaming: dropped packet will be noticed by VOIP
+
+<li>
+First Come First Serve: delays traffic
+
+<li>
+Traffic Shaping: Express lane prioritize Traffic, every other message is a priority. Done by adding special code in header infomation, or configure switch to give priority to certain VLANs. 
+
+<ul>
+<li>
+Bandwith Management: Purchase 50mb from fiber optic ISP
+
+<li>
+Quality of Service: 
+
+<li>
+Flow Control: on switches for traffice sent efficiantly 
+
+</ul>
+</ul>
+
+<div id="Network Concepts-OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Layer 2 Devices and Services-Local Neighbor Discovery"><h5 id="Local Neighbor Discovery" class="header"><a href="#Network Concepts-OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Layer 2 Devices and Services-Local Neighbor Discovery">Local Neighbor Discovery</a></h5></div>
+<ul>
+<li>
+Sends out messages on layer 2 as a router and I have capabilities and this is the port I am sending this message out on. Other devices send info back info. But only with Neighboring devices.  
+
+<li>
+Troubleshooing: see who is directly connected. 
+
+<li>
+LLDP: Link Layer Discovery Protocol for devices not Cisco based. 
+
+<li>
+CDP: Cisco Discovery Protocol, enabled on Cisco devices by default 
+
+<ul>
+<li>
+Commands: <code>show cdp neighbor</code>
+
+</ul>
+<li>
+Security Issue: if someone attaches to device that is not autherizd could see global 
+
+</ul>
+
+
+
 <div id="Network Concepts-OSI Model to Describe Network Operations-Layer 1: Physical Layer"><h3 id="Layer 1: Physical Layer" class="header"><a href="#Network Concepts-OSI Model to Describe Network Operations-Layer 1: Physical Layer">Layer 1: Physical Layer</a></h3></div>
 <ul>
 <li>
