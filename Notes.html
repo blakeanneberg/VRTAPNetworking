@@ -190,6 +190,12 @@
 <a href="Notes.html#Network Concepts-Collecting Network Monitoring Data">Collecting Network Monitoring Data</a>
 
 <li>
+<a href="Notes.html#Network Concepts-IT Documentation">IT Documentation</a>
+
+<li>
+<a href="Notes.html#Network Concepts-Network Drawings">Network Drawings</a>
+
+<li>
 <a href="Notes.html#Network Concepts-Corporate and Data Center Architectures">Corporate and Data Center Architectures</a>
 
 <li>
@@ -228,7 +234,6 @@
 
 </ul>
 </ul>
-
 
 
 
@@ -4459,26 +4464,82 @@ load balancer: distributes data to multiple differnet servers running the same s
 Using multiple load balancers: if one fails or needs software upgrade, still have other load balancer operating
 
 <li>
-Load Balancers need to be connected to switches and connected to servers. Servers need to be connected to two loadbalancers each, using NIC teaming (network interface card)
+Load Balancers need to be connected to switches and connected to servers. Servers need to be connected to two loadbalancers each, using NIC teaming (network interface card), and need layer three switches or routers and those need to be redundant (maybe 4) via multipathing (via routing protocols, load balances, layer 2 protocols), multipule paths to data center. 
+
+<li>
+First Hop Redundancy Protocols, provoide redundant default gateway for routers:
+
+<ul>
+<li>
+Hot Standby Routing Protocol HSRP
+
+<li>
+Virtual Router Redundancy Protocol VRRP
 
 </ul>
+<li>
+Redundant firewalls
+
+<li>
+redundant ISP, fiber into different buildings or different parts of the building
+
+<li>
+redundant power and batteries
+
+<li>
+redundant heating, cooling, fire suppression (FM200 gas in datacenter)
+
 </ul>
-</ul>
-</ul>
-            
-<ul>
 <li>
 Redundant data centers
 
+<ul>
+<li>
+Hot site, ready for redundant backup
+
+<li>
+Warm site 
+
+<li>
+Cold site 
+
+<li>
+Cloud data center
+
+</ul>
 <li>
 Backups
 
+<ul>
 <li>
-Snapshots
+Backup Tapes 
 
+<li>
+Snapshot: taking image of server, like a virtual server, points of time when system is working correctly, could abandon 
+
+</ul>
 <li>
 Service Level Agreement Terms
 
+<ul>
+<li>
+Business Agreement for Service written in a contract, law suite if breached.  
+
+<ul>
+<li>
+Mean Time to Repair MTTR: contract backed by additional services provided or some credit back for cost of downtime. 
+
+<li>
+Mean time between failures MTBF
+
+<li>
+Recovery Time Objective RTO
+
+<li>
+Recovery Point Objective RPO: how much data can we not collect or lose before business is adversly affected
+
+</ul>
+</ul>
 <li>
 how to figure out what to do next 
 
@@ -4490,6 +4551,7 @@ business continuity plan
 <li>
 post disaster, how business continues to work without the IT system 
 
+</ul>
 </ul>
 <li>
 Security and Device Policies
@@ -4612,6 +4674,7 @@ Service level agreement SLA
 <li>
 memorandum of understanding MOU (users of the system and owners of the technology) 
 
+</ul>
 </ul>
 <div id="Network Concepts-Network Drawings"><h2 id="Network Drawings" class="header"><a href="#Network Concepts-Network Drawings">Network Drawings</a></h2></div>
 <ul>
