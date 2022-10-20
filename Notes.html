@@ -184,6 +184,12 @@
 
 </ul>
 <li>
+<a href="Notes.html#Network Concepts-Network Monitoring">Network Monitoring</a>
+
+<li>
+<a href="Notes.html#Network Concepts-Collecting Network Monitoring Data">Collecting Network Monitoring Data</a>
+
+<li>
 <a href="Notes.html#Network Concepts-Corporate and Data Center Architectures">Corporate and Data Center Architectures</a>
 
 <li>
@@ -222,6 +228,7 @@
 
 </ul>
 </ul>
+
 
 
 
@@ -4041,6 +4048,743 @@ Hypervisor runs all the virtual servers, data network and virtual servers, netwo
 
 </ul>
 
+<div id="Network Concepts-Network Monitoring"><h2 id="Network Monitoring" class="header"><a href="#Network Concepts-Network Monitoring">Network Monitoring</a></h2></div>
+<ul>
+<li>
+Sends out messages asking status of all the different systems and allows us to alert when a device goes down, or a link goes down, or something that is broken of the network
+
+<ol>
+<li>
+performance metrics and sensors
+
+<li>
+interface statistics 
+
+<li>
+interface erros or alerts
+
+<li>
+environmental factors/sensors
+
+<li>
+device uptime/downtime (UPS fails) 
+
+</ol>
+<li>
+Network Monitor server, Observium Server   
+
+<ol>
+<li>
+Devices, Ports, Statuses, Map, uptime, processor spikes and memory in traffic, traffic though switch, status of ports and VLAN traffic, speed and duplex, packets (broadcast is ARP, multicast other traffic, VOIP seeing latency and jitter, temperature, errors 
+
+<li>
+Event Logs: interface changes
+
+<li>
+Layer 2 Errors
+
+<ul>
+<li>
+Giant: Means ethernet frame exceeds the MTU, bigger than 1500 bytes by default. Can enable Jumbo Frames, eleminate giants. Giants are a message that is too large, switch will throw away.
+
+<li>
+Runt: message that is too tiny, cant be processed and show up as error.
+
+<li>
+Encapsulation error: expecting non-tagged frame and it showed up as tagged frame. 
+
+<li>
+CRC Error: cyclical redundancy check that is part of the frame header itself. so the CRC algorithm pushes out a 32 bit value, attach it to the frame in the FCS field and send it. Frame could be tampered with, or looses data as it travels near a florsient lite, and then throw frame away and let other protocls figure out that the frame needs to be re-sent. 
+
+</ul>
+</ol>
+<li>
+Facilities Monitoring: check where we have places where we have networking gear
+
+<ul>
+<li>
+building room temperature
+
+<li>
+humidity
+
+<li>
+electrical status
+
+<li>
+floods sensors
+
+</ul>
+</ul>
+
+
+
+<div id="Network Concepts-Collecting Network Monitoring Data"><h2 id="Collecting Network Monitoring Data" class="header"><a href="#Network Concepts-Collecting Network Monitoring Data">Collecting Network Monitoring Data</a></h2></div>
+<ul>
+<li>
+Baselining: highlights traffic, processor utilization, memory, interface 
+
+<li>
+SNMP Simple Network Management Protocol 
+
+<ol>
+<li>
+Observium server uses SNMO to collect data about the devices
+
+<li>
+SNMP Manager and SNMP Agent
+
+<ul>
+<li>
+Devices on the network
+
+<li>
+Configure devices with Community String and the IP address of the SNMP server/Manager to all for them to talk with each other. 
+
+<li>
+Management Information Base MIB: database of device properties. 
+
+<li>
+Object Identifiers OID or MIB Number: number device is programmed with, so SNMP server knows about all devices. 
+
+<li>
+SNMPv2c: community string to authenticate, read only or read write access with a community string, dangerious if compromised. Added bulk data collection mechanism. 
+
+<li>
+SNMPv3: SNMP which is encrypted, SNMP View limits amount of OID numbers,authenticates devices and provides different levels of security. Set up username of certain MIBs, encripted 
+
+</ul>
+<li>
+TRAP 
+
+<ul>
+<li>
+tells when a device goes down or comes back up, send message to SNMP manager saying interface went down. report that to software and report that to admin. 
+
+</ul>
+<li>
+WALK the tree: 
+
+<ul>
+<li>
+When configuring Observium server, manually add each device on network, and configure all devices with SNMP config info. Walk the tree is SNMP manager sends out request to all devices to send back everything to report. 
+
+</ul>
+<li>
+Netflow
+
+<ul>
+<li>
+Collecting info about whats happening on the devices via a snapshop.
+
+<ul>
+<li>
+Source and Destination IP addresses, source and destination ports, other info in frame, packet and segment headers, and sends it to NetFlow server. 
+
+</ul>
+<li>
+Good for baselining, could detetect a spike in SSH traffic on network 
+
+</ul>
+<li>
+Syslog
+
+<ul>
+<li>
+ Uses as much as SNMP in order to collect critical info of what happening on network
+
+<li>
+in Observium server case its acutally Observium can be syslog server and SNMP server, and alot of logging soliutions may incorprorate it, or see other centrialized logging system  
+
+<li>
+Syslog Server: requires NTP network time protocol or else does not work, so events get recoreded in correct order.   
+
+<li>
+Syslog protocol is application layer protocol when event happens on device, it sends message to syslog server, syslog server, puts message in database so human can look at it. 
+
+<li>
+Trace back events in network: Traffic Logs (how much traffic is flowing in and out similar to NetFlow), Audit Logs (who made a change, username and commands made), Syslog (stuff that happens on the device, set differnet logging levels). 
+
+<li>
+Logging Levels, programmed with OS itself, use logging levels to tell syslog server to alert Admin:
+<table>
+<tr>
+<td>
+Level
+</td>
+<td>
+Severity
+</td>
+<td>
+Meaning
+</td>
+</tr>
+<tr>
+<td>
+-----
+</td>
+<td>
+-----
+</td>
+<td>
+----
+</td>
+</tr>
+<tr>
+<td>
+0
+</td>
+<td>
+Emergency
+</td>
+<td>
+EX: processor reached 100% and overheating
+</td>
+</tr>
+<tr>
+<td>
+1
+</td>
+<td>
+Alert
+</td>
+<td>
+EX: primary connection went down
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Critical
+</td>
+<td>
+EX: Failure in some service inside of the device
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Error
+</td>
+<td>
+EX: Port receved bad message and went into error disabled state
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Warning
+</td>
+<td>
+EX: running out of memery
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Notice
+</td>
+<td>
+EX: Informational message.
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Informational
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+Debug
+</td>
+<td>
+Troubleshooting, shows whats happening, can overwhelm device, so keep debug off unless specifc issue is debugging
+</td>
+</tr>
+</table>
+
+</ul>
+</ol>
+</ul>
+
+<div id="Network Concepts-IT Documentation"><h2 id="IT Documentation" class="header"><a href="#Network Concepts-IT Documentation">IT Documentation</a></h2></div>
+<ul>
+<li>
+Plans and Procedures
+
+<ul>
+<li>
+Standard operating procedures: sometimes directly from the manufacturer
+
+<ul>
+<li>
+Workflow: how it works and how we use it. 
+
+<li>
+Technical Documentation 
+
+<li>
+Contact Information: who supports software or support for vender 
+
+</ul>
+<li>
+Change Managment 
+
+<ul>
+<li>
+help desk 
+
+<li>
+a way for engineers and analysts to communicate with each other about changes that are being made
+
+<li>
+process for chaning IT system configurations
+
+<li>
+Change management database
+
+<li>
+Documentation
+
+<ul>
+<li>
+example: upgrading hardware or modifying configuration
+
+<li>
+this is the change that is being made on this day and time
+
+<li>
+Effects on other systems, or notify other users of downtime
+
+<li>
+Cross IT Discussion, just in case it effects other users you can see changes in one location 
+
+<li>
+Post Change Verification, asking users if its still working
+
+<li>
+Documenation for any changes that might have happened. 
+
+</ul>
+</ul>
+<li>
+Systems life cycle
+
+<ul>
+<li>
+describing analizing, designing and implimenting new IT systems 
+
+<li>
+IT is usally a service-based organization within a company where, where users come to IT with a problem
+
+<li>
+Analyze:  
+
+<ul>
+<li>
+alyzing a problem that usually a non IT person is trying to solve 
+
+</ul>
+<li>
+Design:
+
+<ul>
+<li>
+after a solution is in mind, design the solution
+
+<li>
+Making sure hardware is able to keep up with the solution 
+
+<li>
+Looking at technical components, makeing sure we can implement it
+
+</ul>
+<li>
+Implementation 
+
+<ul>
+<li>
+build out the system and prepair them for use
+
+</ul>
+<li>
+Utilize and support
+
+<ul>
+<li>
+analyst to support the system and helpdesk 
+
+</ul>
+<li>
+phase out and dispose 
+
+<ul>
+<li>
+desopose so and get rid of user data 
+
+</ul>
+</ul>
+<li>
+Incident Response plan
+
+<li>
+Disaster recovery plan
+
+<ul>
+<li>
+Creating High Avilability networks
+
+<ul>
+<li>
+load balancer: distributes data to multiple differnet servers running the same service, redierect traffic. 
+
+<li>
+Using multiple load balancers: if one fails or needs software upgrade, still have other load balancer operating
+
+<li>
+Load Balancers need to be connected to switches and connected to servers. Servers need to be connected to two loadbalancers each, using NIC teaming (network interface card)
+
+</ul>
+</ul>
+</ul>
+</ul>
+            
+<ul>
+<li>
+Redundant data centers
+
+<li>
+Backups
+
+<li>
+Snapshots
+
+<li>
+Service Level Agreement Terms
+
+<li>
+how to figure out what to do next 
+
+</ul>
+<li>
+business continuity plan
+
+<ul>
+<li>
+post disaster, how business continues to work without the IT system 
+
+</ul>
+<li>
+Security and Device Policies
+
+<ul>
+<li>
+How users should behave how users behave with company hardware
+
+<ul>
+<li>
+onboarding and offboarding  
+
+<li>
+invintory controls
+
+<li>
+security policy restrictions 
+
+<li>
+
+
+</ul>
+<li>
+Security Policy
+
+<li>
+On Boarding/Off Boarding
+
+<li>
+Remote Access/BYOD 
+
+<ul>
+<li>
+secure device
+
+<li>
+varus scan
+
+<li>
+malware scan
+
+<li>
+username/password/passcode requirements
+
+<li>
+cookies
+
+<li>
+privacy concers? 
+
+</ul>
+<li>
+Password Policy
+
+<ul>
+<li>
+people that are in positions that have authority but dont have technical knowledge to understand it 
+
+<li>
+password construction rules
+
+<li>
+password expiration/change rules
+
+<li>
+lost password rules
+
+<li>
+NIST Recommendations: users choose passwords in predictable way, special characters, change passwords in predictable ways. 8 characheters, avoid spacs, encourage longer easy to remember passwords, avoid forcing special stuff in the password, no mandatory resets, ban common passwords, dont re-use passwords for non-work related purposes, uncourage use of password vaults/ramdom password generators, enforce registration for multi factor authentication
+
+</ul>
+<li>
+Acceptiable use policy
+
+<ul>
+<li>
+web browsing guidance/restrictions  
+
+<li>
+software installations
+
+<li>
+email communcation guidlines
+
+<li>
+transfering data guidelines
+
+<li>
+personal vs professional use
+
+<li>
+consequences
+
+</ul>
+<li>
+Data Loss Prevention
+
+<ul>
+<li>
+Policy saying that dont do it
+
+<li>
+tech: DLP data loss prevention poliicy, to scann data if its being sent out into the internernet. 
+
+</ul>
+<li>
+Remote access policy/VPN Access/Remote Desktop Access/remote application access
+
+</ul>
+<li>
+Agreements
+
+<ul>
+<li>
+non-disclosure agreement NDA 
+
+<li>
+Service level agreement SLA
+
+<li>
+memorandum of understanding MOU (users of the system and owners of the technology) 
+
+</ul>
+<div id="Network Concepts-Network Drawings"><h2 id="Network Drawings" class="header"><a href="#Network Concepts-Network Drawings">Network Drawings</a></h2></div>
+<ul>
+<li>
+Data Center
+
+<ul>
+<li>
+label Aisles (depending on hot and cold airflow) 
+
+<li>
+Server Fronts will be pointing towards each other 
+
+<li>
+Each rack will be labeled with ABC and skip O confused with 0
+
+<li>
+Rack Diagram, 1 at bottom 24 at top. shows all equipment, Layer 3 switch, load balandcer, server 3, server 2, server 1, patch panel etc
+
+</ul>
+<li>
+IDF/MDF
+
+<ul>
+<li>
+Main Distribution Frame MDF 
+
+<ul>
+<li>
+from old phone lines 
+
+<li>
+where we terminalte connections from outside the building 
+
+<li>
+Fiber WAN Connections
+
+<li>
+Single Mode Fiber
+
+<li>
+Multi mode fiber to IDFs
+
+<li>
+Network Hardware/Media Converters o
+
+<li>
+Telephone Connections if you have old land lines which might have Telco T1, PRI, POTS etc
+
+<li>
+VoIP: Maybe the MDF has VoIP gateway hardware connecting to to T1 or PRI, what connections are comeing into the facility 
+
+</ul>
+<li>
+Intermediate Distribution Frame IDF
+
+<ul>
+<li>
+IDF connects to MDF typically though multi mode fiber 
+
+<li>
+Cat6 patch pannel: Network connections from users desks, connect users desktop to switch, which connects to MDF
+
+<li>
+Patch Pannel have labels, floor number, room number, jack number 
+
+<li>
+Network Switches, connect devices to connect all devices that are coming into patch pannel, connect to switch, and connect to multi mode fiber
+
+</ul>
+</ul>
+<li>
+Network Drawings
+
+<ul>
+<li>
+Icons from cysco 
+
+<li>
+Doesnt have to be a map, or giographical map
+
+<li>
+which devices are connected together, and how they are connected together. 
+
+<ul>
+<li>
+IP network listed
+
+<li>
+IP addresses 
+
+<li>
+Interfaces
+
+<li>
+Device names
+
+<li>
+how they are logically laid out
+
+<li>
+Userful when using Trace Route to find path of message though the network, to troubleshoot issues
+
+</ul>
+<li>
+Naming conventions
+
+<ul>
+<li>
+Number of devices 
+
+<li>
+Types of devices
+
+<li>
+type/location of building
+
+</ul>
+</ul>
+<li>
+Other Docs
+
+<ul>
+<li>
+Site Survey Reports for wireless coverage
+
+<ul>
+<li>
+site survey of building materials
+
+<li>
+create heatmap of wireless signals
+
+<li>
+adjust power of APs to get coverage or add more APs
+
+<li>
+
+
+</ul>
+<li>
+Audit assessment reports
+
+<ul>
+<li>
+Secuirty audit/assessment
+
+<li>
+invintory audit/assessment
+
+<li>
+user access audit/assessment
+
+</ul>
+<li>
+baseline configurations
+
+<ul>
+<li>
+daily snapshot of configes, called configuration management. periodic records of device configuration
+
+<li>
+usually a simple file of text
+
+<li>
+put in central location, to compaire configations
+
+<li>
+baseline configs for routers, switches and firewalls. 
+
+</ul>
+</ul>
+</ul>
 
 <div id="Network Concepts-Corporate and Data Center Architectures"><h2 id="Corporate and Data Center Architectures" class="header"><a href="#Network Concepts-Corporate and Data Center Architectures">Corporate and Data Center Architectures</a></h2></div>
 <ul>
@@ -4415,7 +5159,7 @@ Red: going away, wireless infogenissis access,
 EmployeeDevice being replaced: for emplyee cell phones, new password changed every year.
 
 <li>
-Slate: for vail devices, tempertare sensors, i9's ipads, each device has own password to its mac address
+Slate: for V. devices, tempertare sensors, i9's ipads, each device has own password to its mac address
 
 </ul>
 
