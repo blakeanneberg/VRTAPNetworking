@@ -9,8 +9,8 @@
 <body>
 
 <div id="Neovim config"><h1 id="Neovim config" class="header"><a href="#Neovim config">Neovim config</a></h1></div>
-<p>
-`
+
+<pre lua>
 set nocompatible
 set spelllang=en
 set spellsuggest=best,9
@@ -32,54 +32,46 @@ set hlsearch
 set history=100
 set wildmenu
 set wildmode=list:longest
-set wildignore=<span id="Neovim config-.docx,"></span><strong id=".docx,">.docx,</strong>.jpg,<span id="Neovim config-.png,"></span><strong id=".png,">.png,</strong>.gif,<span id="Neovim config-.pdf,"></span><strong id=".pdf,">.pdf,</strong>.pyc,<span id="Neovim config-.exe,"></span><strong id=".exe,">.exe,</strong>.flv,<span id="Neovim config-.img,"></span><strong id=".img,">.img,</strong>.xlsx
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 set autowrite
 set titlestring=%t
 set wrap
 set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
-</p>
-<blockquote>
-\,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
-\,sm:block-blinkwait175-blinkoff150-blinkon175
-</blockquote>
+		  \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
+		  \,sm:block-blinkwait175-blinkoff150-blinkon175
 
 
 
-<p>
 nnoremap &lt;silent&gt; &lt;F11&gt; :set spell!&lt;cr&gt;
 inoremap &lt;silent&gt; &lt;F11&gt; &lt;C-O&gt;:set spell!&lt;cr&gt;
-</p>
 
-<p>
 filetype plugin on
 syntax on
 filetype on
 filetype plugin on
 filetype indent on
-</p>
 
 
 
-<p>
 call plug#begin()
 " The default plugin directory will be as follows:
 " "   - Vim (Linux/macOS): '~/.vim/plugged'
 " "   - Vim (Windows): '~/vimfiles/plugged'
 " "   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
 " " You can specify a custom plugin directory by passing it as the argument
-" "   - e.g. <code>call plug#begin('~/.vim/plugged')</code>
+" "   - e.g. `call plug#begin('~/.vim/plugged')`
 " "   - Avoid using standard Vim directory names like 'plugin'
 "
 " " Make sure you use single quotes
 "
-" " Shorthand notation; fetches <a href="https://github.com/junegunn/vim-easy-align">https://github.com/junegunn/vim-easy-align</a>
+" " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
 "
 Plug 'itchyny/lightline.vim'
 "
 Plug 'vimwiki/vimwiki'
 " " Any valid git URL is allowed
-Plug '<a href="https://github.com/junegunn/vim-github-dashboard.git'">https://github.com/junegunn/vim-github-dashboard.git'</a>
+Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 "
 " " Multiple Plug commands can be written in a single line using | separators
  Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -107,25 +99,18 @@ Plug 'ThePrimeagen/vim-be-good'
 Plug 'tpope/vim-fugitive'
 "
 " " Initialize plugin system
-" " - Automatically executes <code>filetype plugin indent on</code> and <code>syntax enable</code>.
+" " - Automatically executes `filetype plugin indent on` and `syntax enable`.
  call plug#end()
-</p>
 
 
-<p>
 "colorscheme"
 let g:lightline = {
-</p>
-<blockquote>
-\ 'colorscheme': 'simpleblack',
-\ }
-</blockquote>
+	      \ 'colorscheme': 'simpleblack',
+      \ }
 
-<p>
 filetype plugin on
 syntax on
-`
-</p>
+</pre>
 
 </body>
 </html>
