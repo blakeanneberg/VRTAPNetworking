@@ -5216,16 +5216,34 @@ Broadcast messages can be a problem, with broadcast storm with messages if all t
     <img src="/home/blake/labsetup.png" />
 
 <li>
-<code>show mac address-table dynamic</code> or CAM table table, Content Addressable directory and show one port <code>show mac address-table interface f0/1</code> 
+<code>show mac address-table dynamic</code> or CAM table table, Content Addressable directory and show one port <code>show mac address-table interface int f0/1</code> 
+
+<li>
+KNow the IP address, find switchport: 
+
+<ul>
+<li>
+no mapping on switch of IP address to switchport, as switch is layer 2 device, but all IP addresses are affilated with MAC addresses. 
+
+<li>
+find out where 10.0.0.128 is plugged into the switch, go from that local network segment (have to be on the workstation that can ping from that local segment)
+
+<li>
+look at AARP table on workstation, <code>arp -a</code>, show the mapping on the workstation of IP addresses to respective MAC addresses. 
+
+<li>
+SSH into the Switch that the workstation is connected to. <code>show mac address-table ?</code> and the ? allows you to type the address <code>mac address-table address 000c.292d.9200</code> which will show into the port. Then look at the network map and see what switch is connected to that port and SSH into that new switch, and show the mac address of the new swich <code>show mac address-table address 000c.29ed.9200</code>
+
+<li>
+<code>show cdp neighbor</code> will show all neighbors that are connected to the switch.
+ nd remember that MAC address eventually get forgotten in MAC address Tables   
 
 </ul>
-</ol>
-    
-<ul>
+</ul>
 <li>
 
 
-</ul>
+</ol>
 <div id="Smart Hands Training-Switch Configuration"><h2 id="Switch Configuration" class="header"><a href="#Smart Hands Training-Switch Configuration">Switch Configuration</a></h2></div>
 <ul>
 <li>
