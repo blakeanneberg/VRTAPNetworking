@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div id="Contents" class="toc"><h1 id="Contents">Contents</a></h1></div>
+<div id="Contents" class="toc"><h2 id="Contents">Contents</a></h2></div>
 <ul>
 <li>
 <a href="Notes.html#Network Concepts">Network Concepts</a>
@@ -101,24 +101,24 @@
 <a href="Notes.html#IP Addressing-Address Types">Address Types</a>
 
 <li>
-<a href="Notes.html#IP Addressing-Ip Routing">Ip Routing</a>
+<a href="Notes.html#IP Addressing-IP Routing">IP Routing</a>
 
 <li>
 <a href="Notes.html#IP Addressing-Tracert">Tracert</a>
 
 </ul>
 <li>
-<a href="Notes.html#CIDR Classless Inter-Domain Routing">CIDR Classless Inter-Domain Routing</a>
+<a href="Notes.html#CIDER Classless Inter-Domain Routing">CIDER Classless Inter-Domain Routing</a>
 
 <li>
 <a href="Notes.html#Private IP Addresses">Private IP Addresses</a>
 
 <li>
-<a href="Notes.html#Subnetting Basics">Subnetting Basics</a>
+<a href="Notes.html#Subletting Basics">Subletting Basics</a>
 
 <ul>
 <li>
-<a href="Notes.html#Subnetting Basics-Variable Length Subnet Masking VLSM">Variable Length Subnet Masking VLSM</a>
+<a href="Notes.html#Subletting Basics-Variable Length Subnet Masking VLSM">Variable Length Subnet Masking VLSM</a>
 
 </ul>
 <li>
@@ -488,7 +488,7 @@ No 3 way handshake
 no reliable communication
 
 <li>
-no sequence numbers and no ack numbers
+no sequence numbers and no ACK numbers
 
 <li>
 Used for efficient data, but no way to make sure data is good. 
@@ -504,7 +504,7 @@ Protocols (ex HTTP, FTP, IMAP) have ports dedicated/assigned to, use a specific 
 
 <ul>
 <li>
-Most use TCP but LDAP uses TCP/UDP and TFTP uses UDP.
+Most use TCP but LDAP uses TCP/UDP and TrivialFTP uses UDP.
 
 </ul>
 </ul>
@@ -536,7 +536,7 @@ Registered 1024 - 49151
 
 <ul>
 <li>
-These port numbers are for custom applications, both offical and unofficial
+These port numbers are for custom applications, both official and unofficial
 
 </ul>
 </ul>
@@ -564,7 +564,7 @@ Well Known / Common Port Numbers
 SSL/TLS which is the same thing:443
 
 <li>
-FTP: 20/21, sFTP: 22, TrivialFTP: 69, SMB: 445 
+FTP: 20/21, SFTP: 22, TrivialFTP: 69, SMB: 445 
 
 <li>
 POP3: 110/995, IMAP: 143/993, SMTP 25/465
@@ -573,7 +573,7 @@ POP3: 110/995, IMAP: 143/993, SMTP 25/465
 LDAP: 389
 
 <li>
-LDAPs: 636
+LDAP: 636
 
 <li>
 DHCP: 67/68 UDP  
@@ -621,7 +621,7 @@ SQL Server: 1433
 HTTP: 80
 
 <li>
-HTTPs: 443
+HTTPS: 443
 
 <li>
 FTP: 20, 21
@@ -675,7 +675,7 @@ Terms and Concepts
 
 <ul>
 <li>
-CSMA/CD (Carrier Sense Multiple Access with Collision Detection), Old and not used, computers all connect to a cable, and each device would send traffic on the wire. and would often have a Collision with two comptuers talking at the same time. 
+CSMA/CD (Carrier Sense Multiple Access with Collision Detection), Old and not used, computers all connect to a cable, and each device would send traffic on the wire. And would often have a Collision with two computers talking at the same time. 
 
 <li>
 Collision Domain: group of networked devices that will simultaneously detect voltage spike 
@@ -685,7 +685,7 @@ Duplex and Speed
 
 <ul>
 <li>
-Half Duplex: send info once at a time, like walki talki. 
+Half Duplex: send info once at a time, like walkie talkie. 
 
 <li>
 Full Duplex: both devices send communication at the same time.
@@ -696,28 +696,28 @@ Ethernet Frame:
 
 <ul>
 <li>
-Package of data, with datalink layer header. Is called a Protocall Data Unit PDU 
+Package of data, with datalink layer header. Is called a Protocol Data Unit PDU 
 <table>
 <tr>
-<td>
-Desitnation Mac Address
-</td>
-<td>
+<th>
+Destination Mac Address
+</th>
+<th>
 Source Mac address
-</td>
-<td>
+</th>
+<th>
 Type
-</td>
-<td>
+</th>
+<th>
 Data (Layer 2 data packet)
-</td>
-<td>
+</th>
+<th>
 FCS
-</td>
+</th>
 </tr>
 <tr>
 <td>
-48 bits
+47 bits
 </td>
 <td>
 48 bits
@@ -743,7 +743,7 @@ Contains Manufacturer ID and Serial number
 says what kind of data is being sent
 </td>
 <td>
-algeralim value, to make sure its a good frame
+algorithm value, to make sure its a good frame
 </td>
 <td>
 &nbsp;
@@ -754,8 +754,11 @@ algeralim value, to make sure its a good frame
 </ul>
 </ul>
 </ol>
-         
-<div id="OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Wireless Ethernet Protols 802.11"><h3 id="Wireless Ethernet Protols 802.11" class="header"><a href="#OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Wireless Ethernet Protols 802.11">Wireless Ethernet Protols 802.11</a></h3></div>
+
+
+
+
+<div id="OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Wireless Ethernet Protocols 802.11"><h3 id="Wireless Ethernet Protocols 802.11" class="header"><a href="#OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Wireless Ethernet Protocols 802.11">Wireless Ethernet Protocols 802.11</a></h3></div>
 <ul>
 <li>
 802.11
@@ -766,7 +769,7 @@ For Enterprise business markets, no encryption
 
 </ul>
 <li>
-802.11b for comsumer/home market
+802.11b for consumer/home market
 
 <ul>
 <li>
@@ -777,10 +780,10 @@ For Enterprise business markets, no encryption
 uses 2.4 GHz 
 
 <li>
-up to 11Mbps bandwith
+up to 11Mbps bandwidth
 
 <li>
-Initally for SOHO use
+Initially for SOHO use
 
 </ul>
 <li>
@@ -791,7 +794,7 @@ Initally for SOHO use
 uses 2.4 GHz only
 
 <li>
-up to 54.Mbps bandwith 
+up to 54.Mbps bandwidth 
 
 <li>
 Enterprise/SOHO
@@ -802,10 +805,10 @@ Enterprise/SOHO
 
 <ul>
 <li>
-up to 300Mbps bandwith
+up to 300Mbps bandwidth
 
 <li>
-Uses MIMO Multiple input/multiple outpoot, can send out data on both intennas 
+Uses MIMO Multiple input/multiple output, can send out data on both antennas 
 
 </ul>
 </ul>
@@ -814,29 +817,29 @@ Uses MIMO Multiple input/multiple outpoot, can send out data on both intennas
 
 <ul>
 <li>
-uses 5.0 GHz spectrum only, up to 54Mbps bandwith, initially for enterprise use only
+uses 5.0 GHz spectrum only, up to 54Mbps bandwidth, initially for enterprise use only
 
 </ul>
 <li>
-802.11ac merge of enterprise and consumer wifi protocl 
+802.11ac merge of enterprise and consumer WiFi protocol 
 
 <ul>
 <li>
 uses 5.0 GHz spectrum only
 
 <li>
-up to 1.3Gbps bandwith, similar to wired connection. 
+up to 1.3Gbps bandwidth, similar to wired connection. 
 
 <li>
 Uses Multi User MIMO and beamforming 
 
 </ul>
 <li>
-802.11ax (wifi 6)
+802.11ax (WiFi 6)
 
 <ul>
 <li>
-2.4Ghz and 5.0Ghz plus ISM Bands (industrial, sientific and medical)
+2.4GHz and 5.0GHz plus ISM Bands (industrial, scientific and medical)
 
 <li>
 MIMO and MU-MIMO
@@ -849,7 +852,7 @@ OFDMA (orthogonal frequency division multiple access) packing data onto a wirele
 
 </ul>
 <li>
-801.1q ethernet for trunk links
+801.1q Ethernet for trunk links
 
 </ul>
 
@@ -857,20 +860,20 @@ OFDMA (orthogonal frequency division multiple access) packing data onto a wirele
 <div id="OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Wireless Topologies and management"><h3 id="Wireless Topologies and management" class="header"><a href="#OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Wireless Topologies and management">Wireless Topologies and management</a></h3></div>
 <ul>
 <li>
-AdHoc
+Adhoc
 
 <li>
 Extended Service Set ESS
 
 <ul>
 <li>
-Enterprise becuase there is more than one AP, dont put seperate AP, all operating different channels. 
+Enterprise because there is more than one AP, don't put separate AP, all operating different channels. 
 
 <li>
-Wireless LAN Controler controls all the APs
+Wireless LAN Controller controls all the AP's
 
 <li>
-Creates profiles that you can send out to all the APs, gives different services to different areas of the network
+Creates profiles that you can send out to all the AP's, gives different services to different areas of the network
 
 </ul>
 <li>
@@ -897,7 +900,7 @@ Single Strength and Quality
 
 <ul>
 <li>
-Measured in Decibles dB
+Measured in Decibels dB
 
 <li>
 Signal to Noise Ratio SNR
@@ -919,7 +922,7 @@ in 22MHz wide channels, we can use channels 1, 6, 11. Well if you take 1 and 6 a
 WEP wired equivalency protocol (joke)
 
 <li>
-WPA wifi protected access
+WPA WiFi protected access
 
 <ul>
 <li>
@@ -930,7 +933,7 @@ AES Advanced Encryption Standard:
 
 </ul>
 <li>
-WPA2 wifi protected access 2
+WPA2 WiFi protected access 2
 
 <ul>
 <li>
@@ -964,7 +967,7 @@ LTE 4G 5G Long Term Evolution
 
 <ul>
 <li>
-5G upgrade backend hardware and some wireless bands in cities. 
+5G upgrade backed hardware and some wireless bands in cities. 
 
 </ul>
 </ul>
@@ -975,11 +978,11 @@ LTE 4G 5G Long Term Evolution
 Modem: modulator demodulator
 
 <li>
-Cabel Modem
+Cable Modem
 
 <ul>
 <li>
-Layer 2 Protocol DOCSIS (Data over Cable Service, goes to cabel company) to ethernet
+Layer 2 Protocol DOCSIS (Data over Cable Service, goes to cable company) to Ethernet
 
 </ul>
 <li>
@@ -1007,17 +1010,17 @@ VOIP vs video streaming: dropped packet will be noticed by VOIP
 First Come First Serve: delays traffic
 
 <li>
-Traffic Shaping: Express lane prioritize Traffic, every other message is a priority. Done by adding special code in header infomation, or configure switch to give priority to certain VLANs. 
+Traffic Shaping: Express lane prioritize Traffic, every other message is a priority. Done by adding special code in header information, or configure switch to give priority to certain VLANs. 
 
 <ul>
 <li>
-Bandwith Management: Purchase 50mb from fiber optic ISP
+Bandwidth Management: Purchase 50Mb from fiber optic ISP
 
 <li>
 Quality of Service: 
 
 <li>
-Flow Control: on switches for traffice sent efficiantly 
+Flow Control: on switches for traffic sent efficiently 
 
 </ul>
 </ul>
@@ -1028,7 +1031,7 @@ Flow Control: on switches for traffice sent efficiantly
 Sends out messages on layer 2 as a router and I have capabilities and this is the port I am sending this message out on. Other devices send info back info. But only with Neighboring devices.  
 
 <li>
-Troubleshooing: see who is directly connected. 
+Troubleshooting: see who is directly connected. 
 
 <li>
 LLDP: Link Layer Discovery Protocol for devices not Cisco based. 
@@ -1042,7 +1045,7 @@ Commands: <code>show cdp neighbor</code>
 
 </ul>
 <li>
-Security Issue: if someone attaches to device that is not autherizd could see global 
+Security Issue: if someone attaches to device that is not authorized could see global 
 
 </ul>
 
@@ -1063,10 +1066,10 @@ allows to have a single IP address called a VIP (Virtual IP Address)
 VIP connects to several different servers
 
 <li>
-Numerous servers that can all respond to requests from clients simultaineously depending on the policy, sometimes via round robin or a health check for most resources availbe. 
+Numerous servers that can all respond to requests from clients simultaneously depending on the policy, sometimes via round robin or a health check for most resources available. 
 
 <li>
-Distribute load to multiple serers 
+Distribute load to multiple severs 
 
 </ul>
 </ol>
@@ -1081,7 +1084,7 @@ Traditional Firewalls are transport layer. allows network from inside network ou
 Access Control Lists: IP Address (or range) and Port Number (or range) 
 
 <li>
-DMZ: De Millitarized Zone, Allows people from the internet to get into the network
+DMZ: De Militarized Zone, Allows people from the internet to get into the network
 
 <li>
 Next Generation Firewall NGFW
@@ -1091,16 +1094,16 @@ Next Generation Firewall NGFW
 Work at Application Layer and Transport Layer and Network Layer
 
 <li>
-Also does IDS/IPS Intrusion Detection/Intrusion Prevention via a database has sigantures of malicious traffic that is undesirable in network
+Also does IDS/IPS Intrusion Detection/Intrusion Prevention via a database has signatures of malicious traffic that is undesirable in network
 
 <li>
 Automatically send alerts to admin to investigate to investigate the device. 
 
 <li>
-Proxy Server: filter web and interent traffic so they only access info certain websites and content filter, block traffic, or protect 
+Proxy Server: filter web and internet traffic so they only access info certain websites and content filter, block traffic, or protect 
 
 <li>
-VPN Concentrator: VPN Headins allows VPN get office resources from home. Creates tunnel of putting IP packets inside other IP packets which are encrypted. 
+VPN Concentrator: VPN Headings allows VPN get office resources from home. Creates tunnel of putting IP packets inside other IP packets which are encrypted. 
 
 </ul>
 <li>
@@ -1149,7 +1152,7 @@ Heating Ventilating Air Conditioning HVAC: Smart Device
 Physical Access Control: Card Readers
 
 <li>
-Internet of Things: lightbulbs, thermostats, refrigerators, doorbells, all kinds of things. 
+Internet of Things: light bulbs, thermostats, refrigerators, doorbells, all kinds of things. 
 
 <li>
 Security Cameras: IP based, or wireless
@@ -1169,10 +1172,10 @@ Wireless
 
 <ul>
 <li>
-2.5 GHz for 802.11 wireless needs 22 MHz to transport data, with multiple individual channels. And can only use 3 or 4 of the 14 cannels, using 1, 6 and 11.  
+2.5 GHz for 802.11 wireless needs 22 MHz to transport data, with multiple individual channels. And can only use 3 or 4 of the 14 channels, using 1, 6 and 11.  
 
 <li>
-5 GHz wifi spectrum ranges from 5.170 GHz to 5.835 GHz
+5 GHz WiFi spectrum ranges from 5.170 GHz to 5.835 GHz
 
 <ul>
 <li>
@@ -1205,10 +1208,10 @@ Twisted wires at different rates prevent crosstalk to make data transfers faster
 Shielding Twisted Pair STP (has shield), vs Unshielded Twisted Pair UTP 
 
 <li>
-Connectors: RJ11 (Telephone) and RJ-45 (etherent)
+Connectors: RJ11 (Telephone) and RJ-45 (Ethernet)
 
 <li>
-Straight Through (PC to Switch, Switch to Router) vs Crossover (from like device to like device, router to router, switch to switch, PC to PC, PC to router) 
+Straight Through (PC to Switch, Switch to Router) vs Cross over cable (from like device to like device, router to router, switch to switch, PC to PC, PC to router) 
 <table>
 <tr>
 <th>
@@ -1248,7 +1251,7 @@ EIA/TIA-568-B
 3 White/Green
 </td>
 <td>
-3- Recieve +
+3- Receive +
 </td>
 <td>
 3 White Orange Rx
@@ -1281,7 +1284,7 @@ None
 6 Green
 </td>
 <td>
-6- Recieve -
+6- Receive -
 </td>
 <td>
 6 Orange Rx
@@ -1376,7 +1379,7 @@ Cat 5
 100BaseT
 </td>
 <td>
-FastEthernet
+Fast Ethernet
 </td>
 <td>
 &nbsp;
@@ -1427,7 +1430,7 @@ Gigabit Ethernet
 1Gbps
 </td>
 <td>
-GigabitEthernet
+Gigabit Ethernet
 </td>
 <td>
 Full Duplex
@@ -1444,7 +1447,7 @@ Cat 6a/Cat 7
 10GBaseT
 </td>
 <td>
-10GigabitEthernet
+10 Gigabit Ethernet
 </td>
 <td>
 Full Duplex
@@ -1461,7 +1464,7 @@ Cat 8
 40GBaseT
 </td>
 <td>
-40GigabitEthernet
+40 Gigabit Ethernet
 </td>
 <td>
 Full Duplex
@@ -1475,14 +1478,14 @@ Auto MDI-X (Auto Medium Dependent Interface Crossover) so you can use any kind o
 </ol>
 </ul>
 <li>
-Coaxial Cabeling
+Coaxial Cabling
 
 <ol>
 <li>
 Cable TV/Cable Internet is RG-6 with a F-Type connector
 
 <li>
-Twinaxial Cabel/Twinax has 10GB or 40GB, often with network interface card built into the cable (SFPs), to connect switches, routers, servers or SANs together.
+Twinaxial cable/Twinax has 10GB or 40GB, often with network interface card built into the cable (SFPs), to connect switches, routers, servers or SANs together.
 
 </ol>
 <li>
@@ -1490,14 +1493,14 @@ Ethernet Switches
 
 <ol>
 <li>
-Layer two switchs
+Layer two switch
 
 <ul>
 <li>
-MAC address table has ports and MAC addresses connected to the port, ASIC Application-Specific Integretaged Circuit, all it does is read the destincation and source MAC address of the frames.
+MAC address table has ports and MAC addresses connected to the port, ASIC Application-Specific Integrated Circuit, all it does is read the destination and source MAC address of the frames.
 
 <li>
-Swich builds circet after the MAC address table
+Switch builds circuit after the MAC address table
 
 </ul>
 <li>
@@ -1505,7 +1508,46 @@ Layer two Broadcasts
 
 <ul>
 <li>
-In the Ethernet 2 Frame, the destination MAC address field, if that is all Fs or all binary 1s, it means the frame is sent out to all active interfaces, except the receving interface 
+In the Ethernet 2 Frame, the destination MAC address field, if that is all Fs or all binary 1s, it means the frame is sent out to all active interfaces, except the receiving interface 
+<table>
+<tr>
+<th>
+Destination MAC Address
+</th>
+<th>
+Source MAC address
+</th>
+<th>
+Type
+</th>
+<th>
+Data(Packet)
+</th>
+<th>
+FCS
+</th>
+</tr>
+<tr>
+<td>
+FFFF FFFF FFFF
+</td>
+<td>
+48 Bits
+</td>
+<td>
+16 Bits
+</td>
+<td>
+MAX 1500 Bytes
+</td>
+<td>
+32 Bits
+</td>
+</tr>
+</table>
+
+<li>
+Flooding: when destination MAC address of the frame is not in the MAC address table, the frame is sent out to all active interfaces, except receiving interface
 
 </ul>
 <li>
@@ -1517,24 +1559,24 @@ Group of networked devices which all receive a layer 2 broadcast message.
 
 </ul>
 <li>
-Connecting Switchs (is basically daisy chaining them together)
+Connecting Switches (is basically daisy chaining them together)
 
 <ul>
 <li>
-Broadcast storm: clogs and overwhelms switches. so dont connect switches more than twice, or disable the port so one connection is there.
+Broadcast storm: clogs and overwhelms switches. So don't connect switches more than twice, or disable the port so one connection is there.
 
 <li>
-Spanning Tree Protocol: shuts down one of the links, so broadcast mesages do not repeat in loop. Works with multiple switches.
+Spanning Tree Protocol: shuts down one of the links, so broadcast messages do not repeat in loop. Works with multiple switches.
 
 <li>
 SHOW SPANNING TREE
 
 <li>
-Port Aggregation (Extra bandwith/Redundancy) via Link Aggregation Control Protocol LAC (open source) 
+Port Aggregation (Extra bandwidth/Redundancy) via Link Aggregation Control Protocol LAC (open source) 
 
 </ul>
 <li>
-VLANS
+VLANs
 
 <ul>
 <li>
@@ -1544,10 +1586,10 @@ Broadcast Domain:
 Joining two networks with a switch, you can assign ports to be a specific VLAN, creating a little mini switch within the switch, so you only forward traffic to intended devices.
 
 <li>
-Computers on two networks, connected by two switches connect by a trunk link, tags messages in the fram to go to correct VLAN network switch, and removes the tag and gives to correct computer. 
+Computers on two networks, connected by two switches connect by a trunk link, tags messages in the frame to go to correct VLAN network switch, and removes the tag and gives to correct computer. 
 
 <li>
-VLANS create mini networks which are seperate using VLAN tags in the fram as they travers switches via a trunk link. 
+VLANs create mini networks which are separate using VLAN tags in the frame as they traverse switches via a trunk link. 
 
 <ul>
 <li>
@@ -1555,26 +1597,29 @@ The ports on the trunk link are called Tagged Ports.
 
 </ul>
 <li>
-Protocoll on trunk link for Tagged Ports is 802.1Q 
+Protocol on trunk link for Tagged Ports is 802.1Q 
 
 <li>
-Example seperating VOIP traffic of phone Voice VLAN from regular Data VLAN for computer data.
+Example separating VOIP traffic of phone Voice VLAN from regular Data VLAN for computer data.
 
 <li>
-Putty: "show mac address-table"
+Putty: <code>show mac address-table</code>
 
 <ul>
 <li>
-F0/0 means Fast Ethernet 
+shows all MAC address and their ports  
 
 <li>
-Enter configuration mode: "configure t"
+F0/0 means Fast Ethernet, example: "Fa0/3" is Port 3 
 
 <li>
-Configurean command: "#int f0/3"
+Enter configuration mode: <code>configure t</code>
 
 <li>
-Change vlan port: "#switchport access vlan 20" 
+Configuration command: <code>#int f0/3</code>
+
+<li>
+Change VLAN port: <code>#switchport access VLAN 20</code> 
 
 </ul>
 </ul>
@@ -1583,7 +1628,7 @@ Port Mirroring
 
 <ul>
 <li>
-Takes all the traffic and mirros the traffic from the swithch to another computer so you can analize the traffic
+Takes all the traffic and mirrors the traffic from the switch to another computer so you can analyze the traffic
 
 <li>
 Wireshark can do this port mirroring
@@ -1594,7 +1639,7 @@ Power over Ethernet PoE
 
 <ul>
 <li>
-power devices over the ethernet line  
+power devices over the Ethernet line  
 
 <li>
 802.3af (2003 15.4 watts DC Power)
@@ -1604,6 +1649,53 @@ power devices over the ethernet line
 
 </ul>
 </ol>
+<li>
+IEEE 802.3
+
+<ul>
+<li>
+Protol can travel over
+
+<ul>
+<li>
+Copper 
+
+<ul>
+<li>
+10Base5 "frozen garden hose" 
+
+<li>
+10Base2
+
+<li>
+10BaseT
+
+<li>
+100BaseT
+
+<li>
+1000BaseT
+
+</ul>
+<li>
+Fiber 
+
+<ul>
+<li>
+1000Base-SX
+
+<li>
+1000Base-LX 
+
+<li>
+10GBase-SR
+
+<li>
+10GBase-LR
+
+</ul>
+</ul>
+</ul>
 <li>
 Fiber Optics
 
@@ -1711,14 +1803,14 @@ QSFP and QSF+ (newer form of NIC cards, Q means Quad.)
 Connectors( ST Connector, SC Connector, LC Connector, MTRJ Connector, FC Connector) 
 
 <li>
-Patch Panel, terminate in one spot then use shorter piece of fiber to plug into the pach pannel, to plug in to the SFP into the gear.
+Patch Panel, terminate in one spot then use shorter piece of fiber to plug into the patch panel, to plug in to the SFP into the gear.
 
 </ul>
 <li>
 Connections: Angled physical contact (APC) or Ultra Physical Contact (UPC) 
 
 <li>
-Operation: light and data flow one way in one fiber and the other way, called Simplex Pair, with lasers and eyes on both ends. But can be one fiber, called Bidirectional with different wavelengths of light via WDM (Wave division Multiplexing). WDM works by using three different kind of UV lasers shining into a prism and creats a single stream of light, and then another prism breaking it out into each eye. 
+Operation: light and data flow one way in one fiber and the other way, called Simplex Pair, with lasers and eyes on both ends. But can be one fiber, called Bidirectional with different wavelengths of light via WDM (Wave division Multiplexing). WDM works by using three different kind of UV lasers shining into a prism and create a single stream of light, and then another prism breaking it out into each eye. 
 
 <li>
 Wave Division Multiplexing
@@ -1793,7 +1885,7 @@ Single Mode Fiber
         
 <ul>
 <li>
-66 Block telephone and 110 block, bigger version of 66 block, use punchdown tool, Krone, 110, BIX
+66 Block telephone and 110 block, bigger version of 66 block, use punch down tool, Krone, 110, BIX
 
 </ul>
 <li>
@@ -1836,7 +1928,7 @@ Link Layer sends the Frame down to the Physical Layer which breaks it into ones 
 <div id="Routing IP Traffic"><h1 id="Routing IP Traffic" class="header"><a href="#Routing IP Traffic">Routing IP Traffic</a></h1></div>
 <ol>
 <li>
-Require Physical, Data Link (traffic from one device to another) and Network layer (Internet Layer with routers to move traffic from one segment of the network to another, and if  Layer 2 Bridge like a Cabel Modem that converts Ethernet frames and puts it in a DOCSIS frame (DOCSIS is protocol that cabel modem uses to communicate to ISP)
+Require Physical, Data Link (traffic from one device to another) and Network layer (Internet Layer with routers to move traffic from one segment of the network to another, and if  Layer 2 Bridge like a cable Modem that converts Ethernet frames and puts it in a DOCSIS frame (DOCSIS is protocol that cable modem uses to communicate to ISP)
 
 <li>
 IP Packet
@@ -1850,10 +1942,10 @@ IP Packet contains:
 Source IP Address
 
 <li>
-Desitnation IP Address
+Destination IP Address
 
 <li>
-TTL (couter every time it goes through a router it desceases). 
+TTL (counter every time it goes through a router it deceases). 
 
 <li>
 Other
@@ -2455,7 +2547,7 @@ IP addresses are really 32 bits long, just put it in decimal to read easier.
 <div id="IP Addressing-Classful vs Classless addressing"><h2 id="Classful vs Classless addressing" class="header"><a href="#IP Addressing-Classful vs Classless addressing">Classful vs Classless addressing</a></h2></div>
 <ul>
 <li>
-<em>We don't use Classfull  anymore!</em> Because we ran out of IP ranges as we didn't predict speed of growth of internet.
+<em>We don't use Classful  anymore!</em> Because we ran out of IP ranges as we didn't predict speed of growth of internet.
 
 <li>
  Classful Addressing (~1995 and prior)
@@ -3206,47 +3298,47 @@ Host Portion
 
 </ul>
 
-<div id="IP Addressing-Ip Routing"><h2 id="Ip Routing" class="header"><a href="#IP Addressing-Ip Routing">Ip Routing</a></h2></div>
+<div id="IP Addressing-IP Routing"><h2 id="IP Routing" class="header"><a href="#IP Addressing-IP Routing">IP Routing</a></h2></div>
 <ul>
 <li>
-cannot ARP for destiation address because its not on our own local network because ARP messages cannot be sent through a router. ARP messages cannot be sent through a router. 
+cannot ARP for destination address because its not on our own local network because ARP messages cannot be sent through a router. ARP messages cannot be sent through a router. 
 
 <li>
-Consult Routing tabel on PC. To reach Local network and a route for everything else, including default gateway
+Consult Routing table on PC. To reach Local network and a route for everything else, including default gateway
 
 <li>
 Static Routing: Manually adding networks that Routers do not know about, problem is that it does not change with network changes.  
 
 <li>
-Dynamic Routing: will use a routing protoc to build the routing tables themselfves  
+Dynamic Routing: will use a routing proton to build the routing tables themselves  
 
 <ul>
 <li>
-RIP protoc: is not used anymore. 
+RIP proton: is not used anymore. 
 
 <li>
-EIGRP: Ciscos routing protoc called Enhanced Interior Gateway Routing Protocol 
+EIGRP: Cisco's routing proton called Enhanced Interior Gateway Routing Protocol 
 
 <li>
 OSPF: Open Shortest Path First, popular with enterprise 
 
 <li>
-BGP: Border Gateway Protocl, used on public internet to move different business and internet service providers, more like a scripting language with parameters that we can configure. 
+BGP: Border Gateway Protocol, used on public internet to move different business and internet service providers, more like a scripting language with parameters that we can configure. 
 
 </ul>
 <li>
-Administrative Distance: the higher the number the lower the priority of routing protocl, determines which route is good one to add to the routing table.
+Administrative Distance: the higher the number the lower the priority of routing protocol, determines which route is good one to add to the routing table.
 
 </ul>
 
 <div id="IP Addressing-Tracert"><h2 id="Tracert" class="header"><a href="#IP Addressing-Tracert">Tracert</a></h2></div>
 <ul>
 <li>
-tracert 8.8.8.8 -d will give only ip addresses and no DNS lookups. 
+tracert 8.8.8.8 -d will give only IP addresses and no DNS lookups. 
 
 </ul>
 
-<div id="CIDR Classless Inter-Domain Routing"><h1 id="CIDR Classless Inter-Domain Routing" class="header"><a href="#CIDR Classless Inter-Domain Routing">CIDR Classless Inter-Domain Routing</a></h1></div>
+<div id="CIDER Classless Inter-Domain Routing"><h1 id="CIDER Classless Inter-Domain Routing" class="header"><a href="#CIDER Classless Inter-Domain Routing">CIDER Classless Inter-Domain Routing</a></h1></div>
 <ul>
 <li>
 Length of the Network Prefix in bits
@@ -3446,7 +3538,7 @@ If network portion of mask is different you will need a router/default gateway t
 
 </ul>
 
-<div id="Subnetting Basics"><h1 id="Subnetting Basics" class="header"><a href="#Subnetting Basics">Subnetting Basics</a></h1></div>
+<div id="Subletting Basics"><h1 id="Subletting Basics" class="header"><a href="#Subletting Basics">Subletting Basics</a></h1></div>
 
 <p>
 Network: 10.0.0.0/8
@@ -3472,7 +3564,7 @@ So this network now has 254 different hosts. Zero to 255 is 256 unique address b
 So now the network is 10.0.10.0 - 10.0.10.255
 </p>
  
-<div id="Subnetting Basics-Variable Length Subnet Masking VLSM"><h2 id="Variable Length Subnet Masking VLSM" class="header"><a href="#Subnetting Basics-Variable Length Subnet Masking VLSM">Variable Length Subnet Masking VLSM</a></h2></div>
+<div id="Subletting Basics-Variable Length Subnet Masking VLSM"><h2 id="Variable Length Subnet Masking VLSM" class="header"><a href="#Subletting Basics-Variable Length Subnet Masking VLSM">Variable Length Subnet Masking VLSM</a></h2></div>
 <p>
  Its a way to break up /24 mask to be other kinds of masks:
 <table>
@@ -3601,7 +3693,7 @@ Loopback address: ::1/128
 
 </ul>
 <li>
-IPv^ sends out peridoc messages to find out who is on the network using IPv6
+IPv6 sends out periodic messages to find out who is on the network using IPv6
 
 <li>
 Multicast Address
@@ -3623,7 +3715,7 @@ Used for Load balancing
 
 </ul>
 <li>
-Duel Stack: running IPv4 and IPv6 Protocalls on a computer
+Duel Stack: running IPv4 and IPv6 Protocols on a computer
 
 <li>
 There are no private IPv6 addresses, all are public, except for a documentation
@@ -3653,10 +3745,10 @@ Depending on the operating system:
 
 <ul>
 <li>
-It will configure (Windows Random 64 bit interface identifier), so the computer will create two IPv6 (Manual IPv6 and automatically genererated Link Local IPv6 address). 
+It will configure (Windows Random 64 bit interface identifier), so the computer will create two IPv6 (Manual IPv6 and automatically generated Link Local IPv6 address). 
 
 <li>
-Mac and Linux will use Modified EUI-64 address and take MAC address (MAC is layer 2) of network interface card, and split it in to middel of the MAC address and add FF:FE and this will make the address 64 bits long. Ex: 000C:29FF:FEFC:70A5. Then you take the first two bits and convert them into binary, Ex: 00 to 0000 0000 and then you take the 7th bit in that last and flip it to either 0 or 1, then convert it back to hexadecimal and now that becomes the interface identifer. 
+Mac and Linux will use Modified EUI-64 address and take MAC address (MAC is layer 2) of network interface card, and split it in to middle of the MAC address and add FF:FE and this will make the address 64 bits long. Ex: 000C:29FF:FEFC:70A5. Then you take the first two bits and convert them into binary, Ex: 00 to 0000 0000 and then you take the 7th bit in that last and flip it to either 0 or 1, then convert it back to hexadecimal and now that becomes the interface identifier. 
 
 </ul>
 </ul>
@@ -3854,7 +3946,7 @@ Star
 
 <ul>
 <li>
-where every divice has cabel running to central location like a switch
+where every divice has cable running to central location like a switch
 
 </ul>
 <li>
@@ -4086,7 +4178,7 @@ Layer 2 Errors
 
 <ul>
 <li>
-Giant: Means ethernet frame exceeds the MTU, bigger than 1500 bytes by default. Can enable Jumbo Frames, eleminate giants. Giants are a message that is too large, switch will throw away.
+Giant: Means Ethernet frame exceeds the MTU, bigger than 1500 bytes by default. Can enable Jumbo Frames, eleminate giants. Giants are a message that is too large, switch will throw away.
 
 <li>
 Runt: message that is too tiny, cant be processed and show up as error.
@@ -4346,7 +4438,7 @@ Contact Information: who supports software or support for vender
 
 </ul>
 <li>
-Change Managment 
+Change management 
 
 <ul>
 <li>
@@ -4732,13 +4824,13 @@ Intermediate Distribution Frame IDF
 IDF connects to MDF typically though multi mode fiber 
 
 <li>
-Cat6 patch pannel: Network connections from users desks, connect users desktop to switch, which connects to MDF
+Cat6 patch panel: Network connections from users desks, connect users desktop to switch, which connects to MDF
 
 <li>
-Patch Pannel have labels, floor number, room number, jack number 
+Patch panel have labels, floor number, room number, jack number 
 
 <li>
-Network Switches, connect devices to connect all devices that are coming into patch pannel, connect to switch, and connect to multi mode fiber
+Network Switches, connect devices to connect all devices that are coming into patch panel, connect to switch, and connect to multi mode fiber
 
 </ul>
 </ul>
@@ -4965,7 +5057,7 @@ Servers need a way to connect to the SAN, is done with switch, 3 ways to do this
 Fibre Channel: (connection via SAN, fiber optics to connect to a fiber optic switch to distribute SAN to servers). Layer 2 protocal, dont need to worry about IP or TCP or anything above the data link layer of OSI Model. 
 
 <li>
-Fibre Channel over Ethernet FCoE: over high speed ethernet
+Fibre Channel over Ethernet FCoE: over high speed Ethernet
 
 <li>
 iSCSi: Uses TCPIP connection between SAN and servers. 
@@ -5074,22 +5166,22 @@ Security
 <div id="Smart Hands Training-Switches"><h2 id="Switches" class="header"><a href="#Smart Hands Training-Switches">Switches</a></h2></div>
 <ol>
 <li>
-Patch pannel labeling
+Patch panel labeling
 
 <li>
 no standards in labeling
 
 <li>
-Patch Pannels 
+Patch Panels 
 
 <li>
 48 or 24 ports, identifier label or switch room identifier
 
 <li>
-Patch cabels is a pach pannel to switch
+Patch cables is a patch panel to switch
 
 <li>
-Use toner to find patch pannel. 
+Use toner to find patch panel. 
 
 <li>
 Ports on a switch
@@ -5098,7 +5190,7 @@ Ports on a switch
 Odds on top, evens on bottom
 
 <li>
-Switch stack number(1)/module number (0)/portnumber (GI is gigabit) 
+Switch stack number(1)/module number (0)/port number (GI is gigabit) 
 
 <li>
 6-8-12 ports and 24-48 ports
@@ -5107,12 +5199,187 @@ Switch stack number(1)/module number (0)/portnumber (GI is gigabit)
 9000 series switches 
 
 <li>
-Stacked swiches are 1 to higher number from top to bottom
+Stacked switches are 1 to higher number from top to bottom
 
 <li>
 Smaller switches
 
+<li>
+Cascading Switches, connecting switches switches
+
+<ul>
+<li>
+MAC address tables of top switch will show Port example: 1 and mac address of each computer ex: DF 7B. and the Bottom switch will show Port example 1 and mac of the other computers on top switch, example: c2 a7 6e b3 3f 
+
+</ul>
 </ol>
+<p>
+= Switch Configuration ==
+</p>
+<ul>
+<li>
+Swtich Memory
+
+<ul>
+<li>
+Bootstrap stored in EEPROM, OS operating stored in flash memoery, startup-config is stored in virtual NVRAM, running-config is stored in RAM
+
+<li>
+Working with config and use <code>copy running-config startup-config</code> were taking copy of running-config in ram and your copying it to flash, but we dont call it startup-config, you call it config.txt
+
+</ul>
+<li>
+Switch Cofiguration LAB: RS-232 Port connects computer to thw Switch via the Console Port
+
+<ul>
+<li>
+Use Putty
+
+<li>
+User mode is <code>&gt;</code>
+
+<li>
+<code>en</code> is enable to privilaged mode <code>#</code>
+
+<li>
+Config mode is <code>config t</code>
+
+<li>
+Change name of switch: <code>hostname Blakeswitch1</code>
+
+<li>
+Domain Name so you can generate crypto key to enable SSH: <code>ip domain-name blake.com</code> 
+
+<li>
+Banner message of the day, for when users connect to it they can see what is going on: <code>banner motd #this is Blake's switch, stay out!#</code>
+
+<li>
+Security stuff
+
+<ul>
+<li>
+create password from user mode to privilaged mode: <code>enable secret passwordcisco</code>
+
+<li>
+create username: <code>username blake scret passwordcisco</code>
+
+<li>
+generate crypto key and enable SSH: <code>crypto key generate rsa</code> 
+
+<ul>
+<li>
+use at least 1024 bits 
+
+</ul>
+<li>
+Change version of SSH: <code>ip ssh ver 2</code> 
+
+<li>
+Enable password encryption: <code>service password-encryption</code>
+
+</ul>
+<li>
+Go to line con 0: <code>line con 0</code>
+
+<ul>
+<li>
+put a password on it: <code>password passwordcisco</code> 
+
+</ul>
+<li>
+Log in: <code>login</code> and exit: <code>exit</code> 
+
+<li>
+Configure switch so we can SSH into it: <code>line vty 0 4</code> 
+
+<li>
+Log into the switch with that username and password that is in the database on the router: <code>login local</code>
+
+<li>
+Only allow SSH: <code>transport input ssh</code>
+
+<li>
+Switch needs IP address for the SSH, switches do not examin IP addresses (only mac addresses in the frame and frame header, switches purpose is a layer 2 device), so IP address is just to SSH to the Switch, not route traffic. So to create a IP address, must create virtual interface: <code>interface vlan 1</code> which is a switched virtual interface SVI and has MAC address and IP address: <code>ip address 10.0.0.5 255.255.255.0</code> and <code>no shutdown</code>
+
+<li>
+VLAN 1 are just the switch ports, so they can access the virtual interface, to see current config use <code>show running-config</code>and save config <code>copy running-config startup-config</code> 
+
+<li>
+Show contense of flash memory: <code>show flash</code>
+
+<li>
+SSH into the switch:
+
+<ul>
+<li>
+use putty in SSH mode, and you can ping the IP to make sure the computer can see the switch on the network.
+
+<li>
+use <code>en</code> to enter into privilaged mode
+
+<li>
+change password: <code>config t</code>
+
+<li>
+enable secret: <code>randompasswordh</code>
+
+<li>
+exit: <code>exit</code> and copy running config to startup config: <code>running-config startup-config</code> 
+
+</ul>
+<li>
+Reset passowrd:  
+
+<ul>
+<li>
+password is stored in file called config.txt and flash memory. access flash memory from ROMmon mode, by pressing button one button on switch while switch boots up for a hard reset wich brings you to switch, and you have to initialize flash memory with <code>flash_init</code> and look at flash memory: <code>dir flash</code> which will show the config.txt file where the password is located, but you need to rename the file to something else than <code>config.text</code> by renaming it <code>rename flash:config.text flash:config.bak</code> then boot up switch with <code>boot</code>, after it boots up use <code>en</code> for privilaged mode and do <code>show flash</code> to show files in flash memory, and rename <code>rename flash:config.bak flash:config.text</code> and now make that running config file to make it startup config file: <code> copy flash:/config.text running-config</code> now switch has running config copied over, now go into config mode and change enable secret to something you know: <code>enable secret cisco</code> and exit and <code>copy running-config startup-conf</code> 
+
+</ul>
+<li>
+Upgrading the IOS
+
+<ul>
+<li>
+<code>showversion</code> shows version of OS and <code>showflash</code> and shows OS that is curretly loading, OS files should end in .BIN, so change directiries by `dir flash:/c2960-lanbasek9-mx.150-2.SE6 
+
+<li>
+Size of the .BIN file is important to check free memory <code>show flash</code> 
+
+<li>
+Check integrety of the .BIN file, exactly same bits as same as router: <code>verify /md5 flash:c2960-lanbasek9-mz.150-2.se7.bin</code> runs the file though the md5 algerathm and it spits out a value and use the values to verify integrity of the file
+
+<li>
+Turn on TFTP server
+
+<li>
+Ping work station <code>pin 10.0.0.10</code>
+
+<li>
+Now copy the file <code>copy tftp flash</code> and enter address <code>10.0.0.10</code> and source file name
+
+<li>
+see if file transferd by <code>show flash</code>
+
+<li>
+Use new file for switch <code>boot system flash:/c2960-lanbasek9-mz.150-2.se7.bin</code>
+
+<li>
+exit and save <code>copy running-config startup-config</code>
+
+<li>
+reload the switch <code>reload</code> to the new .BIN file 
+
+<li>
+go back into privialge mode <code>en</code> and show version <code>show version</code>
+
+<ul>
+<li>
+
+
+</ul>
+</ul>
+</ul>
+</ul>
 <div id="Smart Hands Training-Accessing a switch"><h2 id="Accessing a switch" class="header"><a href="#Smart Hands Training-Accessing a switch">Accessing a switch</a></h2></div>
 <ul>
 <li>
@@ -5124,7 +5391,7 @@ IP address, password
 
 </ul>
 <li>
-Solarwinds keeps networt sessions active to remote into. 
+Solarwinds keeps network sessions active to remote into. 
 
 <li>
 Console
@@ -5134,14 +5401,14 @@ Console
 directly connecting to the switch via RJ45 to USB, Cisco specific, should be in the MDF room
 
 <li>
-Console ports for Cisco are blue port, yellow is managment port 
+Console ports for Cisco are blue port, yellow is management port 
 
 </ul>
 <li>
-Propts: # means privalige exec mode, (Config) is config mode so be careful, show command will show settings
+Prompts: # means privilege exec mode, (Config) is config mode so be careful, show command will show settings
 
 <li>
-VLANS
+VLANs
 
 <ul>
 <li>
@@ -5156,22 +5423,22 @@ Clearpass
 
 <ul>
 <li>
-trunk port, multiple vlans at a time to connect accross vlans
+trunk port, multiple VLANs at a time to connect across VLANs
 
 <li>
-access ports, where only one vlan exhists on the port
+access ports, where only one VLAN exhist on the port
 
 <li>
 NAC port: type of access port, security port, and talks to clearpass and decides what vland the device belongs to
 
 <li>
-Build port: also an access port, port assigned to particular vlan
+Build port: also an access port, port assigned to particular VLAN
 
 <li>
 static access ports: are for the servers, where VM ware host connects to server 
 
 <li>
-MAB: Mack Authentication, authenticated with MAC. Add the dynamic vlan setting so it goes on the correct network.  
+MAB: Mack Authentication, authenticated with MAC. Add the dynamic VLAN setting so it goes on the correct network.  
 
 <li>
 Dot1X authentication: domain controllers, all computers should be using dot1x
@@ -5198,7 +5465,7 @@ Can set up alerts
 Wireless
 
 <li>
-Green: has two differnet vlans
+Green: has two different VLANs
 
 <li>
 Purple: lift scanners
@@ -5210,10 +5477,10 @@ Blue: old lift scanners
 Red: going away, wireless infogenissis access,
 
 <li>
-EmployeeDevice being replaced: for emplyee cell phones, new password changed every year.
+EmployeeDevice being replaced: for employee cell phones, new password changed every year.
 
 <li>
-Slate: for V. devices, tempertare sensors, i9's ipads, each device has own password to its mac address
+Slate: for V. devices, temperate sensors, i9's iPads, each device has own password to its mac address
 
 </ul>
 
