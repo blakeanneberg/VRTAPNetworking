@@ -5312,16 +5312,16 @@ bandwidth
 </tr>
 <tr>
 <td>
------------
-</td>
-<td>
------
+----
 </td>
 <td>
 ----
 </td>
 <td>
---------
+----
+</td>
+<td>
+----
 </td>
 </tr>
 <tr>
@@ -5372,19 +5372,231 @@ up to 10Gb+
 <li>
 wired cable specifications and uses
 
+<ul>
 <li>
-common cable issues
+Max Bandwith is limited distancem not to mention max distance.  
 
+<li>
+Crossover cabels will still work but might have to switch cables. 
+
+<li>
+always try a different cable: damaged cable, bent pins, incorrect pinouts, incorrect cable type, open/short bent wires, bad port.  
+
+<li>
+Punch down tool and cable test are your friends.
+
+<li>
+Attenuation: when cable is too far
+
+<li>
+EMI: effecting interference from electrial equipment, espically from floresent lights. 
+
+<li>
+Crosstalk: 
+
+<li>
+Cableing issues with ethernet switch: like when computer is set to half duplex and switch is full duplex, it will not work. o
+
+<li>
+Rollover cable: Serial Port RS232 to Console Port of a router or switch, looks just like ethernet cable but is not. Sometimes is light blue. 
+
+<li>
+Link lite on ethernet switch: green good, yellow perhaps bad. Just know the lights on the switch. No lights might mean something is wrong. 
+
+</ul>
 <li>
 copper cabling tools
 
+<ul>
+<li>
+always try a different cable: damaged cable, bent pins, incorrect pinouts, incorrect cable type, open/short bent wires, bad port.  
+
+</ul>
 <li>
 fiber optic cabling tools
 
+<ul>
 <li>
+Dirty ends: scratched or dirty might need to be cleaned, specifc training will be needed.  
 
+<li>
+Fiber optic operation, use two seperate fibers to send data. TX/RX Reverse is when the cords are switched, link light will not blink. 
+      Transciver Mismatch: SX Transceiver and LX Transceiver will not communcate with eacher other. 
+
+<li>
+OTDR Optical Time Domain Reflectometer: able to find how many meters in is the break/fault.
+
+<li>
+Light meter: strength of signal. Will need loopback adapter to shine the light reflected back at the other end of the loop. 
+
+<li>
+Fusion Splicer: put fiber into machine, put two ends and fuse them for one continues length. 
 
 </ul>
+<li>
+Other
+
+<ul>
+<li>
+Multimeter: might use it to test electricy.  
+
+</ul>
+</ul>
+<div id="Network Troublehooting-CLI Utilities:"><h2 id="CLI Utilities:" class="header"><a href="#Network Troublehooting-CLI Utilities:">CLI Utilities:</a></h2></div>
+
+<ul>
+<li>
+Ping:
+
+<ul>
+<li>
+Find out if remote device is online or offline. 
+
+<li>
+Packet Internet Groper.
+
+<li>
+Destination Host Unreachable: Router saying the host is not reachable. 
+
+<li>
+Destination Network Unreachable: dont often get this message. 
+
+<li>
+Transmit failed: Network cable is unpluggedo. 
+
+</ul>
+<li>
+Windows: <code>IPCONFIG</code> shows default gateway is the router. <code>ipconfig /all</code> is MAC addresses. 
+
+<ul>
+<li>
+<code>route print</code> shows routing table. Shows IP addresses with mask and is on interface. Default route is when traffic is not on the main interface. 
+
+<li>
+<code>arp -a</code> shows all messages sent to device, see dynamic addresses. <code>arp -d *</code> will clear arp table. ARP table will eventually clear out. 
+
+<li>
+<code>route -n</code> avoids delay of DNS, shows critical info of router (default gateway) 
+
+<ul>
+<li>
+Automatic Private IP address: 169.254.0.0 and is when something is wrong.
+
+</ul>
+</ul>
+<li>
+Traceroute/Tracert 
+
+<ul>
+<li>
+Sends out packet to destination, makes a list of routers, and sometimes routers dont answer back, or skip.  
+
+<li>
+Windows: <code>tracert -d 10.0.0.10</code> -d hides DNS for faster 
+
+</ul>
+<li>
+NMAP: application utility that can scan another remote system to see what ports are open and potentially scan for vunulabilities.
+
+<ul>
+<li>
+<code>netstat -ano</code> run on the device, to see what ports are open.  
+
+</ul>
+<li>
+Linux: 
+
+<ul>
+<li>
+<code>ifconfig</code> shows all interfaces on workstation and in it is <code>ens33</code> is the ethernet interface on the device and the IP address of the workstation is the <code>inet</code> address.  
+
+<li>
+<code>Hostname</code>: 
+
+<ul>
+<li>
+hostname is name of workstation 
+
+</ul>
+<li>
+<code>NSLookup example.com</code>: looks up local machine for hostname or IP address, or change DNS server lookup by typing <code>nslookup example.com 8.8.8.8</code>
+
+<li>
+<code>Dig</code>: gives DNS records`
+
+</ul>
+<li>
+PuTTY:  
+
+<ul>
+<li>
+telnet 
+
+<ul>
+<li>
+connect to router and click <code>show ip route</code> shows routing infomation and how to reach it. Also shows network interface cards, showing ethernet and unique network. O means the route was learned from OSPF, C mean static route and was manually configured. <code>show arp</code> shows arp table.  
+
+</ul>
+<li>
+Router
+
+<ul>
+<li>
+<code>show mac address-table</code> as switches dont have IP tables, maps port number to mac address. <code>show mac address-table address 00c.29fc.70a5</code> will tell you what switch port the mac address is connected to.   
+
+</ul>
+</ul>
+</ul>
+
+<div id="Network Troublehooting-Network Software Utilities"><h2 id="Network Software Utilities" class="header"><a href="#Network Troublehooting-Network Software Utilities">Network Software Utilities</a></h2></div>
+<ul>
+<li>
+Packet Capture
+
+<ul>
+<li>
+Wireshark adn WinPcap: capture all traffic from network interface card and analize infomation in wireshark on problem PC.
+
+<ul>
+<li>
+show traffic only to and from router, user query: <code>ip.addr==192.168.10.1</code> 
+
+</ul>
+<li>
+Port Mirror: option on some switches to take all traffic on one port and mirror it on another port to capture traffic with another device or PC. 
+
+<li>
+Network Tap: device takes all traffic and sends traffic to another device. 
+
+</ul>
+<li>
+Capture Traffic using TCPDUMP on linux
+
+<ul>
+<li>
+<code>tcpdump -v</code> v for verbose. doesnt have same analizing as wireshark 
+
+</ul>
+<li>
+Bandwith Testing: <code>iPef</code>CLI utility tests speed between two devices. <code>iperf -s</code> to start server and <code>iperf -c 10.0.0.100</code> starts testing speed of the other device. Otherwise use <code>fast.com</code>  
+
+<li>
+IP Scanning
+
+<ul>
+<li>
+Utilities like Nmap, to scan a rang of IP addresses on the network. Good for finding a device and you dont know the IP address.  
+
+</ul>
+<li>
+TFTP: Software like Tftpd64, once you are in the router and switch, can use command <code>copy</code> to copy files to and from device with <code>copy tftp flash</code> 
+
+<li>
+Netflow: way of collecting data from switch or router to give snapshot of traffic. 
+
+</ul>
+
+
 
 <div id="Smart Hands Training"><h1 id="Smart Hands Training" class="header"><a href="#Smart Hands Training">Smart Hands Training</a></h1></div>
 <div id="Smart Hands Training-Switches"><h2 id="Switches" class="header"><a href="#Smart Hands Training-Switches">Switches</a></h2></div>
