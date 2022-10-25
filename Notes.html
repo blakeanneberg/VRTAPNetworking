@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div id="Contents" class="toc"><h2 id="Contents">Contents</a></h2></div>
+<div id="Contents" class="toc"><h1 id="Contents">Contents</a></h1></div>
 <ul>
 <li>
 <a href="Notes.html#Network Concepts">Network Concepts</a>
@@ -42,7 +42,7 @@
 <a href="Notes.html#OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Ethernet">Ethernet</a>
 
 <li>
-<a href="Notes.html#OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Wireless Ethernet Protols 802.11">Wireless Ethernet Protols 802.11</a>
+<a href="Notes.html#OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Wireless Ethernet Protocols 802.11">Wireless Ethernet Protocols 802.11</a>
 
 <li>
 <a href="Notes.html#OSI Model to Describe Network Operations-Layer 2: Data Link Layer-Wireless Topologies and management">Wireless Topologies and management</a>
@@ -222,6 +222,26 @@
 
 </ul>
 <li>
+<a href="Notes.html#Network Troublehooting">Network Troublehooting</a>
+
+<ul>
+<li>
+<a href="Notes.html#Network Troublehooting-Irritive Troublehooting Methodology">Irritive Troublehooting Methodology</a>
+
+<li>
+<a href="Notes.html#Network Troublehooting-Identifying and troubleshooting cable issues">Identifying and troubleshooting cable issues</a>
+
+<li>
+<a href="Notes.html#Network Troublehooting-CLI Utilities:">CLI Utilities:</a>
+
+<li>
+<a href="Notes.html#Network Troublehooting-Network Software Utilities">Network Software Utilities</a>
+
+<li>
+<a href="Notes.html#Network Troublehooting-Wireless troubleshooting and utilities">Wireless troubleshooting and utilities</a>
+
+</ul>
+<li>
 <a href="Notes.html#Smart Hands Training">Smart Hands Training</a>
 
 <ul>
@@ -229,11 +249,13 @@
 <a href="Notes.html#Smart Hands Training-Switches">Switches</a>
 
 <li>
+<a href="Notes.html#Smart Hands Training-Switch Configuration">Switch Configuration</a>
+
+<li>
 <a href="Notes.html#Smart Hands Training-Accessing a switch">Accessing a switch</a>
 
 </ul>
 </ul>
-
 
 <div id="Network Concepts"><h1 id="Network Concepts" class="header"><a href="#Network Concepts">Network Concepts</a></h1></div>
 
@@ -5594,6 +5616,85 @@ TFTP: Software like Tftpd64, once you are in the router and switch, can use comm
 <li>
 Netflow: way of collecting data from switch or router to give snapshot of traffic. 
 
+</ul>
+
+<div id="Network Troublehooting-Wireless troubleshooting and utilities"><h2 id="Wireless troubleshooting and utilities" class="header"><a href="#Network Troublehooting-Wireless troubleshooting and utilities">Wireless troubleshooting and utilities</a></h2></div>
+<ul>
+<li>
+Throughput is amout of data that we can transfer on any given signal. 
+
+<li>
+Negotiated speed: stronger the signal higher the speed, further away from signal lower data speed to prevent errors
+
+<li>
+Received Signal Strenght Indication RSSI, device measuring wifi signal
+
+<li>
+Effective isotropic radiated power EIRP: measurement on device itself, Radio power outpoot subtraceted by cord of signal loss, plus the antennas power give us decibles or dbs
+
+<li>
+Antennas
+
+<ul>
+<li>
+Signal Polarization: if antena is horizontal it makes the signal vertical, if antenna is vertical it makes the signal horizontal.  
+
+<li>
+Reflection: wireless signal might be reflected by the wall, or be absorbed, attena placement is crital. 
+
+<li>
+Attenuation: when moving farther away from signal it 
+
+</ul>
+<li>
+Common wireless issues
+
+<ul>
+<li>
+using wrong atenna like yagi for direction or a omni direction
+
+<li>
+Frequency mismatch: 5.0 GHz (better cover with alot more channels) and 2.4GHz (only three channels, even though there are 13-14 available, use cahnnel 1, 6 and 11 becase in order to get 802.11 to work correctly we need 22 MHz of space to get wireless signals to work and transfer data where you need at least 5 channels of space to do that. need each AP on a different channel. or if you have two differenet SSIDs make sure each is on its own unique channel in that particual area,)
+
+<li>
+Interference: 2.4 GHz makes water molicules spin from microwave, so use 5 GHz. are users complaining about microwaves ovens.  
+
+<li>
+Channel overlaps: use a Spectrum Analyzer tool to view each frequency.  
+
+<li>
+Wireless Coverage: In site surveys make sure you have enough coverage. 
+
+<li>
+Channels: make sure all APs are not on the same channel, put each AP on its own channel (with 2.4 you can only use 3 cahnnels)
+
+<li>
+Client Disassociation: weak signal or someother interference. See wireless controler to see what is goiung.
+
+<li>
+AP Association Time: related to Client Dissociation, show controller how long a device can connected to the network.
+
+<li>
+Channel Utilization: controler that preconfigures each AP. 
+
+</ul>
+<li>
+Configuraiton issues
+
+<ul>
+<li>
+Wrong SSID  
+
+<li>
+Wrong Passphrase password
+
+<li>
+Security Mismatch
+
+<li>
+Captive Protal issues
+
+</ul>
 </ul>
 
 
