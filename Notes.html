@@ -5697,6 +5697,192 @@ Captive Protal issues
 </ul>
 </ul>
 
+<div id="Troubleshooting common PC networking issues"><h1 id="Troubleshooting common PC networking issues" class="header"><a href="#Troubleshooting common PC networking issues">Troubleshooting common PC networking issues</a></h1></div>
+<ul>
+<li>
+Wrong Cofiguation
+
+<ul>
+<li>
+wrong gateway 
+
+<ul>
+<li>
+can happen if a misconfigure or a issue with DHCP server when its not handing out default gateway.  
+
+</ul>
+<li>
+wrong subnet mask
+
+<ul>
+<li>
+will be a warning saying defualt gateway is not on the same network segments (sebnet) that is defined by the IP address and subnet mask.  
+
+</ul>
+<li>
+IP address
+
+<ul>
+<li>
+will be a warning saying defualt gateway is not on the same network segments (sebnet) that is defined by the IP address and subnet mask.  
+
+</ul>
+<li>
+DNS
+
+<li>
+Duplicate IPs
+
+<ul>
+<li>
+strange consiquence, sometimes windows will assign it 169.254 address, or not give you an error. Cant ping gateway.  
+
+</ul>
+<li>
+Duplicate MACs
+
+<li>
+DHCP server issues
+
+<ul>
+<li>
+strange consiquence, sometimes windows will assign it 169.254 addres
+
+<li>
+DHCP server can run out of addresses to hand ou
+
+<li>
+too many devices, hand out all avilable addresses and run out of addresses. change lease time on DHCP server to make the lease time shorter or add more addresses.  
+
+<li>
+Rogue DNCP server, might show that you cannot ping your defualt gateway, can be attacker on network, or where a user tries to bring in their AP where it tries to give out addresses.
+
+</ul>
+<li>
+getting <code>ipconfig</code> working again
+
+<ul>
+<li>
+use <code>release</code> and <code>renew</code>to request DHCP server to give a new IP address. 
+
+</ul>
+</ul>
+<li>
+Layer 2 switch issues          
+
+<ul>
+<li>
+Duplicate MACs
+
+<ul>
+<li>
+<code>ipconfig /all</code> shows MAC physical Address, and this should be unique but can be changed.  
+
+<li>
+Where pings to your the IP address of the computer arnt always going to work. 
+
+<li>
+have to log into swich via cerial cabel and you will see a error saying that the mac address is flak=pping between ports ex Fa0/3 and port Fa0/1en 
+
+<li>
+<code>show mac address-table add 000c.29fc.70a5</code> and see the two ports. So on a switch you cant have the same mac address on the same VLAN on 2 different ports at the same time. so you can change the VLAN the device is on by <code>config t</code> and select port <code>int f0/3</code> and switch ports <code>switchport access vlan 50</code> but you should not have duplicate mac addresses so this is not good anyway.
+
+</ul>
+<li>
+Changing VLANS 
+
+<ul>
+<li>
+use the ARP table to see what devices are on the VLAN. Use in command prompt <code>arp -a</code> to see what devices are on your broadcast domain. 
+
+<li>
+<code>config t</code> 
+
+<li>
+<code>int f0/1</code>
+
+<li>
+<code>switchport access vlan 20</code>
+
+</ul>
+<li>
+Speed/Duplex Mismatch: force the speed or duplex, happens on older devices, or could happen if port doesnt get reverted back to default config, when were done with the device. Device just wont link up on switch. 
+
+<li>
+Spanning Tree Protocol not enabled, connecting two switches with two links, end up getting messages that spin around, and it never stops and it will shut the switch down.
+
+<li>
+Optical Link Budget: minimun amout of light needed to make work. can be cauased by too many faults in the cord or put in patch pannel.
+
+<li>
+Collisions: hubs only, but dont happen with switches, only hubs.
+
+<li>
+Multicast: ghosting a pc, set up dozen of computers, but can overwhelm the network. 
+
+</ul>
+</ul>
+
+<div id="Troubleshooting Layer 7 and above issues"><h1 id="Troubleshooting Layer 7 and above issues" class="header"><a href="#Troubleshooting Layer 7 and above issues">Troubleshooting Layer 7 and above issues</a></h1></div>
+<ul>
+<li>
+Layer 3 routing issues
+
+<ul>
+<li>
+Routing Loop: How IP routing works, destination IP address of the packet needs to be the IP of the destination server/computer. Routing tables will guide the way of the frame in routers. IF router is misconfigured, can mess up traffic in routing the packet back and forth. Fixed with TTL value, time to live, in IP protocol. Command prompt error will say 'ttl expired in transit' and tracert will show a ping between the two routers. 
+
+<li>
+pinging the router will show that destination is not avilable. doing a <code>tracert -d</code> to the router willl show you where it stops. so try to SSH to the router, <code>show ip route</code> and the valuess with C is a direct connected route. if not there, add the route route, <code>config t</code> and <code>ip route 10.0.0.0 255.255.255.255.0 172.16.0.6</code> with the final IP being the router connected to the server we want to connect to. 
+
+</ul>
+<li>
+DNS issues
+
+<ul>
+<li>
+<code>nslookup</code>  
+
+<li>
+any address that starts with 10.somethiung is a private IP address and connect be routed. 
+
+<li>
+<code>ipconfig /flushdns</code> will flush the dns records on the local computer
+
+</ul>
+<li>
+NTP and Certificate Issues
+
+<ul>
+<li>
+Time: make sure the computer has correct time set.  
+
+</ul>
+<li>
+Firewall Restrictions 
+
+<ul>
+<li>
+If you see a computer on the <code>arp -a</code> table, and you can ping the device at 10.9 but you cant ping 10.9 to the other device 10.30? The firewall might deny all other traffice going to device, but allow all trafic from computer and back to computer. You could create inbound rule on firewall. Ports only happen in layer 4 protocols, TCP and UDP.  
+
+<li>
+BYOD challanges, users using their own device. Security, age and many issues. Or admin control over users device. 
+
+<li>
+Licensed features issues: 
+
+<li>
+Network perfromance issues. 
+
+</ul>
+</ul>
+
+
+
+
+
+
+
 
 
 <div id="Smart Hands Training"><h1 id="Smart Hands Training" class="header"><a href="#Smart Hands Training">Smart Hands Training</a></h1></div>
