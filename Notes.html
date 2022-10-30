@@ -263,7 +263,6 @@
 </ul>
 </ul>
 
-
 <div id="Network Concepts"><h1 id="Network Concepts" class="header"><a href="#Network Concepts">Network Concepts</a></h1></div>
 
 <div id="OSI Model to Describe Network Operations"><h1 id="OSI Model to Describe Network Operations" class="header"><a href="#OSI Model to Describe Network Operations">OSI Model to Describe Network Operations</a></h1></div>
@@ -1609,32 +1608,367 @@ VLANs
 
 <ul>
 <li>
-Broadcast Domain: 
+Broadcast Domain: do not have computers on with multiple layer 3 networks connected directly/whithin one single layer 2 broadcsat domain connected with a switch (eg 10.0.0.10/24 and 172.16.0.77/24). This is becuase if one device sends out a frame with a destination MAC address of all F's, switch going to forward the frame to all the other active portson the switch except for the port where the broadcast message was received. Also switches cannot directly comuncate with multiple layer 3 networks without a router in the middle.  
 
+<ul>
 <li>
-Joining two networks with a switch, you can assign ports to be a specific VLAN, creating a little mini switch within the switch, so you only forward traffic to intended devices.
+boradcast domain is a layer 2 function (all the F's in the destination MAC address is a braodcast message) that relates to a layer 3 property in that all the devices in order to work propery in a broadcast domain must have the same network portion of the address
 
+</ul>
+<li>
+VLANS: Joining two networks (or broadcast domains) with a switch, you can assign ports to be a specific VLAN, creating a little mini switch within the switch, so you only forward traffic to intended devices.
+
+<ul>
 <li>
 Computers on two networks, connected by two switches connect by a trunk link, tags messages in the frame to go to correct VLAN network switch, and removes the tag and gives to correct computer. 
 
 <li>
-VLANs create mini networks which are separate using VLAN tags in the frame as they traverse switches via a trunk link. 
-
-<ul>
-<li>
-The ports on the trunk link are called Tagged Ports.
+If no IP address has been given to VLAN on a switch, there are managment networks and inter-VLAN routing on switches once trunk link is established.
 
 </ul>
 <li>
-Protocol on trunk link for Tagged Ports is 802.1Q 
+Tags in frames: VLANs create mini networks which are separate using VLAN tags in the frame as they traverse switches via a trunk link. 
+
+<ul>
+<li>
+<code>en</code> 
 
 <li>
-Example separating VOIP traffic of phone Voice VLAN from regular Data VLAN for computer data.
+<code>show run</code> shows config of device. Shows enabled secret, domain name and hostname and turned on SSH version 2, and securied console port and securied link vty so port 0 to 4 aso that SSH is allowed.  
+
+<li>
+<code>show vlan</code> will show all currently configured VLANs on device. VLAN1 is defualt VLAN and is default, but avoid VLAN1 use 
+
+<li>
+To configure VLANs, have to move into config mode to create the capacity for the switch to use the VLANs, so need to create a VLAN identifer betweeen 2 and 4096 and exception 2,3,4,5: <code>vlan 10</code>
+
+<li>
+Then you can give it a name: <code>name LEFT</code> for VLAN on our left.
+
+<li>
+Create a second VLAN: <code>vlan 20</code> and name <code>name RIGHT</code> 
+
+<li>
+<code>exit</code>
+
+<li>
+<code>show vlan</code> will show all the vlans
+
+<li>
+The ports on the trunk link are called Tagged Ports.
+
+<li>
+Protocol on trunk link for Tagged Ports is 802.1Q 
+
+</ul>
+<li>
+Normal VLAN ID range:
+
+<ul>
+<li>
+Range is 1- 1005 
+
+<li>
+1 is the dafault VLAN, but there are some dangers to using it
+
+<li>
+1002 - 1005 are reserved for legacy protocols 
+
+</ul>
+<li>
+Extended VLAN ID range 
+
+<ul>
+<li>
+1006 - 4096 on any given devices 
+
+<li>
+Stored in running-config
+
+</ul>
+<li>
+Assigning Ports to VLANs 
+
+<ul>
+<li>
+Changing vlans on the switch:  
+
+<ul>
+<li>
+<code>config t</code> to show configuration on interface Fast Ethernet 0/0 
+
+<li>
+<code>do show run int f0/1</code>
+
+<li>
+Since no config, move into <code>int f0/1</code> and add configs
+
+<li>
+change it to vland 10 by <code>switchport mode access</code> changes port from trunk port to access port. 
+
+<li>
+<code>Switchport access vlan 10</code>
+
+<li>
+<code>do show vlan</code> will show all the databases
+
+<li>
+Seperate broadcast domains do not allow traffic to go from one to the other, except when there is a router, called inter-vlan routing
+
+<li>
+<code>show mac address-table dynamic</code> shows the updated vlan ports, might have to re-ping the computer to force update to the table
+
+<li>
+<code>config t</code>
+
+<li>
+<code>switchport mode access</code>
+
+<li>
+<code>switchport access vlan 10</code>
+
+<li>
+<code>int f0/4</code>
+
+<li>
+<code>switchport mode access vlan 20</code>
+
+</ul>
+</ul>
+<li>
+Trunking Vlans 
+
+<ul>
+<li>
+instead of configureing a port on two switches be a <code>access port</code> make it a  <code>trunk port</code> and specifiy what VLANs are allowed to traverse that link 
+
+<li>
+Tagged frames: When frames hit the switch port for the trunk port, the frame is modified to add a tag saying what VLAN the frame is on. The tag is removed at the other end of the trunk port, and the frame is forwared to the the specific vlan. Tagged frames are larger as they have the tag added. 
+
+<li>
+Untagged frames: on regular access ports on switches, and these are smaller as they do not have the extra tag added. 
+
+<li>
+Ways to add VLAN Trunk Protocols, as you have to tell the switch what protol you will use
+
+<ul>
+<li>
+IEEE 802.1Q: Available cross platform 
+
+<li>
+Cisco Inter-Switch Link ISL: Cisco only (very old)
+
+</ul>
+<li>
+Configuring the trunk link 
+
+<ul>
+<li>
+dynamic trunk protocol 
+
+<li>
+Layer 2 switch ports have to be one or the other, access port or trunk port, one or the other, not both at same time. 
+
+<li>
+Ports that have not been configured are needing to be assigned a mode: <code>switchport mode</code> with either Access, Dynamic or Trunk
+
+<li>
+<code>switchport trunk allowed vlan 10,20</code> will allow to enter a list of vlan numbers that are allowed to propogate across the trunk link with a tag attached to the frame. 
+
+<li>
+see status of trunk link, <code>show interfaces trunk</code>
+
+<li>
+<code>show run int f0/24</code> will show the current config of the trunk link on swtich 1 so you can literally copy and paste it to the switch 1 config for port 24. 
+
+<li>
+<code>show int trunk</code> shows that vlan already configured. because dynamic trunk protocol automatically figured out its a trunk port, which is dangerious becuase it is not fully configured, so always manually configure the port. dont allow more access on trunk link than we actually need. 
+
+</ul>
+</ul>
+<li>
+adding more devices to network  
+
+<ul>
+<li>
+<code>show mac address-table-dynamic</code> 
+
+<li>
+<code>show flash:</code> shows contense of flash memory of switch. <code>.bin.</code> is OS, and <code>vlan.dat</code> is vlan database,where we store <code> through 1005, and anything higher than 1005 is stored in </code>running.config` file.  
+
+<li>
+VTP mode is <code>vlan trunking protocol</code>, relates to Spanning Tree Protocol and EtherChannel`
+
+<li>
+<code>vtp mode transparent</code>: 
+
+<li>
+<code>vlan 2000</code>
+
+<li>
+give it a name <code>name extended</code>
+
+<li>
+<code>show vlan</code> will show all the vlans and <code>show run</code> shows extended vlan 2000, and is only stored in running config and is not in the vlan database. 
+
+</ul>
+<li>
+Capturing Tagged frames in a network tap:  
+
+<ul>
+<li>
+using wireshark, record and show in search for icmp 
+
+<li>
+When you have a trunk port, going to send and receive tagged frames.
+
+<li>
+When you have an access port, send and receive untagged frames.
+
+</ul>
+<li>
+InterVLAN Routing:  
+
+<ul>
+<li>
+Broadcast Domain with two switches and networks, needs a router to communicate, you can do this by configuring a switch and router. Ports on router are normal router ports, but the ports on switch need to be configured to be access ports on the switch. The connection from switch to router should be connected as a trunk link that goes up to one port on the router.  
+
+<li>
+Router on a Stick: Router has ability to turn into trunk link to read tag on frame that arrives on router, as well as add a tag to frame as it leaves the router.
+
+<ul>
+<li>
+Sub interfaces that is under the main interface. So for port F0/0 is: 
+<table>
+<tr>
+<td>
+port
+</td>
+<td>
+IP
+</td>
+</tr>
+<tr>
+<td>
+F0/0.10
+</td>
+<td>
+10.0.0.1/24
+</td>
+</tr>
+<tr>
+<td>
+F0/0.20
+</td>
+<td>
+172.16.0.1/24
+</td>
+</tr>
+</table>
+
+</ul>
+<li>
+show ip int brief: shows all interfaces 
+
+<li>
+<code>no shutdown</code> makes the interface not shut down, makes router active 
+
+<li>
+need to configure sub interfaces to read the frame tag that is added into the frame, <code>int f0/0.10</code> and then choose what encapsulation to use, and on cysco its <code>dot1q</code> so its <code>encapsulation dot1Q</code> and then specify what is the expected vlan is expected to be arriving on that interface of F0/0.10 10, so its <code>encapsulation dot1Q 10.0.0.1 255.255.255.0</code> and then add <code>no shutdown</code> and then do the other interface of FastEthernet0/0.20 with <code>int f0/0.20</code> and then <code>encapsulation dot1Q 20</code>, and then <code>ip address 172.16.0.1 255.255.255.0</code> and then <code>no shut</code> and then save the config with <code>copy run start</code>
+
+<li>
+
+
+</ul>
+<li>
+Layer 3 Switch
+
+<ul>
+<li>
+ Combining Router and Switch in one device, but still need to think of it as a router to configure and a swtich to configure.
+
+<ul>
+<li>
+distinction between MAC addresses and VLANa at layer 2 and IP addresses and packets at layer 3.  
+
+</ul>
+<li>
+Cisco Catalysts switches 
+
+<ul>
+<li>
+Layer 2: 2950, 2960  
+
+<li>
+Layer 3: 3560, 2750, 2850, 4500, 6500, 6800 among others. 
+
+</ul>
+<li>
+Configuring layer 3 switch 
+
+<ul>
+<li>
+Switched Virtual Interfaces SVI: Layer 3 interface but does not have a physical port associated with it.  
+
+<li>
+Creating Interface VLAN 10 and Interface VLAN 20, are layer 3 interfaces and can assign IP addresses to those layer 3 interfaces. Use rollover cable plugged into the console port of layer 3 switch. 
+
+<li>
+<code>show version</code> shows what kind of switch it is. 
+
+<li>
+<code>config t</code> to configure, when a new layer 3 switch is turned on, its not initally a layer 3 switch, make it layer 3 by issueing command <code>ip routing</code>
+
+<li>
+create vlan 10 <code>int vlan 10</code>
+
+<li>
+<code>ip address 10.0.0.1 255.255.255.0</code>
+
+<li>
+<code>no shut</code> 
+
+<li>
+<code>exit</code>
+
+<li>
+create vlan 20: <code>int vlan 20</code>
+
+<li>
+<code>ip address 172.16.0.1 255.255.255.0</code> 
+
+<li>
+<code>no shut</code> 
+
+<li>
+<code>exit</code>
+
+<li>
+<code>show ip route</code> shows the network and gateway 
+
+<li>
+<code>show run</code> you can see interface set up switchport, meaning its a layer 2 port, cannot configure layer three, unless you tell the interface to be a layer3 switchport
+
+</ul>
+</ul>
+<li>
+Troubleshooting vlans: 
+
+<ul>
+<li>
+
+
+</ul>
+<li>
+Storage on switch: 
+
+<ul>
+<li>
+Stored in flash:/vland.dat 
 
 <li>
 Putty: <code>show mac address-table</code>
 
-<ul>
 <li>
 shows all MAC address and their ports  
 
@@ -1650,19 +1984,104 @@ Configuration command: <code>#int f0/3</code>
 <li>
 Change VLAN port: <code>#switchport access VLAN 20</code> 
 
-</ul>
-</ul>
 <li>
-Port Mirroring 
+Example: 
+<table>
+<tr>
+<th>
+Port
+</th>
+<th>
+MAC
+</th>
+<th>
+VLAN ID
+</th>
+</tr>
+<tr>
+<td>
+1
+</td>
+<td>
+6E
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+B3
+</td>
+<td>
+2
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+3F
+</td>
+<td>
+2
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+DF
+</td>
+<td>
+2
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+C2
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+A7
+</td>
+<td>
+1
+</td>
+</tr>
+</table>
+
+</ul>
+</ul>
+</ol>
+</ul>
+</ul>
 
 <ul>
 <li>
-Takes all the traffic and mirrors the traffic from the switch to another computer so you can analyze the traffic
-
-<li>
-Wireshark can do this port mirroring
+Uses: Example separating VOIP traffic of phone Voice VLAN from regular Data VLAN for computer data.
 
 </ul>
+             
+<ol>
+<li>
+Port Mirroring * Takes all the traffic and mirrors the traffic from the switch to another computer so you can analyze the traffic
+
 <li>
 Power over Ethernet PoE
 
@@ -1906,8 +2325,6 @@ Single Mode Fiber
 </table>
 
 </ol>
-</ul>
-</ul>
         
         
         
