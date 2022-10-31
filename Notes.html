@@ -1950,7 +1950,6 @@ create vlan 20: <code>int vlan 20</code>
 <code>show run</code> you can see interface set up switchport, meaning its a layer 2 port, cannot configure layer three, unless you tell the interface to be a layer3 switchport
 
 </ul>
-</ul>
 <li>
 Troubleshooting vlans: 
 
@@ -1965,6 +1964,9 @@ Missing VLANs on Layer 3 Switch: <code>default interface f0/1</code> to remove a
 Issues with missing vlans: <code>show CDP neighbors</code> will shows what connections are enabled. To add a vlan to a switch: <code>config t</code>, <code>vlan 10</code>, exit, <code>do show int vlan</code> to see what is active on the trunk. But Spanning tree protocol, prevents in layer 2, STP waits 30 seconds after changes to ports to allow that port moves from unknown network topology state into one where the switch is confident about the topology and brings up the port. To add another vlan to switch, login to it, and <code>vlan 20</code>, <code>exit</code>, and wait a bit and then you will seee it on <code>show int trunk</code>. If a switch does not have any access ports on it, Trunk ports dont care if VLAN is in the database or not. If its not in the database its not going to allow that VLAN to pass traffic though the switch, but when we configure the trunk links, it doesnt automatically add VLANs to the database. But if you go into <code>config t</code> and <code>int f0/19</code> and <code>switchport mode access</code> and add a new device to a vlan 40, <code>switchport access vlan 40</code> since we are assigning a new devices to a specific access port, switch automatically creates vlan 40 in the databas and <code>switchport mode access</code> and add a new device to a vlan 40, <code>switchport access vlan 40</code> since we are assigning a new devices to a specific access port, switch automatically creates vlan 40 in the database, <code> do show vlan</code> you will see that VLAN 40 was added to database to <code>fa0/19</code>. Howver when you add VLANs to trunk links, it does automatically add VLANs to VLAN database. 
 
 <li>
+Missing VLANS: TLDR: VLANs get added to database automatically when you assign them to an access port, and they do not get added automatically to the vlan when you assig them to the trunk port
+
+<li>
 Misconfigured Trunk Ports: 
 
 <ol>
@@ -1977,10 +1979,107 @@ Workstattion can ping one default gateway but not another VLAN. See the issue wh
 <li>
 <code>show interface trunk</code> to see if vlans 10 and 20 are allowed in that trunk link and that they are currently active in the management domain and in a spannig tree forward state. 
 
+<li>
+when you find a misconfigured trunk link, to fix it is <code>config t</code>, <code>int g0/1</code> and then <code>switchport trunk allowed vlan 10,20</code>
+
 </ol>
+<li>
+Changing the SVI state 
+
+<ul>
+<li>
+ <code>show ip int bri</code> shows brief summary of vlans and ip addresses 
+
+<li>
+You can go into config port and pick a port <code>int f0/11</code> a port that is not being used, <code>switchport mode access vlan 20</code>, but then activate the interface so just plug in anything to that port, while the switch goes though spanning tree, and we didnt have to add this to the trunk link. so all that was done was interface f0/11 changed state to up and moved VLAN interface VLAN 20 to up state as well. 
+
+</ul>
+<li>
+adding another VLAN and cut your arm off. 
+
+<ul>
+<li>
+SSH into a switch, to cause a problem to break connection.  
+
+<li>
+create new vlan: <code>show vlan</code>, <code>show run int f0/3</code>, <code>name newVLAN</code>, <code>exit</code>
+
+<li>
+cut off arm: <code>do show int trunk</code>, and you see all the vlans and ports and now going to add another vlan, so <code>switchport trunk allowed vlan 10,20,30</code> but to cut off arm it would be <code>switchport trunk allowed vlan 30</code>
+
+<li>
+To re-add arm: <code>switchport trunk allow vlan add 10</code>
+
+<li>
+To delete a arm: <code>switchport trunk allowed vlan remove 30</code>
+
+<li>
+DO NOT PANIC: grab your laptop, grap rollover cable, tell boss where your going and drive over to the layer 3 switch. Other thing you can do if the config is saved on the device remotly, is have someone at the remote location unplug the power cable from the switch, plug it back in again and then when the switch reboots it will have the old config on it where we change the trunk port to have the wrong VLAN
+
+<li>
+To re-add arm when connected via rollover cable: <code>show int trunk</code> and <code>config t</code> and <code>switchport trunk allowed vlan add 10,20</code> and <code>do show int trunk</code> and <code>exit</code> 
+
+<li>
+add vlan 30 config <code>show ip route</code> to see no 30 and then <code>conf t</code> and <code>int vlan 30</code>, and <code>ip address 192.168.0.1 255.255.255.0</code> and <code>no shut</code> and <code>exit</code>
+
+</ul>
+<li>
+Configure multiple interfaces: 
+
+<ul>
+<li>
+<code>do show int trunk</code> to show what is configred on the switch
+
+<li>
+<code>int range f0/12 , g0/1</code>  so it will configure both interaces 
+
+<li>
+<code>switchport trunk allowed vlan add 30</code> which will add vlan to the two interfaces
+
+<li>
+ping continuously <code>ping 10.0.0.1 -t</code> 
+
+</ul>
+<li>
+SSH into layer 3 switch 
+
+<ul>
+<li>
+use PUTTY, and as long as you can ping the IP you can SSH 
+
+<li>
+<code>do show int trunk</code> to see what is interfaced
+
+<li>
+and if you do not see vlan 30 you add it by typing <code>vlan 30</code> and give it a name  <code>newVLAN</code> and exit <code>exit</code>
+
+</ul>
+<li>
+SSH into layer 2 switch 
+
+<ul>
+<li>
+If you dont have any IP addresses you cannot SSH, make sure you  have IP addresses configured on the device, check all IPs <code>show ip int bri</code> 
+
+<li>
+configure IP address on switch, via routed network or via same VLAN we are connected to. Choose one VLAN (production vlan) or vlan where we always put IP address for the switch. Or create a seperate VLAN like <code>vlan 99</code> that is routed completely uniquely, basically its own broadcast domain, and use that one VLAN to assign IP addresses to all of the layer 2 devices, that way all layer 2 devices are always configured via its own seperate VLAN. Put access control lists to that VLAN to limit what traffic comes in and out of there.  
+
+<li>
+Go on switch 1 and switch 2 and simply create <code>int vlan 10</code> and give <code>ip address: 10.0.0.101 255.255.255.0</code> and <code>no shut</code> and <code>exit</code>:w
+
 <li>
 
 
+</ul>
+</ul>
+<li>
+wrong vlan on wrong interface 
+
+<ul>
+<li>
+verify configuration of device, or else you cannot pass traffic, so type in the switch <code>do show vlan</code> 
+
+</ul>
 </ul>
 <li>
 Storage on switch: 
@@ -6395,7 +6494,7 @@ KNow the IP address, find switchport:
 no mapping on switch of IP address to switchport, as switch is layer 2 device, but all IP addresses are affilated with MAC addresses. 
 
 <li>
-find out where 10.0.0.128 is plugged into the switch, go from that local network segment (have to be on the workstation that can ping from that local segment)
+find out where 10.0.0.128 is plugged into the switch, go from that local network segment (have to be on the workstation that can 
 
 <li>
 look at AARP table on workstation, <code>arp -a</code>, show the mapping on the workstation of IP addresses to respective MAC addresses. 
