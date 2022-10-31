@@ -1956,6 +1956,29 @@ Troubleshooting vlans:
 
 <ul>
 <li>
+Missing VLANS on switch 1 and switch 2: <code>show vlan</code> to see what is active, and if they are not assigned to any ports you will not see anything in the <code>show int trun</code> and to add you need to go to the port <code>switchport mode access</code> and then <code>switchport access vlan10</code> and then <code>int f0/2</code> and then <code>switchport mode access vlan 20</code> and then <code>exit</code>. then configure trunk port: <code>int f0/10</code> and <code>switchport mode trunk</code> and then <code>switchport trunk allowed vlan 10,20</code> and then to verify it worked, <code>show vlan</code> to see vlan and ports, and <code>show interface trunk</code> see ports f0/10 is configured as a trunk port. When your configuring the second switch, and you do <code>show vlans</code> and not see anything excpt for defualt, and then you go into configure <code>config t</code>, <code>switchport mode trunk</code>, <code>switchport trunk allowed vlan 10,20</code>, <code>exit</code>, and then check in <code>show int trunk</code> to see what ports are assinged to what trunks, but in <code>show vlan</code> you dont see the vlans configured...just leave the vlan database blank and not add is fine, so now configure the port <code>config t</code>, int <code>g0/1</code>, <code>switchport mode trunk</code>, <code>switchport trunk allowed vlan 10,20</code>, <code>exit</code>, <code>exit</code>, and then <code>show int trunk</code>you will now see the trunk link.  
+
+<li>
+Missing VLANs on Layer 3 Switch: <code>default interface f0/1</code> to remove any preconfigured settings for the port or use <code>default interface range f0/2 - 4</code>, and <code>do show run</code> willl show all the interfaces are default.  <code>show IP route</code> will show vlans that are set. <code>show runs</code> will show commands to make the layer 3 switch behave like a layer 3 switch. <code>ip routing</code> will show all ip routes, but command <code>no ip routing</code> will clear default gateway, and nothing in the routing table, it means the layer 3 switch is currently configured to only work as a layer 2 switch, is a indication that IP routing is not enabled. to make it layer 3 switch do routing, <code>config t</code>, <code>ip routing</code>, <code>do show ip route</code>, it will show full routing. Configure g0/1 as trunk link: <code>int g0/1</code>, <code>switchport mode trunk</code> will show that the trunk enxapsulation is set to auto... so you need to do it manually, <code>switchport trunk encapsulation dot1q</code> and tells switchport not to set its encapsulation for the trunk link to auto but exclusively use the 802.1q protocol. so now you can do <code>switchport mode trunk</code> just fine, and <code>switchport trunk allowed vlan 10,20</code>, and then <code>exit</code> and do <code>show int trunk</code> to see all vlans and and ports
+
+<li>
+Issues with missing vlans: <code>show CDP neighbors</code> will shows what connections are enabled. To add a vlan to a switch: <code>config t</code>, <code>vlan 10</code>, exit, <code>do show int vlan</code> to see what is active on the trunk. But Spanning tree protocol, prevents in layer 2, STP waits 30 seconds after changes to ports to allow that port moves from unknown network topology state into one where the switch is confident about the topology and brings up the port. To add another vlan to switch, login to it, and <code>vlan 20</code>, <code>exit</code>, and wait a bit and then you will seee it on <code>show int trunk</code>. If a switch does not have any access ports on it, Trunk ports dont care if VLAN is in the database or not. If its not in the database its not going to allow that VLAN to pass traffic though the switch, but when we configure the trunk links, it doesnt automatically add VLANs to the database. But if you go into <code>config t</code> and <code>int f0/19</code> and <code>switchport mode access</code> and add a new device to a vlan 40, <code>switchport access vlan 40</code> since we are assigning a new devices to a specific access port, switch automatically creates vlan 40 in the databas and <code>switchport mode access</code> and add a new device to a vlan 40, <code>switchport access vlan 40</code> since we are assigning a new devices to a specific access port, switch automatically creates vlan 40 in the database, <code> do show vlan</code> you will see that VLAN 40 was added to database to <code>fa0/19</code>. Howver when you add VLANs to trunk links, it does automatically add VLANs to VLAN database. 
+
+<li>
+Misconfigured Trunk Ports: 
+
+<ol>
+<li>
+Workstattion can ping one default gateway but not another VLAN. See the issue when you forgot to add VLANs 10 and 20 to Switch2. 
+
+<li>
+<code>show vlan</code> to see if vlans are correctly configured and assigned to correct ports.
+
+<li>
+<code>show interface trunk</code> to see if vlans 10 and 20 are allowed in that trunk link and that they are currently active in the management domain and in a spannig tree forward state. 
+
+</ol>
+<li>
 
 
 </ul>
