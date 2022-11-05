@@ -5234,7 +5234,106 @@ security policy restrictions
 
 </ul>
 <li>
-Security Policy
+Security Policy: CIA
+
+<ul>
+<li>
+Need for IT Security: databases of Name, address, age, profession etc but also location, age, medical records, security cameras, travel behavior etc, makes data valuable. 
+
+<li>
+Confidentiality: keep data priviate
+
+<li>
+Integrity: keep data accurate, prevent tapeuring of info
+
+<li>
+Availibility: make sure data is avilable for certain groups
+
+</ul>
+<li>
+Threats:
+
+<ul>
+<li>
+accidential (construction company cutting a fiber coard) and intentional 
+
+</ul>
+<li>
+Vulnerabilities: Org called MITRE publishes a list of CVE Common Vulnerabilities and Exposures CVE.ORG, zero days are when the exploit is unknown.  
+
+<li>
+Exploits: things that could be exploited  
+
+<li>
+Reduce Exposure 
+
+<ul>
+<li>
+Zero Trust: dont trust any devices untill you run them through policy and procedures:
+
+<ul>
+<li>
+User Identity and authentication
+
+<li>
+Device Identity and Authentication
+
+<li>
+Policy Compliance Device Scan
+
+<li>
+ Application Authorization access control
+
+<ul>
+<li>
+Role based access: only have access to required systems 
+
+<li>
+Least Privilege: Allow as little access as required, applies to system processes too
+
+<li>
+Separation of Duties: Process require more than a single person
+
+<li>
+Network Access Control: Authenticate User, Authenticate device, scan device, provide least privilege access, provide access based on role. 
+
+<li>
+Network Segmentation: creating different VLANS, put a firewall to the device you are connecting to which is called Screened Subnet or DMZ. 
+
+<li>
+Honypot: Hacker will get a database that is provided 
+
+<li>
+Defense in Depth: Zero Trust, least privilege, role based access, network segmentation enforcement, screened subnets DNZ, network access control, honeypots 
+
+</ul>
+</ul>
+</ul>
+<li>
+AAA Authenticiation Methods: 
+
+<ul>
+<li>
+Authentication: Multifactor, username and password 
+
+<li>
+Authorization: Privileges/Access Rights 
+
+<li>
+Accounting: record of who did what when
+
+<li>
+Server options: Cisco TACACS+ and IETF RADIUS protocols 
+
+<li>
+Domain authentications, domain active directory server, sent via protocl called kerberos that sends username and password from client to server to validate device and username and password in encryption, sends tickets from user to server. LDAP lightweight directory access allow to use single username and password for multiple devices. SSO will allow for one username and pw for multiple systems. 
+
+</ul>
+<li>
+Multifactor authentification: something you know, something you have, something you are, some where you are, something you do. 
+
+<li>
+Access control, device sends UN and PW and switch sends it to LDAP or sends to TACAS or RADIUS server for auth to allow device on network, get auth then tells switch to open the port for connection. Wifi is controled via layer 2 access protocols 802.1x or EAP extensible authentication protocol or both. 
 
 <li>
 On Boarding/Off Boarding
@@ -5320,6 +5419,14 @@ tech: DLP data loss prevention poliicy, to scann data if its being sent out into
 Remote access policy/VPN Access/Remote Desktop Access/remote application access
 
 </ul>
+</ul>
+
+
+
+
+
+
+<ul>
 <li>
 Agreements
 
